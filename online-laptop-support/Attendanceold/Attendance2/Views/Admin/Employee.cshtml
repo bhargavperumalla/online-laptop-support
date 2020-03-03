@@ -1,0 +1,163 @@
+﻿@model Attendance.Models.Employees
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<section class="content-header">
+    <h1>
+        Employee
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Admin</a></li>
+        <li class="active">Employee</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="pull-right">
+                <div class="pull-left" style="margin-right:10px">
+                    <input type="radio" id="status" name="status" value="true" checked="checked" /> Active
+                    <input type="radio" id="status" name="status" value="false" /> InActive
+                </div>
+                <div class="pull-right">
+                    <input type="button" id="btnAdd" class="btn btn-success" value="+ Add Employee" />
+                </div>
+            </div>
+
+            <hr style="border:0px solid black" />
+            <table id="tblGrid" class="table table-bordered table-hover" style="width:100%;">
+                <thead>
+                    <tr class="danger">
+                        <th>Employee Name</th>
+                        <th>Designation</th>
+                        <th>Mobile No</th>
+                        <th>Email</th>
+                        <th>Admin</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</section>
+
+@section scripts
+{
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            BindEmployees();
+        });
+
+        $('input[type=radio][name="status"]').change(function () {
+            BindEmployees();
+        });
+
+
+        var myTable;
+        function BindEmployees() {
+            var status = $('input[type=radio][name="status"]:checked').val();
+            var nanobar = new Nanobar({ bg: '#366784' });
+            nanobar.go(30);
+
+            if (myTable != undefined)
+                myTable.fnDestroy();
+
+            $.ajax({
+                url: "@(Url.Action("EmployeeDetails", "Admin"))",
+                type: 'GET',
+                data: { 'Active': status },
+                success: function (data) {
+                    
+                    nanobar.go(60);
+                    $("#tblGrid tbody").empty();
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        tr = $('<tr/>');
+                        td = $('<td/>');
+                        tr.append("<td>" + data[i].FirstName + "</td>");
+                        tr.append("<td>" + data[i].Designation + "</td>");
+                        tr.append("<td>" + data[i].Mobile + "</td>");
+                        tr.append("<td>" + data[i].Email + "</td>");
+                        if (data[i].IsAdmin == 1) {
+                            tr.append("<td><span  class='fa fa-check' style='color:green'></span></td>");
+                        }
+                        else {
+                            tr.append("<td><span class='fa fa-close' style='color:red'></span></td>");
+                        }
+                        var actions = "<td><button id='Editbtn' onclick='Edit(" + data[i].EmployeeID + ")' class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i>&nbsp;Edit</button>";
+                        actions += "<button style='margin-left:5px' class='btn btn-warning btn-xs' onclick=\"ChangeStatus(" + data[i].EmployeeID + ",'" + data[i].FirstName + "'," + data[i].IsActive + ")\" ><i class='fa fa-trash'></i>&nbsp;";
+
+                        if (data[i].IsActive == 1)
+                            actions += "Deactivate";
+                        else
+                            actions += "Activate";
+                        actions += "</button></td>";
+                        tr.append(actions);
+                        $('#tblGrid').append(tr);
+                    }
+                    myTable = $("#tblGrid").dataTable({
+                        "paging": true,
+                        "destroy": true,
+                        "bLengthChange": false,
+                        "rowCallback": function (row, data, index) {
+                            if (index % 2 != 0) {
+                                //$(row).removeClass('myodd myeven');
+                                $(row).addClass('info');
+                            } 
+                        }
+                    });
+
+                    nanobar.go(100);
+                },
+                error: function (x, e, data) {
+                    showToaster("Error getting data.", "error");
+                    nanobar.go(100);
+                }
+            });
+        }
+
+        $('#btnAdd').click(function () {
+            location.href = '@Url.Action("AddEmployee", "Admin")';
+        });
+
+        function Edit(EmpID) {
+            location.href = "@(Url.Action("EditEmployee", "Admin"))/" + EmpID;
+        }
+
+        function ChangeStatus(id, name, status) {
+            var message = "deactivate";
+            if (!status)
+                message = "activate";
+
+            var answer = confirm('Are you sure you want to ' + message + ' ' + name);
+            if (answer) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("DeleteEmp", "Admin")',
+                    data: JSON.stringify({ id: id }), //use id here
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function () {
+                        if (status == 1)
+                            showToaster("User has been deactivated.", "success");
+                        else
+                            showToaster("User has been activated.", "error");
+                        BindEmployees();
+                    },
+                    error: function () {
+                        showToaster("Error while deleting data.", "error");
+                    }
+                });
+            }
+        }
+    </script>
+}
+
+

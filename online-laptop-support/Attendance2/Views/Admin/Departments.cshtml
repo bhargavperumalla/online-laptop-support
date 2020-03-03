@@ -1,0 +1,356 @@
+﻿@model Attendance.Models.DeptMODEL
+@*@model IEnumerable<Attendance.Models.DeptMODEL>*@
+
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Departments
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
+        <li class="active">Departments</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="pull-right">
+                <div class="pull-right">
+                    <div class="pull-left" style="margin-right:10px">
+                        <input type="radio" id="status" name="status" value="true" checked="checked" /> Active
+                        <input type="radio" id="status" name="status" value="false" /> InActive
+                    </div>
+                    <div class="pull-right">
+                        <input type="button" id="btnAdd" class="btn btn-success" data-toggle="modal"
+                               data-target="#exampleModal" value="+Add Department" />
+                    </div>
+                </div>
+            </div>
+            <hr style="border:0px" />
+            <table id="tbGrid1" class="table table-bordered table-hover table-responsive">
+                <thead>
+                    <tr class="danger">
+                        <th class="col-md-10">Department Name</th>
+                        <th class="col-md-2">Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <section class="content">
+                    <form class="form-horizontal">
+                        <div class="focu">
+                            <div class="box-header with-border" style="padding:0px;">
+                                <h1 class="box-title"><label id="modelTitle">Add Department</label></h1>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="box box-info">
+                                <div class="box-body">
+                                    @Html.Hidden("DepartmentId")
+                                    <div class="form-group">
+                                        <br />
+                                        <div class="col-sm-4 focu">
+
+                                            <label for="DepartmentName" class="control-label">Department Name:<span style="color:red">*</span></label>
+                                        </div>
+                                        <div class="col-sm-8 focu">
+
+                                            @Html.TextBox("Department", null, new
+                                       {
+                                           @placeholder = "Department Name",
+                                           maxlength = 65,
+                                           @id = "Validatetextbox",
+                                           @class = "form-control",
+                                           //onkeypress = "return isName(event,this)"
+                                       })
+                                            @Html.ValidationMessage("Department", "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group">
+                                            <div class="col-sm-4 focu">
+                                                <label for="Active" class="control-label">IsActive:</label>
+                                            </div>
+                                            <div class="col-sm-8 focu">
+                                                @Html.CheckBox("IsActive", true, new { @class = "checkbox" })
+                                            </div>
+                                        </div>*@
+                                    <div class="form-group">
+
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-8">
+                                            <button type="button" class="btn btn-success" id="Submit" onclick="SaveDepartment()">Save</button>
+                                            <button type="button" class="btn btn-danger" style="margin-left:5px" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section scripts{
+
+
+    <script type="text/javascript">
+        function clearMsgs() {
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+        }
+        function SaveDepartment() {
+            var nanobar = new Nanobar({ bg: '#366784' });
+            nanobar.go(30);
+            var data = new FormData();
+            var model = {
+                "Department": $('#Validatetextbox').val(),
+            };
+
+            var name = $('#Submit').text();
+            if (name == "Save") {
+                $.ajax({
+                    url: "@(Url.Action("SaveDepartment", "Admin"))",
+                    type: 'POST',
+                    data: model,
+                    dataType: 'JSON',
+                    success: function (data) {
+                        console.log(data);
+                        nanobar.go(60);
+                        console.log(data);
+                        if (data.Code == 200) {
+                            toastr.success("Department added successfully", "");
+                            setTimeout(function () {
+                                location.href = "@Url.Action("Departments", "Admin")";
+                            }, 1000);
+                        }
+                        else if (data.Code == 400) {
+                            if (data.Errors != null) {
+                                $(data.Errors).each(function (i, e) {
+                                    $('#' + e.key).addClass('input-validation-error');
+                                    $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                                });
+                            }
+                            else {
+                                showToaster("Error getting data.", "error");
+                            }
+                        }
+                        else if (data.Valid = "true") {
+                            if (data.success = "false") {
+                                showToaster(data.Data, "error");
+                            }
+                        }
+                        else {
+                            if (data.Errors != null) {
+                                showToaster(data.Errors[0], "error");
+                            }
+                        }
+                        nanobar.go(100);
+                    }
+                    ,
+                    error: function () {
+                        showToaster("", "Error ocurred try again later", "error");
+                        nanobar.go(100);
+                    }
+                });
+            }
+            else {
+                var model = {
+                    "DepartmentId": editId,
+                    "Department": $('#Validatetextbox').val(),
+                };
+                $.ajax({
+                    url: "@(Url.Action("EditDepartment", "Admin"))",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: model,
+                    success: function (data) {
+                        nanobar.go(60);
+                        if (data != null && typeof data != "object") data = JSON.parse(data);
+                        if (data.Valid == "false") {
+                            $(data.Data).each(function (i, e) {
+                                $('#' + e.key).addClass('input-validation-error');
+                                $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                            });
+                        }
+                        else if (data.Valid == "true") {
+                            if (data.Success == "false") {
+                                if (data.Data != "SessionExpired") toastr.error("", data.Data);
+                                else location.href = "@Url.Action("Index", "Login")";
+                            }
+                            else {
+                                if (data.Success == "true") {
+
+                                    toastr.success("", data.Data);
+                                    setTimeout(function () {
+                                        location.href = "@Url.Action("Departments", "Admin")";
+
+                                    }, 1000);
+                                }
+                            }
+                        }
+                        nanobar.go(100);
+                    },
+                    error: function (x, e, data) {
+                        if (x.status == 401) {
+                            nanobar.go(100);
+                            location.href = "@Url.Action("Timeout", "Account")";
+                        }
+                    }
+                });
+            }
+            return false;
+        }
+
+        function Delete(ID, active) {
+            var message = "deactivate";
+            if (!active)
+                message = "activate";
+            var ans = confirm('Are you sure you want to ' + message + ' this record');
+            if (ans) {
+                $.ajax({
+                    url: "@(Url.Action("DeleteDepartment", "Admin"))",
+                    type: 'GET',
+                    data: { "Val": ID },
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        if (data.Code == 200) {
+                            if (active == 1) {
+                                showToaster("Successfully deactivated.", "success");
+                                GetDeptDetails(active);
+                            }
+                            else {
+                                showToaster("Successfully Activated.", "success");
+                                GetDeptDetails(active);
+                            }
+                        }
+                        else if (data.Code == 400) {
+                            if (data.Errors != null) {
+
+                                $(data.Errors).each(function (i, e) {
+                                    $('#' + e.key).addClass('input-validation-error');
+                                    $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                                });
+                            }
+                            else {
+                                showToaster("Error getting data.", "error");
+                            }
+                        }
+
+                        else if (data.Valid = "true") {
+                            if (data.success = "false") {
+                                showToaster(data.Data, "error");
+                            }
+                        }
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                    }
+                });
+            }
+        }
+
+        $('#btnAdd').click(function () {
+            clearMsgs();
+            $('#modelTitle').text('Add Department');
+            $('#Submit').text('Save');
+            $('#Validatetextbox').val("");
+        })
+
+    </script>
+
+
+    <script>
+        var myTable;
+
+        $(document).ready(function () {
+            GetDeptDetails();
+        });
+
+        $('input[type=radio][name="status"]').change(function () {
+            GetDeptDetails();
+        });
+        function GetDeptDetails() {
+            var status = $('input[type=radio][name="status"]:checked').val();
+            nanobar.go(30);
+            if (myTable != undefined)
+                myTable.fnDestroy();
+            $.ajax({
+                url: "@(Url.Action("GetDepartments", "Admin"))",
+                type: 'GET',
+                data: { 'Active': status },
+                success: function (data) {
+                    nanobar.go(60);
+                    $("#tbGrid1 tbody").empty();
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        tr = $('<tr/>');
+                        td = $('<td/>');
+                        tr.append("<td  class='Designationrw'>" + data[i].Department + "</td>");
+                        var actions = "<td><button class='btn btn-primary btn-xs'  title='edit' id='Editbtn1' data-toggle='modal' data-target='#exampleModal'onclick=javascript:Edit(" + data[i].Department + "); data-deptname=" + data[i].Department + " data-DeptId=" + data[i].DepartmentId + " data-isactive=" + data[i].IsActive + "><i class='fa fa-pencil'></i>&nbsp;Edit</button>";
+                        actions += "<button style='margin-left:5px' class='btn btn-warning btn-xs'  onclick=\"Delete(" + data[i].DepartmentId + " ," + data[i].IsActive + ")\" ><i class='fa fa-trash'></i>&nbsp;";
+                        if (data[i].IsActive == 1)
+                            actions += "Deactivate";
+                        else
+                            actions += "Activate";
+                        actions += "</button></td>";
+                        tr.append(actions);
+                        $('#tbGrid1').append(tr);
+                    }
+                    nanobar.go(100);
+                    myTable = $("#tbGrid1").dataTable({
+                        "paging": true,
+                        "pageLength": 4,
+                        "destroy": true,
+                        "bLengthChange": false,
+                        "rowCallback": function (row, data, index) {
+                            if (index % 2 != 0) {
+                                $(row).addClass('info');
+                            }
+                        }
+                    });
+
+                    $('#tbGrid1').on('click', '#Editbtn1', function () {
+                        clearMsgs();
+                        var $item = $(this).closest("tr").find(".Designationrw").text();
+                        var DeptName = $(this).attr("data-deptname");
+                        var id = $(this).attr("data-DeptId");
+                        editId = id;
+                        var active = $(this).attr("data-isactive");
+                        if (active == "true")
+                            $('#IsActive').attr('checked', true);
+                        else
+                            $('#IsActive').attr('checked', false);
+                        $('#Validatetextbox').val($item);
+                        $('#modelTitle').text('Edit Department');
+                        $('#Submit').text('Update');
+                    })
+                }
+            });
+        }
+        var editId;
+    </script>
+
+
+
+}

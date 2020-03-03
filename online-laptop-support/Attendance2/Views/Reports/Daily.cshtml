@@ -1,0 +1,278 @@
+﻿@model  IEnumerable<Attendance.Models.Daily>
+@{
+    ViewBag.Title = "Daily";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using (Html.BeginForm())
+{ }
+<section class="content-header">
+    <h1>
+        Daily Report
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Report</a></li>
+        <li class="active">Daily</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="col-sm-2">
+                <input type="text" id="dtFrom" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+                <input type="text" id="dtTo" class="form-control" />
+            </div>
+            <div class="col-sm-2">
+                @Html.ListBox("ddlPerson", (new SelectList(new List<Attendance.Models.Monthly>(), "EmpId", "employeeName")), new { multiple = "multiple", @class = "form-control", @style = "width: 100%;" })
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-2">
+                <span>
+                    <input type="button" onclick="GetDailyReportsData()" value="Search" class="btn btn-success" />
+                    <input type="button" onclick="Clear()" value="Clear" style="margin-left:5px" class="btn btn-danger" />
+                </span>
+            </div>
+            <div class="col-xs-1  pull-right">
+                <button class="btn btn btn-warning" id="exportbtn" onclick="Export()">Export</button>
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+
+    <div class="box box-info">
+        <div class="box-body">
+            <table id="tbGrid" class="table table-bordered table-hover" style="width:100%;">
+                <thead>
+                    <tr class="danger">
+                        <th>S.No</th>
+                        <th>Date</th>
+                        <th>Employee Name</th>
+                        <th>In Time</th>
+                        <th>Out Time</th>
+                        <th>Duration</th>
+                        <th>Permission</th>
+                        <th>Extra Hrs Worked </th>
+                        <th>Leave</th>
+                        <th>Leave Type</th>
+                        <th>WFH</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                </tfoot>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+
+</section>
+@section scripts
+{
+
+    <script>
+
+        function Clear() {
+            $('#dtFrom').datepicker("setDate", "@ViewBag.Dates[0]");
+            $('#dtTo').datepicker("setDate", "@ViewBag.Dates[1]");
+            $("#ddlPerson").multiselect('clearSelection');
+            GetDailyReportsData();
+        }
+
+        function InitializeDates() {
+            $('#dtFrom').datepicker({
+                autoclose: true,
+                endDate: new Date(),
+                todayHighlight: true,
+                orientation: "bottom",
+                endDate: "@ViewBag.Dates[1]"
+            }).datepicker("setDate", "@ViewBag.Dates[0]");
+
+            $('#dtTo').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                orientation: "bottom",
+                endDate: "@ViewBag.Dates[1]"
+            }).datepicker("setDate", "@ViewBag.Dates[1]");
+        }
+
+        function Export() {
+
+            nanobar.go(30);
+            var EmpID = [];
+            if ($('#ddlPerson').val().length > 0) EmpID = $('#ddlPerson').val();
+            else EmpID = " ";
+            var model = {
+                "FromDate": $('#dtFrom').val(),
+                "ToDate": $('#dtTo').val(),
+                "EmployeeID": EmpID,
+            };
+
+            var form_data = new FormData();
+
+            for (var key in model) {
+                form_data.append(key, model[key]);
+            }
+            var Tot = $('#dtFrom').val() + '$' + $('#dtTo').val() + '$' + EmpID;
+
+            var Url = '@Url.Action("GetDailyReportExcel", "Reports")'
+            window.location.href = Url + "?id=" + Tot;
+            nanobar.go(100);
+        }
+
+        $(function () {
+            InitializeDates();
+            GetEmployees();
+            GetDailyReportsData();
+
+        });
+
+        function GetEmployees() {
+            nanobar.go(30);
+            $.ajax({
+                url: "@(Url.Action("EmployeeDetails", "Admin"))",
+                type: 'GET',
+                data: { 'Active': true },
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    nanobar.go(60);
+                    var district = "";
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        if (data[i].FirstName == null) {
+                            data[i].FirstName = "";
+                        }
+                        if (data[i].LastName == null) {
+                            data[i].LastName = "";
+                        }
+                        district = district + '<option value=' + data[i].EmployeeID + '>' + data[i].FirstName + ' ' + data[i].LastName + '</option>';
+                    }
+                    $('#ddlPerson').html(district);
+
+                    ApplyMultiSelect();
+                    nanobar.go(100);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 401) {
+                        nanobar.go(100);
+                        location.href = "@Url.Action("Timeout", "Error")";
+                    }
+                }
+            });
+        }
+        function GetDailyReportsData() {
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+
+            nanobar.go(30);
+            var EmpID = [];
+            if ($('#ddlPerson').val().length > 0) EmpID = $('#ddlPerson').val();
+            else EmpID = " ";
+            var model = {
+                "FromDate": $('#dtFrom').val(),
+                "ToDate": $('#dtTo').val(),
+                "EmployeeID": EmpID,
+            };
+
+            var form_data = new FormData();
+            for (var key in model) {
+                form_data.append(key, model[key]);
+            }
+            $.ajax({
+                cache: 'false',
+                method: 'POST',
+                url: '@Url.Action("GetDailyReport", "Reports")',
+                contentType: 'application/json',
+                data: form_data,
+                processData: false,
+                contentType: false,
+                dataType: 'JSON',
+                success: function (data) {
+                    nanobar.go(60);
+                    $("#tbGrid tbody").empty();
+                    var k = 1;
+                    if (!data.length) {
+                        $("#exportbtn").hide();
+                    }
+                    else {
+                        $("#exportbtn").show();
+                    }
+                    for (var i = 0; i < data.length; i++) {
+                        var tr;
+                        if (i % 2 != 0) {
+                            tr = $('<tr class="info"/>');
+                        }
+                        else {
+                            tr = $('<tr/>');
+                        }
+                        var Fontstyle = "";
+                        td = $('<td/>');
+                        tr.append("<td>" + k++ + "</td>");
+                        tr.append("<td>" + "<span class='far fa-file-alt'></span>&nbsp;&nbsp;&nbsp;" + data[i].Date + "</td>");
+                        tr.append("<td>" + data[i].EmployeeName + "</td>");
+                        tr.append("<td>" + data[i].InTime + "</td>");
+                        tr.append("<td>" + data[i].OutTime + "</td>");
+                        if (data[i].Duration == null) {
+                            tr.append("<td>" + "</td>");
+                        }
+                        else {
+                            tr.append("<td>" + data[i].Duration + "</td>");
+                        }
+
+                        if (data[i].PermissionHrs == null) {
+                            tr.append("<td>" + "</td>");
+                        }
+                        else {
+                            tr.append("<td>" + data[i].PermissionHrs + "</td>");
+                        }
+                        if (data[i].ExtraHrsWorked == null) {
+                            tr.append("<td>" + "</td>");
+                        }
+                        else {
+                            tr.append("<td>" + data[i].ExtraHrsWorked + "</td>");
+                        }
+                        tr.append("<td>" + data[i].Leave + "</td>");
+                        tr.append("<td>" + data[i].LeaveType + "</td>");
+                        tr.append("<td>" + data[i].WorkFromHome + "</td>");
+
+                        $('#tbGrid').append(tr);
+                    }
+                    nanobar.go(100);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 401) {
+                        nanobar.go(100);
+                        location.href = "@Url.Action("Timeout", "Error")";
+                    }
+                }
+            });
+        }
+
+        function ApplyMultiSelect() {
+            $('#ddlPerson').multiselect({
+                includeSelectAllOption: true,
+                buttonWidth: '300px',
+                maxHeight: 300,
+                buttonText: function (options, select) {
+                    if (options.length === 0) {
+                        return 'ALL';
+                    }
+                    else {
+                        var labels = [];
+                        options.each(function () {
+                            if ($(this).attr('label') !== undefined) {
+                                labels.push($(this).attr('label'));
+                            }
+                            else {
+                                labels.push($(this).html());
+                            }
+                        });
+                        return labels.join(', ') + '';
+                    }
+                }
+            });
+        }
+    </script>
+}

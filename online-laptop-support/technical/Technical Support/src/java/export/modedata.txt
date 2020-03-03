@@ -1,0 +1,366 @@
+Acer,Aspire 2930 
+Acer,Aspire 3935 
+Acer,Aspire 4315 
+Acer,Aspire 4520 
+Acer,Aspire 4530 
+Acer,Aspire 4720 
+Acer,Aspire 4730 
+Acer,Aspire 4930 
+Acer,Aspire 5315 
+Acer,Aspire 5330 
+Acer,Aspire 5335 
+Acer,Aspire 5520 
+Acer,Aspire 5535 
+Acer,Aspire 5720 
+Acer,Aspire 5720 
+Acer,Aspire 5735 
+Acer,Aspire 5920 
+Acer,Aspire 6530 
+Acer,Aspire 6920 
+Acer,Aspire 6930 
+Acer,Aspire 6935 
+Acer,Aspire 7520 
+Acer,Aspire 7720 
+Acer,Aspire 8730 
+Acer,Aspire 8920 
+Acer,Aspire 8930 
+Acer,Aspire One 
+Acer,Extensa 
+Acer,Ferrari 1000 
+Acer,Travelmate 4320 
+Acer,Travelmate 4720 
+Acer,TravelMate 4730 
+Acer,TravelMate 5520 
+Acer,TravelMate 5530 
+Acer,TravelMate 5720 
+Acer,TravelMate 5730 
+Acer,TravelMate 6292 
+Acer,TravelMate 6293 
+Acer,TravelMate 6493 
+Acer,TravelMate 6593 
+Asus,B50A 
+Asus,Eee PC 
+Asus,Eee PC 1000 
+Asus,Eee PC 1000HE 
+Asus,Eee PC 900 
+Asus,F5 
+Asus,F50SV 
+Asus,F6 
+Asus,F7 
+Asus,F8 
+Asus,G50v 
+Asus,G70 
+Asus,L50 
+Asus,M50Sv 
+Asus,M51 
+Asus,M70 
+Asus,M70s 
+Asus,N10 
+Asus,N20 
+Asus,N50 
+Asus,N80 
+Asus,N81 
+Asus,R1 Tablet PC 
+Asus,U2 
+Asus,U3 
+Asus,U6 
+Asus,W7 
+Asus,W90 
+Asus,X59Sr 
+Asus,X71SL 
+Asus,X80 
+Dell,Adamo
+Dell,Augmentix XTG630 
+Dell,Inspiron 13
+Dell,Inspiron 1420
+Dell,Inspiron 15
+Dell,Inspiron 1525
+Dell,Inspiron 1525
+Dell,Inspiron 1526
+Dell,Inspiron 1545
+Dell,Inspiron 1721
+Dell,Inspiron e1505
+Dell,Inspiron Mini 10
+Dell,Inspiron Mini 12
+Dell,Inspiron Mini 9
+Dell,Latitude D530
+Dell,Latitude D630
+Dell,Latitude E4200
+Dell,Latitude E4300
+Dell,Latitude E5400
+Dell,Latitude E6400
+Dell,Latitude E6400 XFR
+Dell,Latitude E6500
+Dell,Latitude XT
+Dell,Latitude XT2
+Dell,Mobile Precision M4400
+Dell,Mobile Precision M6400
+Dell,Precision M2300
+Dell,Precision M2400
+Dell,Studio 14
+Dell,Studio 15
+Dell,Studio 17
+Dell,Studio XPS 13
+Dell,Studio XPS 16
+Dell,Vostro 1310
+Dell,Vostro 1320
+Dell,Vostro 1510
+Dell,Vostro 1520
+Dell,Vostro 1710
+Dell,Vostro 1720
+Dell,Vostro 2510
+Dell,XPS M1330
+Dell,XPS M1530
+Dell,XPS M1730
+Dell,XPS One
+Fujitsu,LifeBook A1110
+Fujitsu,LifeBook A1130
+Fujitsu,LifeBook A3130
+Fujitsu,LifeBook A3210
+Fujitsu,LifeBook A6110
+Fujitsu,LifeBook A6120 
+Fujitsu,LifeBook A6210
+Fujitsu,LifeBook A6220
+Fujitsu,Lifebook A6230
+Fujitsu,LifeBook B6200
+Fujitsu,LifeBook E8210
+Fujitsu,LifeBook E8410
+Fujitsu,Lifebook E8420
+Fujitsu,LifeBook N6470
+Fujitsu,LifeBook N7010
+Fujitsu,Lifebook P1620
+Fujitsu,LifeBook P1630
+Fujitsu,LifeBook P8010
+Fujitsu,LifeBook P8020
+Fujitsu,LifeBook S6510
+Fujitsu,LifeBook S6520
+Fujitsu,Lifebook S7211
+Fujitsu,LifeBook S7220
+Fujitsu,Lifebook T1010
+Fujitsu,LifeBook T2010
+Fujitsu,LifeBook T2020
+Fujitsu,LifeBook T4220 Tablet PC
+Fujitsu,LifeBook T5010
+Fujitsu,LifeBook U810 
+Fujitsu,LifeBook U820
+Fujitsu,LifeBook V1000
+Fujitsu,Stylistic ST5111
+Fujitsu,Stylistic ST5112
+HP,530
+HP,550
+HP,Compaq 2230s
+HP,Compaq 2510p
+HP,Compaq 2710p
+HP,Compaq 6510b
+HP,Compaq 6530b
+HP,Compaq 6535b
+HP,Compaq 6710b
+HP,Compaq 6715b
+HP,Compaq 6720t
+HP,Compaq 6730b
+HP,Compaq 6730s
+HP,Compaq 6735b
+HP,Compaq 6735s
+HP,Compaq 6820
+HP,Compaq 6830s
+HP,Compaq 6910p
+HP,Compaq 8510p
+HP,Compaq 8510w
+HP,Compaq 8710p
+HP,Compaq 8710w
+HP,Compaq nc4400
+HP,Compaq nc6200
+HP,Compaq nc6300
+HP,Compaq nc6400
+HP,Compaq nc8430
+HP,Compaq nw9440
+HP,Compaq Presario A945US
+HP,Compaq Presario C700T series 
+HP,Compaq Presario CQ50Z
+HP,Compaq Presario CQ60z
+HP,Compaq Presario CQ70
+HP,Compaq Presario F700
+HP,Compaq Presario v5000z
+HP,Compaq Presario V6700TX
+HP,EliteBook 2530p
+HP,EliteBook 2730p
+HP,EliteBook 6930p
+HP,EliteBook 8530p
+HP,EliteBook 8530w
+HP,EliteBook 8730w 
+HP,Mini 1000
+HP,Mini 2140
+HP,Mini-Note
+HP,Pavilion dv2
+HP,Pavilion dv2000t
+HP,Pavilion dv2500z
+HP,Pavilion dv2700t
+HP,Pavilion dv2700z
+HP,Pavilion dv3500t
+HP,Pavilion dv3t
+HP,Pavilion dv3z
+HP,Pavilion dv4t
+HP,Pavilion dv4z 
+HP,Pavilion dv5000t
+HP,Pavilion dv5t
+HP,Pavilion dv5z
+HP,Pavilion dv6000t
+HP,Pavilion dv6500t
+HP,Pavilion dv6500z
+HP,Pavilion dv6700t
+HP,Pavilion dv6700z 
+HP,Pavilion dv6t
+HP,Pavilion dv6t
+HP,Pavilion dv6z
+HP,Pavilion dv7t
+HP,Pavilion dv7z 
+HP,Pavilion dv8000t
+HP,Pavilion dv9000z
+HP,Pavilion dv9700t
+HP,Pavilion dv9700z
+HP,Pavilion G50
+HP,Pavilion G60
+HP,Pavilion G70
+HP,Pavilion HDX16t
+HP,Pavilion HDX18
+HP,Pavilion tx2000
+HP,Pavilion tx2500z
+HP,Pavilion tx2600
+HP,Pavilion xh555
+HP,Pavilion ze4000
+HP,ProBook 4410s
+HP,ProBook 4415s
+HP,ProBook 4510s
+HP,ProBook 4515s
+HP,ProBook 4710s
+HP,TouchSmart tx2z
+HP,Voodoo Envy 133
+Lenovo,3000 N200
+Lenovo,3000 N500
+Lenovo,IdeaPad G530
+Lenovo,IdeaPad S10
+Lenovo,IdeaPad U110
+Lenovo,IdeaPad U330
+Lenovo,IdeaPad Y430
+Lenovo,IdeaPad Y450
+Lenovo,IdeaPad Y510
+Lenovo,IdeaPad Y530
+Lenovo,IdeaPad Y550
+Lenovo,IdeaPad Y650
+Lenovo,IdeaPad Y710
+Lenovo,IdeaPad Y730
+Lenovo,ThinkPad R400
+Lenovo,ThinkPad R500 
+Lenovo,ThinkPad R60
+Lenovo,ThinkPad R61
+Lenovo,ThinkPad SL300
+Lenovo,ThinkPad SL400 
+Lenovo,ThinkPad SL500 
+Lenovo,ThinkPad T40
+Lenovo,ThinkPad T400
+Lenovo,ThinkPad T41
+Lenovo,ThinkPad T43
+Lenovo,ThinkPad T500
+Lenovo,ThinkPad T61
+Lenovo,ThinkPad W500
+Lenovo,ThinkPad W700 
+Lenovo,ThinkPad X20
+Lenovo,ThinkPad X200
+Lenovo,ThinkPad X200
+Lenovo,ThinkPad X300
+Lenovo,ThinkPad X301
+Lenovo,ThinkPad X41 Tablet
+Lenovo,ThinkPad X60 Tablet PC
+Lenovo,ThinkPad X61
+Lenovo,ThinkPad X61 Tablet PC
+Panasonic,ToughBook 19
+Panasonic,ToughBook 30
+Panasonic,Toughbook 52
+Panasonic,ToughBook 74
+Panasonic,Toughbook F8
+Panasonic,Toughbook H1
+Panasonic,ToughBook T5
+Panasonic,Toughbook T7
+Panasonic,Toughbook T8
+Panasonic,Toughbook U1
+Panasonic,ToughBook W4
+Panasonic,ToughBook W5
+Panasonic,Toughbook W7
+Panasonic,Toughbook W8
+Panasonic,ToughBook Y5
+Panasonic,Toughbook Y7
+Samsung,N110
+Samsung,NC10
+Samsung,NC20
+Samsung,P460
+Samsung,P560
+Samsung,Q1
+Samsung,Q1UP-V
+Samsung,Q310
+Samsung,Q45
+Samsung,R610
+Samsung,X360
+Samsung,X460
+Sony,VAIO A
+Sony,VAIO AR
+Sony,VAIO AW
+Sony,VAIO BX Series
+Sony,VAIO BZ
+Sony,VAIO C
+Sony,VAIO CR
+Sony,VAIO CS
+Sony,VAIO FE
+Sony,VAIO FW
+Sony,VAIO FZ
+Sony,VAIO N
+Sony,VAIO NR
+Sony,VAIO NS
+Sony,VAIO P
+Sony,VAIO P
+Sony,VAIO SR
+Sony,VAIO SZ
+Sony,VAIO TT
+Sony,VAIO TX Series
+Sony,VAIO TZ
+Sony,VAIO UX Micro PC
+Sony,VAIO V610
+Sony,VAIO Z series
+Toshiba,Portege A600
+Toshiba,Portege M300
+Toshiba,Portege M400
+Toshiba,Portege M700
+Toshiba,Portege M750
+Toshiba,Portege R500
+Toshiba,Portege R600
+Toshiba,Qosmio
+Toshiba,Qosmio G50
+Toshiba,Qosmio X305
+Toshiba,Satellite A130 / A135
+Toshiba,Satellite A200 / A205
+Toshiba,Satellite A215
+Toshiba,Satellite A305 / A300
+Toshiba,Satellite A350
+Toshiba,Satellite A75
+Toshiba,Satellite E105
+Toshiba,Satellite L300
+Toshiba,Satellite L350/L355
+Toshiba,Satellite L45
+Toshiba,Satellite M105
+Toshiba,Satellite M300/M305
+Toshiba,Satellite P105
+Toshiba,Satellite P200/P205
+Toshiba,Satellite P305 / P300
+Toshiba,Satellite R15
+Toshiba,Satellite R20 / R25 Tablet
+Toshiba,Satellite S300
+Toshiba,Satellite U300 / U305
+Toshiba,Satellite U400/U405
+Toshiba,Satellite X205
+Toshiba,Satellite X305
+Toshiba,Tecra A10
+Toshiba,Tecra A9
+Toshiba,Tecra M10
+Toshiba,Tecra M10
+Toshiba,Tecra M7
+Toshiba,Tecra M9
+Toshiba,Tecra R10

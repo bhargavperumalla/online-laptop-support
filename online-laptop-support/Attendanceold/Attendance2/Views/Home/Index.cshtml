@@ -1,0 +1,285 @@
+﻿@model IEnumerable<Attendance.Models.Dashboard>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+    <h1>Dashboard</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-success ">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><i class="fa fa-bar-chart"></i>Hourly Chart-Attendance</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart">
+                                <canvas id="barChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><i class="fa fa-area-chart"></i>Timings</h3>
+                            <select class="pull-right" style="width:250px" id="EmployeeId"></select>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart">
+                                <canvas id="areaChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <div class="=" row">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("Months", ViewBag.Months as SelectList, new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("Years", ViewBag.Years as SelectList, new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a class="btn btn-primary" onclick="GetMonthlyData()">GO</a>
+                                    </div>
+                                </div>
+                            </div><br /><br />
+                            <table id="example" class="table table-bordered table-hover table-responsive" style="max-height:100px">
+                                <thead>
+                                    <tr class="danger">
+                                        <th>Employee</th>
+                                        <th>Duration</th>
+                                        <th>Present</th>
+                                        <th>Leaves</th>
+                                        <th>COFF</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <script src="~/content/plugins/adminlte/chart.js/chart.js"></script>
+
+    <script>
+        var barChart;
+        var lineChart;
+
+        $(function () {
+
+            BindNames();
+            GetMonthlyData();
+
+            $("#EmployeeId").change(function (event) {
+                BindAreaChart();
+            });
+        });
+        function BindNames() {
+            if ("@Session["IsAdmin"].ToString()" == "true") {
+                $.ajax({
+                    url: "@(Url.Action("GetEmployees", "Home"))",
+                    type: 'GET',
+                    dataType: 'json',
+                    async:false,
+                    success: function (data) {
+                        var optionsData = '';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].EmployeeID == @Session["EmployeeId"].ToString()) {
+                                optionsData += '<option selected value=' + data[i].EmployeeID + '>' + data[i].FirstName + ', ' + data[i].LastName + '</option>';
+                            }
+                            else {
+                                optionsData += '<option value=' + data[i].EmployeeID + '>' + data[i].FirstName + ',  ' + data[i].LastName + '</option>';
+                            }
+                        }
+                        $('#EmployeeId').html(optionsData);
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        showToaster("Error getting data", "error");
+                    }
+                });
+            }
+            else {
+                var optionsData = '<option selected value=@Session["EmployeeId"].ToString()>@Session["Name"].ToString()</option>';
+                $('#EmployeeId').html(optionsData).prop("disabled", true);
+            }
+        }
+
+        function GetMonthlyData() {
+            var month = $('#Months').val();
+            var year = $('#Years').val();
+            $.ajax({
+                url: "@(Url.Action("GetMonthlyData", "Home"))",
+                type: "Post",
+                data: { "year": year, "month": month },
+                dataType: "json",
+
+                success: function (data) {
+                    $("#example tbody").empty();
+                    for (var i = 0; i < data.Data.length; i++) {
+                        var tr;
+                        if(i%2!=0)
+                           tr = $('<tr class="info"/>');
+                        else
+                         tr = $('<tr/>');
+                        tr.append("<td>" + "<span class='far fa-file-alt'></span>&nbsp;&nbsp;&nbsp;" + data.Data[i].Name + "</td>");
+                        tr.append("<td>" + data.Data[i].Duration + "</td>");
+                        tr.append("<td>" + data.Data[i].TotalDaysPresent + "</td>");
+                        tr.append("<td>" + data.Data[i].Leaves + "</td>");
+                        tr.append("<td>" + data.Data[i].COFF + "</td>");
+
+                        $('#example').append(tr);
+                    }
+                    BindHourlyChart(data.Data);
+                    BindAreaChart()
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    showToaster("Error getting data", "error");
+                }
+            });
+        }
+
+        function mutateArray(n) {
+            var colors = ['#95CEFF', '#5C5C61', '#FFBC75', '#A9FF9c', '#999EFF', '#FF7599', '#C0C0C0', 'green', 'orange', 'violet','purple','pink','skyblue','maroon','tomato'];
+            var temp = [];
+            while (n--) Array.prototype.push.apply(temp, colors);
+            return temp;
+        }
+
+
+        function BindHourlyChart(data)
+        {
+            var labels = data.map(function (e) {
+                return e.Name;
+            });
+            var data = data.map(function (e) {
+                return e.DurationMIN;
+            });
+            var config  = {
+                labels: labels,
+                datasets: [{
+                    label: "Attendance",
+                    data: data,
+                    backgroundColor: mutateArray(labels.length),
+                    borderWidth: 1
+                }]
+            };
+            var barChartCanvas = $('#barChart').get(0).getContext('2d');
+            if (barChart) {
+                barChart.destroy();
+            }
+            barChart = new Chart(barChartCanvas, {
+                type: 'bar',
+                data: config,
+                options: {
+                    responsive: true,
+                    title: { display: false },
+                    legend: { display: false},
+                    tooltips: { bodyFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif",
+                        titleFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif"},
+                    scales: {
+                        xAxes: [{gridLines: { display: false },  scaleLabel: { display: false }, ticks: {autoSkip: false,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" }}],
+                        yAxes: [{ gridLines: { display: false }, scaleLabel: { display: false}, ticks: { stepSize:4, beginAtZero: true,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" } }]
+                    },
+                }
+            });
+        }
+
+        function BindAreaChart() {
+            var month = $('#Months').val();
+            var year = $('#Years').val();
+            var employeeId = $('#EmployeeId').val();
+        
+            $.ajax({
+                url: "@(Url.Action("GetTime", "Home"))",
+                type: 'POST',
+                dataType: 'json',
+                data: { "employeeId": employeeId,"year": year, "month": month },
+                success: function (data) {
+        
+                    var labels = data.Data.map(function (e) {
+                        return e.InTime;
+                    });
+                    var Time = data.Data.map(function(e) {
+                        return e.OutTime;
+                    });
+                    var date = data.Data.map(function(e) {
+                        return e.Date;
+                    });
+
+                    var dataFirst = {
+                        label: "InTime",
+                        data:labels,
+                        lineTension: 1,
+                        fill: true,
+                        borderColor: 'rgba(210, 214, 222, 0.4)',
+                        backgroundColor: 'rgba(210, 214, 222, 0.4)',
+                    };
+
+                    var dataSecond = {
+                        label: "OutTIme",
+                        data:Time,
+                        lineTension: 0.3,
+                        fill: true,
+                        borderColor: 'rgba(60,141,188,0.8)',
+                        backgroundColor: 'rgba(60,141,188,0.8)',
+                    };
+                    var speedData = {
+                        labels:date,
+                        datasets: [dataFirst, dataSecond]
+                    };
+
+                    if (lineChart) {
+                        lineChart.destroy();
+                    }
+                    var lineChartCanvas = $('#areaChart').get(0).getContext('2d');
+                    var lineChart = new Chart(lineChartCanvas, {
+                        type: 'line',
+                        data: speedData,
+                        options: {
+                            legend: {display: false},
+                            tooltips: { bodyFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif",
+                                titleFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif"},
+                            scales: {
+                                xAxes: [{scaleLabel: { display: false }, ticks: {autoSkip: false,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" }}],
+                                yAxes: [{scaleLabel: { display: false}, ticks: { stepSize:3, beginAtZero: true,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" } }]
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+
+}

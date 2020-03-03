@@ -1,0 +1,18 @@
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\obj\Debug\Attendance.DAL.csprojAssemblyReference.cache
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\obj\Debug\Attendance.DAL.csproj.CoreCompileInputs.cache
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\bin\Debug\Attendance.DAL.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\bin\Debug\Attendance.DAL.pdb
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\bin\Debug\Attendance.Model.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\bin\Debug\Attendance.Model.pdb
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\obj\Debug\Attendance.DAL.csproj.CopyComplete
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\obj\Debug\Attendance.DAL.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.DAL\obj\Debug\Attendance.DAL.pdb
+D:\bhargav\Attendance.DAL\bin\Debug\Attendance.DAL.dll
+D:\bhargav\Attendance.DAL\bin\Debug\Attendance.DAL.pdb
+D:\bhargav\Attendance.DAL\bin\Debug\Attendance.Model.dll
+D:\bhargav\Attendance.DAL\bin\Debug\Attendance.Model.pdb
+D:\bhargav\Attendance.DAL\obj\Debug\Attendance.DAL.csprojAssemblyReference.cache
+D:\bhargav\Attendance.DAL\obj\Debug\Attendance.DAL.csproj.CoreCompileInputs.cache
+D:\bhargav\Attendance.DAL\obj\Debug\Attendance.DAL.csproj.CopyComplete
+D:\bhargav\Attendance.DAL\obj\Debug\Attendance.DAL.dll
+D:\bhargav\Attendance.DAL\obj\Debug\Attendance.DAL.pdb

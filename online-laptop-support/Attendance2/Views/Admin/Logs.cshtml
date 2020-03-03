@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Logs";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .ScrollStyle {
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+    .panel-title{
+        font-size:14px;
+    }
+</style>
+<section class="content-header">
+    <h1>Logs</h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Logs</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="box box-info">
+        <div class="box-header with-border">
+            <div class="box-title">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3 panel-title">
+                        <input type="radio" id="Logs" name="Logs" value="1" checked="checked" /> Application Log&nbsp;&nbsp;
+                        <input type="radio" id="Logs" name="Logs" value="2" /> API Log
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="input-group date" id="dtFrom">
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                            <input id="datepicker1" type="text" class="form-control" style="width:45%;">
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <input type="button" value="Search" onclick="Getlogdata()" class="btn btn-success" />
+                    </div>
+                    <div class="col-md-2"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box box-info">
+        <div class="box-body">
+            <pre class="ScrollStyle" id="logdata">
+            </pre>
+        </div><!-- /.box-body -->
+    </div>
+</section>
+@section scripts{
+    <script type="text/javascript">
+
+        $(function () {
+            $('#datepicker1').datepicker({
+                autoclose: true
+            }).datepicker("setDate", "@ViewBag.ToDay");
+
+            Getlogdata();
+
+            $('input[type=radio][name="Logs"]').change(function () {
+                Getlogdata();
+            });
+        });
+
+        function Getlogdata() {
+            nanobar.go(30);
+            $.ajax({
+                url: '@Url.Action("GetLogdata", "Admin")',
+                data: { 'Date': $('#datepicker1').val(), 'logType': $('input[type=radio][name="Logs"]:checked').val() },
+                type: "post",
+                cache: false,
+                success: function (data) {
+                    nanobar.go(60);
+                    $('#logdata').empty();
+
+                    if (data != "") {
+                        $('#logdata').append(data);
+                    }
+
+                    nanobar.go(100);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 401) {
+                        nanobar.go(100);
+                        location.href = "@Url.Action("Timeout", "Error")";
+                    }
+                }
+
+            });
+        }
+    </script>
+}

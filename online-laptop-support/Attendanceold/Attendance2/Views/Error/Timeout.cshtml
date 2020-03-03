@@ -1,0 +1,80 @@
+﻿
+@{
+    /**/
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Attendance</title>
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="~/Content/images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5;url=../Login/Index" />
+    <!--Google Webfont-->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,300italic,400italic,500,500italic,600,600italic,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Sansita" rel="stylesheet">
+
+    <link href="~/Content/css/Site.css" rel="stylesheet" />
+    <link href="~/Content/Plugins/Ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/Content/Plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/Plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/Plugins/AdminLTE/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/Content/Plugins/AdminLTE/css/skins/skin-red.min.css">
+</head>
+
+<body class="hold-transition skin-red layout-top-nav">
+    <div class="wrapper">
+        <header class="main-header">
+            <nav class="navbar navbar-static-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="@Url.Action("Index","Login")" class="logo">
+                            <span class="logo-lg"><img src="~/Content/Images/fav-icon/android-chrome-256x256.png" style="width:35px; height:35px" /><b>ATTENDANCE</b></span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="content-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div style="text-align:center;padding-top:50px">
+                        <i class="fa fa-exclamation-triangle fa-5x" style="color:red"></i>
+                        <h2> Sorry, You are not authoraized or your session has expired.</h2>
+                        <h3> Click @Html.ActionLink("here", "Index", "Login") to go to Login page.</h3>
+                        (Or)
+                        <h3> You'll be redirected to the Log in page in <span id="timer" style="color:red">5</span> seconds...</h3><br />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
+            </div>
+            <strong>Copyright &copy; 2019 <a href="http://www.maple-software.com/">Maple Software Pvt Ltd.</a></strong> All rights
+            reserved.
+        </footer>
+    </div>
+    <script src="~/Content/Plugins/Jquery/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            setTimeout(changetime, 1000);
+        });
+        function changetime() {
+            var value = parseInt($('#timer')[0].innerText);
+            if (value != 0)
+                $('#timer')[0].innerText = value - 1;
+            setTimeout(changetime, 1000);
+        }
+    </script>
+</body>
+</html>

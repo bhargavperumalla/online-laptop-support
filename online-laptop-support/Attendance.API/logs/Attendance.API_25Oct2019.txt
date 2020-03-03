@@ -1,0 +1,360 @@
+[API] [2019-10-25 20:06:58,506 7] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:06:58,647 7] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:06:59,823 7] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:06:59,823 7] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:01.3173946
+[API] [2019-10-25 20:07:43,298 15] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:07:43,305 15] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:07:43,432 15] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:07:43,456 15] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.1579942
+[API] [2019-10-25 20:08:11,037 11] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:08:11,045 11] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:08:11,053 11] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:08:11,060 11] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0238261
+[API] [2019-10-25 20:08:47,328 8] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:08:47,335 8] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:08:47,427 8] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:08:47,435 8] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.1067419
+[API] [2019-10-25 20:10:31,642 32] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:10:31,649 32] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:10:31,728 32] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:10:31,736 32] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0943408
+[API] [2019-10-25 20:10:41,830 7] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:10:41,838 7] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:10:41,939 7] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:10:41,946 7] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.1157324
+[API] [2019-10-25 20:11:01,355 32] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:11:01,363 32] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:11:01,485 32] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:11:01,493 32] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.1385019
+[API] [2019-10-25 20:11:38,827 7] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:11:38,834 7] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:11:38,910 7] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:11:38,918 7] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0911247
+[API] [2019-10-25 20:11:40,861 32] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:11:40,870 32] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:11:41,270 32] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:11:41,277 32] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.4162171
+[API] [2019-10-25 20:11:41,868 27] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-10-25 20:11:41,868 27] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-10-25 20:11:42,305 27] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:11:42,305 27] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.4399925
+[API] [2019-10-25 20:11:42,448 32] [INFO] [ReportsController] - Entered TimeReport method
+[API] [2019-10-25 20:11:42,457 32] [INFO] [ReportsController] - Getting data from the database
+[API] [2019-10-25 20:11:42,495 32] [INFO] [ReportsController] - Getting TimeReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:11:42,503 32] [INFO] [ReportsController] - TimeReport-Elapsed 00:00:00.0551909
+[API] [2019-10-25 20:11:42,861 32] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:11:42,869 32] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:11:42,958 32] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:11:42,966 32] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.1053445
+[API] [2019-10-25 20:11:43,427 27] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:11:43,436 27] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:11:44,212 27] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:11:44,228 27] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.8012742
+[API] [2019-10-25 20:11:44,340 32] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:11:44,349 32] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:11:44,367 32] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:11:44,375 32] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0343017
+[API] [2019-10-25 20:12:11,993 7] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:12:12,003 7] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:12:12,141 7] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:12:12,150 7] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.1569858
+[API] [2019-10-25 20:12:12,477 27] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:12:12,485 27] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:12:12,493 27] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:12:12,501 27] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0239303
+[API] [2019-10-25 20:12:12,987 23] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:12:13,003 23] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:12:13,112 23] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:12:13,128 23] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.1324432
+[API] [2019-10-25 20:12:13,497 32] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:12:13,506 32] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:12:13,543 32] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:12:13,552 32] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0546737
+[API] [2019-10-25 20:12:14,021 29] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-10-25 20:12:14,029 29] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-10-25 20:12:14,147 29] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:12:14,157 29] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.1350292
+[API] [2019-10-25 20:12:14,274 27] [INFO] [ReportsController] - Entered TimeReport method
+[API] [2019-10-25 20:12:14,286 27] [INFO] [ReportsController] - Getting data from the database
+[API] [2019-10-25 20:12:14,308 27] [INFO] [ReportsController] - Getting TimeReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:12:14,320 27] [INFO] [ReportsController] - TimeReport-Elapsed 00:00:00.0465448
+[API] [2019-10-25 20:15:28,262 29] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:15:28,272 29] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:15:28,363 29] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:15:28,371 29] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.1093078
+[API] [2019-10-25 20:16:05,748 23] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:16:05,757 23] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:16:05,767 23] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:16:05,775 23] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0270114
+[API] [2019-10-25 20:16:13,838 11] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:16:13,846 11] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:16:13,855 11] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:16:13,863 11] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0256818
+[API] [2019-10-25 20:16:24,917 29] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:16:24,925 29] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:16:24,942 29] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:16:24,950 29] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0335171
+[API] [2019-10-25 20:17:04,715 35] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:17:04,727 35] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:17:04,739 35] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:17:04,747 35] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0320330
+[API] [2019-10-25 20:17:52,154 29] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:17:52,163 29] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:17:52,181 29] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:17:52,190 29] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0358018
+[API] [2019-10-25 20:18:01,112 40] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:18:01,121 40] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:18:01,130 40] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:18:01,138 40] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0262083
+[API] [2019-10-25 20:18:10,916 6] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:18:10,923 6] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:18:10,933 6] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:18:10,941 6] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0256813
+[API] [2019-10-25 20:18:19,419 29] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:18:19,428 29] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:18:19,437 29] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:18:19,445 29] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0258660
+[API] [2019-10-25 20:20:45,100 42] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:20:45,108 42] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:20:45,124 42] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:20:45,132 42] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0326447
+[API] [2019-10-25 20:20:59,802 43] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-10-25 20:20:59,810 43] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-10-25 20:20:59,877 43] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-10-25 20:20:59,897 43] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:00.0938256
+[API] [2019-10-25 20:21:00,357 41] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:21:00,365 41] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:21:00,499 41] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:21:00,515 41] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.1595907
+[API] [2019-10-25 20:21:00,874 48] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:21:00,894 48] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:21:01,020 48] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:21:01,036 48] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.1603302
+[API] [2019-10-25 20:21:01,390 29] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:21:01,410 29] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:21:01,601 29] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:01,617 29] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.2254401
+[API] [2019-10-25 20:21:01,866 47] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:21:01,882 47] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:21:01,902 47] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:21:01,918 47] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0543822
+[API] [2019-10-25 20:21:02,409 48] [INFO] [EmployeesController] - Entered Employees method
+[API] [2019-10-25 20:21:02,429 48] [INFO] [EmployeesController] - Getting employees from database
+[API] [2019-10-25 20:21:02,653 48] [INFO] [EmployeesController] - Getting employees from database completed. Returning the status object
+[API] [2019-10-25 20:21:02,673 48] [INFO] [EmployeesController] - Employees method Elapsed - 00:00:00.2614605
+[API] [2019-10-25 20:21:02,833 42] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-10-25 20:21:02,861 42] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-10-25 20:21:02,923 42] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:02,931 42] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.0986033
+[API] [2019-10-25 20:21:03,051 42] [INFO] [ReportsController] - Entered TimeReport method
+[API] [2019-10-25 20:21:03,067 42] [INFO] [ReportsController] - Getting data from the database
+[API] [2019-10-25 20:21:03,099 42] [INFO] [ReportsController] - Getting TimeReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:03,111 42] [INFO] [ReportsController] - TimeReport-Elapsed 00:00:00.0590296
+[API] [2019-10-25 20:21:26,164 29] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:21:26,172 29] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:21:26,235 29] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:21:26,242 29] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.0785506
+[API] [2019-10-25 20:21:26,677 47] [INFO] [EmployeesController] - Entered Employees method
+[API] [2019-10-25 20:21:26,685 47] [INFO] [EmployeesController] - Getting employees from database
+[API] [2019-10-25 20:21:26,694 47] [INFO] [EmployeesController] - Getting employees from database completed. Returning the status object
+[API] [2019-10-25 20:21:26,701 47] [INFO] [EmployeesController] - Employees method Elapsed - 00:00:00.0247262
+[API] [2019-10-25 20:21:26,766 29] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-10-25 20:21:26,788 29] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-10-25 20:21:26,871 29] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:26,877 29] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.1116428
+[API] [2019-10-25 20:21:26,992 42] [INFO] [ReportsController] - Entered TimeReport method
+[API] [2019-10-25 20:21:27,008 42] [INFO] [ReportsController] - Getting data from the database
+[API] [2019-10-25 20:21:27,020 42] [INFO] [ReportsController] - Getting TimeReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:27,030 42] [INFO] [ReportsController] - TimeReport-Elapsed 00:00:00.0375179
+[API] [2019-10-25 20:21:27,178 42] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:21:27,189 42] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:21:27,197 42] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:21:27,207 42] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0288004
+[API] [2019-10-25 20:21:27,686 48] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:21:27,695 48] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:21:27,769 48] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:27,778 48] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0909517
+[API] [2019-10-25 20:21:28,169 43] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:21:28,177 43] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:21:28,186 43] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:21:28,194 43] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0248997
+[API] [2019-10-25 20:21:32,899 47] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:21:32,909 47] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:21:32,918 47] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:21:32,927 47] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.0275020
+[API] [2019-10-25 20:21:33,392 29] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:21:33,448 29] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:21:33,453 29] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:21:33,453 29] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0704582
+[API] [2019-10-25 20:21:33,912 29] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:21:33,927 29] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:21:33,943 29] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:33,943 29] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0285387
+[API] [2019-10-25 20:21:34,433 29] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:21:34,441 29] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:21:34,449 29] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:21:34,457 29] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0241694
+[API] [2019-10-25 20:21:34,554 47] [INFO] [EmployeesController] - Entered EmployeesByStatus method
+[API] [2019-10-25 20:21:34,561 47] [INFO] [EmployeesController] - Getting employees by status from database 
+[API] [2019-10-25 20:21:34,586 47] [INFO] [EmployeesController] - Getting employees  by status from database  completed. Returning the status object
+[API] [2019-10-25 20:21:34,594 47] [INFO] [EmployeesController] - EmployeesByStatus method Elapsed - 00:00:00.0401485
+[API] [2019-10-25 20:21:35,046 48] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:21:35,052 48] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:21:35,076 48] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:21:35,083 48] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0380819
+[API] [2019-10-25 20:22:30,342 49] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:22:30,352 49] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:22:30,473 49] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:22:30,482 49] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.1401734
+[API] [2019-10-25 20:22:31,938 43] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:22:31,945 43] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:22:31,961 43] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:22:31,969 43] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0319242
+[API] [2019-10-25 20:22:32,440 43] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:22:32,447 43] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:22:32,462 43] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:22:32,471 43] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0310045
+[API] [2019-10-25 20:22:41,845 52] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:22:41,861 52] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:22:41,998 52] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:22:42,006 52] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.1606192
+[API] [2019-10-25 20:22:42,340 29] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:22:42,347 29] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:22:42,368 29] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:22:42,384 29] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0471042
+[API] [2019-10-25 20:22:42,857 43] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-10-25 20:22:42,863 43] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-10-25 20:22:42,974 43] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:22:42,981 43] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.1246238
+[API] [2019-10-25 20:22:43,341 29] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:22:43,348 29] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:22:43,358 29] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:22:43,366 29] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0249105
+[API] [2019-10-25 20:22:43,852 42] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:22:43,859 42] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:22:43,874 42] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:22:43,882 42] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0291607
+[API] [2019-10-25 20:23:02,855 48] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:23:02,866 48] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:23:02,955 48] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:23:02,964 48] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.1086833
+[API] [2019-10-25 20:23:03,349 49] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:23:03,356 49] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:23:03,364 49] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:23:03,371 49] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0220387
+[API] [2019-10-25 20:23:03,410 56] [INFO] [EmployeesController] - Entered EmployeesByStatus method
+[API] [2019-10-25 20:23:03,425 56] [INFO] [EmployeesController] - Getting employees by status from database 
+[API] [2019-10-25 20:23:03,550 56] [INFO] [EmployeesController] - Getting employees  by status from database  completed. Returning the status object
+[API] [2019-10-25 20:23:03,566 56] [INFO] [EmployeesController] - EmployeesByStatus method Elapsed - 00:00:00.1474082
+[API] [2019-10-25 20:23:03,865 56] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:23:03,880 56] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:23:03,927 56] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:03,943 56] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0697033
+[API] [2019-10-25 20:23:04,382 42] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:23:04,389 42] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:23:04,421 42] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:23:04,428 42] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0464981
+[API] [2019-10-25 20:23:04,950 56] [INFO] [ReportsController] - Entered BiometricReport method 
+[API] [2019-10-25 20:23:04,958 56] [INFO] [ReportsController] - Getting BiometricReport data from the database 
+[API] [2019-10-25 20:23:05,043 56] [INFO] [ReportsController] - Getting BiometricReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:05,051 56] [INFO] [ReportsController] - BiometricReport-Elapsed 00:00:00.1011328
+[API] [2019-10-25 20:23:08,634 49] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:23:08,642 49] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:23:08,654 49] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:23:08,666 49] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.0318066
+[API] [2019-10-25 20:23:09,142 43] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:23:09,147 43] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:23:09,163 43] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:09,163 43] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0288728
+[API] [2019-10-25 20:23:09,637 49] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:23:09,644 49] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:23:09,653 49] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:23:09,660 49] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0230656
+[API] [2019-10-25 20:23:09,699 42] [INFO] [EmployeesController] - Entered EmployeesByStatus method
+[API] [2019-10-25 20:23:09,706 42] [INFO] [EmployeesController] - Getting employees by status from database 
+[API] [2019-10-25 20:23:09,716 42] [INFO] [EmployeesController] - Getting employees  by status from database  completed. Returning the status object
+[API] [2019-10-25 20:23:09,723 42] [INFO] [EmployeesController] - EmployeesByStatus method Elapsed - 00:00:00.0241489
+[API] [2019-10-25 20:23:10,139 42] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:23:10,155 42] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:23:10,155 42] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:23:10,155 42] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0214213
+[API] [2019-10-25 20:23:10,211 56] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:23:10,219 56] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:23:10,235 56] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:10,242 56] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0298032
+[API] [2019-10-25 20:23:24,273 59] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:23:24,281 59] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:23:24,290 59] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:23:24,297 59] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.0237697
+[API] [2019-10-25 20:23:24,773 59] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:23:24,780 59] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:23:24,788 59] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:23:24,796 59] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0228259
+[API] [2019-10-25 20:23:25,288 59] [INFO] [EmployeesController] - Entered Employees method
+[API] [2019-10-25 20:23:25,295 59] [INFO] [EmployeesController] - Getting employees from database
+[API] [2019-10-25 20:23:25,304 59] [INFO] [EmployeesController] - Getting employees from database completed. Returning the status object
+[API] [2019-10-25 20:23:25,311 59] [INFO] [EmployeesController] - Employees method Elapsed - 00:00:00.0234966
+[API] [2019-10-25 20:23:25,381 29] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-10-25 20:23:25,399 29] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-10-25 20:23:25,530 29] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:25,537 29] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.1566374
+[API] [2019-10-25 20:23:25,658 53] [INFO] [ReportsController] - Entered TimeReport method
+[API] [2019-10-25 20:23:25,670 53] [INFO] [ReportsController] - Getting data from the database
+[API] [2019-10-25 20:23:25,694 53] [INFO] [ReportsController] - Getting TimeReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:25,710 53] [INFO] [ReportsController] - TimeReport-Elapsed 00:00:00.0523628
+[API] [2019-10-25 20:23:25,797 56] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:23:25,804 56] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:23:25,827 56] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:25,834 56] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0377365
+[API] [2019-10-25 20:23:26,280 59] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:23:26,287 59] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:23:26,297 59] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:23:26,306 59] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0256115
+[API] [2019-10-25 20:23:48,520 53] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:23:48,532 53] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:23:48,541 53] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:23:48,552 53] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.0323060
+[API] [2019-10-25 20:23:49,012 29] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:23:49,019 29] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:23:49,027 29] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:23:49,032 29] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0220643
+[API] [2019-10-25 20:23:49,188 29] [INFO] [EmployeesController] - Entered Attendance method
+[API] [2019-10-25 20:23:49,204 29] [INFO] [EmployeesController] - Getting attendance from database
+[API] [2019-10-25 20:23:49,219 29] [INFO] [EmployeesController] - Getting attendance from database completed. Returning the status object
+[API] [2019-10-25 20:23:49,301 29] [INFO] [EmployeesController] - Attendance method Elapsed - 00:00:00.1057114
+[API] [2019-10-25 20:23:49,522 59] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:23:49,534 59] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:23:49,544 59] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:23:49,551 59] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0294106
+[API] [2019-10-25 20:23:50,043 48] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:23:50,051 48] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:23:50,066 48] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:23:50,074 48] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.0315347
+[API] [2019-10-25 20:24:43,326 63] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-10-25 20:24:43,333 63] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-10-25 20:24:43,402 63] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-10-25 20:24:43,410 63] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.0842336
+[API] [2019-10-25 20:24:43,820 53] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-10-25 20:24:43,827 53] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-10-25 20:24:43,887 53] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-10-25 20:24:43,895 53] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0747058
+[API] [2019-10-25 20:24:44,334 29] [INFO] [EmployeesController] - Entered Employees method
+[API] [2019-10-25 20:24:44,342 29] [INFO] [EmployeesController] - Getting employees from database
+[API] [2019-10-25 20:24:44,443 29] [INFO] [EmployeesController] - Getting employees from database completed. Returning the status object
+[API] [2019-10-25 20:24:44,450 29] [INFO] [EmployeesController] - Employees method Elapsed - 00:00:00.1157627
+[API] [2019-10-25 20:24:44,513 68] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-10-25 20:24:44,529 68] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-10-25 20:24:44,624 68] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:24:44,632 68] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.1196675
+[API] [2019-10-25 20:24:44,757 69] [INFO] [ReportsController] - Entered TimeReport method
+[API] [2019-10-25 20:24:44,768 69] [INFO] [ReportsController] - Getting data from the database
+[API] [2019-10-25 20:24:44,796 69] [INFO] [ReportsController] - Getting TimeReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:24:44,803 69] [INFO] [ReportsController] - TimeReport-Elapsed 00:00:00.0461917
+[API] [2019-10-25 20:24:45,348 60] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-10-25 20:24:45,355 60] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-10-25 20:24:45,470 60] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-10-25 20:24:45,480 60] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.1319449
+[API] [2019-10-25 20:24:45,842 63] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-10-25 20:24:45,849 63] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-10-25 20:24:45,857 63] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-10-25 20:24:45,865 63] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.0237414

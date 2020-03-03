@@ -1,0 +1,108 @@
+<!-- body onload= startthe wave()  -->
+
+
+<html>
+<head>
+    <script language="javascript">
+
+        <!-- following 2 functions is for wave property for heading use span<>   -->
+        var wavePhase=0;
+        function start()
+        {
+            window.setInterval("wave()",10);
+        }
+
+        function wave()
+        {
+            wavePhase++;
+            mahi.filters("wave").phase=wavePhase;
+        }
+
+        <!--COLORS ON  BUTTONS   CHANGING  -->
+
+        function changeColor(obj)
+        {
+            obj.style.color="red";
+            obj.style.fontSize="8.5pt";
+            obj.style.fontFamily="verdana";
+            obj.style.fontWeight="bold";
+
+        }
+
+        function originalColor(obj)
+        {
+
+            obj.style.fontSize="7pt";
+            obj.style.fontWeight="bold";
+            obj.style.fontFamily="verdana";
+            obj.style.color="rgb(0,0,100)";
+
+        }
+
+        var i;
+        function printSpaces(n)
+        {
+            for(i=0;i<n;i++)
+            {
+                document.write("&nbsp;");
+            }
+        }
+
+
+
+
+
+    </script>
+
+    <STYLE>
+        a
+        {
+            text-decoration:none;
+            color:0066cc;
+            font-size="12px";
+            font-family:verdana;
+            font-weight=bold
+        }
+        a:hover
+        {
+            text-decoration:underline;
+            color:red;
+        }
+    </STYLE>
+</head>
+
+<body  bgproperties="fixed"   ONLOAD="">
+<!--           ***********                 -->
+<FORM action ="customerlink.jsp">
+
+
+<table align=center width=97%  bgcolor=white border="0" cellpadding=3 cellspacing=1 >
+<tr >
+    <td rowspan=6 >
+        <!-- inner table starts -->
+        <table  width=5% bgcolor=white border="0">
+            <tr><td height=27%></td></tr>
+            <tr><td><input  id="but1"  type="submit" name="submit"  onMouseOver="changeColor(but1)" onMouseOut="originalColor(but1)"  style="border-top-style:none;border-bottom-style:none;border-left-style=none;border-right-style:none;height:28px; width:107px;background-image:url(image/CLICKR.GIF);font-size:7pt;font-family:verdana;font-weight:bold;color:rgb(0,0,100)" value="My Details"></td></tr>
+            <tr><td><input  id="but2"  type="submit" name="submit"  onMouseOver="changeColor(but2)" onMouseOut="originalColor(but2)"  style="border-top-style:none;border-bottom-style:none;border-left-style=none;border-right-style:none;height:28px; width:107px;background-image:url(image/CLICKR.GIF);font-size:7pt;font-family:verdana;font-weight:bold;color:rgb(0,0,100)" value="My Bugs"></td></tr>
+            <tr><td><input  id="but3"  type="submit" name="submit"  onMouseOver="changeColor(but3)" onMouseOut="originalColor(but3)"  style="border-top-style:none;border-bottom-style:none;border-left-style=none;border-right-style:none;height:28px; width:107px;background-image:url(image/CLICKR.GIF);font-size:7pt;font-family:verdana;font-weight:bold;color:rgb(0,0,100)" value="Post New Bug"></td></tr>
+            <tr><td><input  id="but4"  type="submit" name="submit"  onMouseOver="changeColor(but4)" onMouseOut="originalColor(but4)"  style="border-top-style:none;border-bottom-style:none;border-left-style=none;border-right-style:none;height:28px; width:107px;background-image:url(image/CLICKR.GIF);font-size:7pt;font-family:verdana;font-weight:bold;color:rgb(0,0,100)" value="My Solutions"></td></tr>
+            <tr><td><input  id="but5"  type="submit"  name="submit" onMouseOver="changeColor(but5)" onMouseOut="originalColor(but5)"  style="border-top-style:none;border-bottom-style:none;border-left-style=none;border-right-style:none;height:28px; width:107px;background-image:url(image/CLICKR.GIF);font-size:7pt;font-family:verdana;font-weight:bold;color:rgb(0,0,100)" value="Logout"></td></tr>
+        </table>
+        <!-- inner table ends -->
+    </td>
+</tr>
+<tr><td><b><i>
+    <font face=verdana size=5px color=navyblue>
+    <span id="mahi" style="color:rgb(200,0,10);align:center;position:absolute;left:65;padding:5;       filter:wave(freq=1 ,phase=0,strength=5">
+    <font face="blueprint" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customer  Form</b></i></font></span>&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td  align=center bgcolor=#b5d1ee height=25 style="font-size:14;font-family:verdana;color=#000066"><b>CUSTOMER PERSONAL INFORMATION....... </b>  </td></tr>
+<tr><td height=10></td></tr>
+<tr><td><img src="image/kugelh_manager.jpg" style="width=1%" height="1%"></img>
+</td></tr>
+<tr><td height=10></td></tr>
+<tr><td height=10></td></tr>
+</table>
+</FORM>
+</body>
+</html>
+

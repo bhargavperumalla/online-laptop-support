@@ -1,0 +1,422 @@
+[2019-05-27 18:34:55,422 12] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 18:35:01,243 12] [INFO] [LoginController] - Elapsed00:00:05.8340755
+[2019-05-27 18:35:19,217 7] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 18:35:19,251 7] [INFO] [LoginController] - Elapsed00:00:00.0340155
+[2019-05-27 18:35:25,002 25] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 18:35:25,084 25] [INFO] [LoginController] - Elapsed00:00:00.0817830
+[2019-05-27 18:35:29,852 12] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:35:29,909 12] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0575567
+[2019-05-27 18:35:30,365 14] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:35:30,417 14] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0519459
+[2019-05-27 18:35:30,449 7] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:35:30,469 7] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0199332
+[2019-05-27 18:35:30,890 16] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:35:30,943 16] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0529914
+[2019-05-27 18:35:31,911 14] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:35:31,944 14] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0335795
+[2019-05-27 18:38:16,399 14] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:38:16,443 14] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0442160
+[2019-05-27 18:38:17,456 14] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:38:17,482 14] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0260831
+[2019-05-27 18:38:17,974 26] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:38:18,032 26] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0583875
+[2019-05-27 18:38:18,072 24] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:38:18,083 24] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0112055
+[2019-05-27 18:38:18,485 14] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:38:18,527 14] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0416467
+[2019-05-27 18:38:36,785 25] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:38:36,819 25] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0346700
+[2019-05-27 18:38:37,313 26] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:38:37,319 26] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0065022
+[2019-05-27 18:38:37,830 9] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:38:37,875 9] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0448826
+[2019-05-27 18:38:38,874 24] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:38:38,920 24] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0458676
+[2019-05-27 18:38:38,953 7] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:38:38,988 7] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0342931
+[2019-05-27 18:43:29,765 16] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:43:29,808 16] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0428148
+[2019-05-27 18:43:30,799 26] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:43:30,824 26] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0252025
+[2019-05-27 18:43:31,302 27] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:43:31,348 27] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0462305
+[2019-05-27 18:44:52,134 22] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:44:52,161 22] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0270690
+[2019-05-27 18:44:52,669 17] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:44:52,712 17] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0432652
+[2019-05-27 18:44:53,683 6] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:44:53,708 6] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0246234
+[2019-05-27 18:45:15,571 12] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:45:15,589 12] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0185035
+[2019-05-27 18:45:16,099 28] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:45:16,123 28] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0240301
+[2019-05-27 18:45:17,129 21] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:45:17,152 21] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0232686
+[2019-05-27 18:45:32,843 22] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:45:32,880 22] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0374677
+[2019-05-27 18:45:33,870 7] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:45:33,895 7] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0250451
+[2019-05-27 18:45:34,382 15] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:45:34,391 15] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0090564
+[2019-05-27 18:46:23,729 12] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:46:23,746 12] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0171852
+[2019-05-27 18:46:23,749 25] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:46:23,795 25] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0459526
+[2019-05-27 18:46:23,839 14] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:46:23,853 14] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0138926
+[2019-05-27 18:46:24,739 26] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:46:24,757 26] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0176949
+[2019-05-27 18:46:25,240 6] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:46:25,256 6] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0167205
+[2019-05-27 18:48:04,579 21] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:48:04,605 21] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0250944
+[2019-05-27 18:48:05,626 16] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:48:05,660 16] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0339533
+[2019-05-27 18:48:05,690 14] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:48:05,706 14] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0161725
+[2019-05-27 18:48:06,136 7] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:48:06,175 7] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0389993
+[2019-05-27 18:48:06,640 21] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:48:06,655 21] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0150677
+[2019-05-27 18:49:21,377 14] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:49:21,411 14] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0345891
+[2019-05-27 18:49:21,925 25] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:49:21,941 25] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0158940
+[2019-05-27 18:49:22,426 15] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:49:22,443 15] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0174780
+[2019-05-27 18:49:23,441 6] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:49:23,495 6] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0541118
+[2019-05-27 18:49:23,534 28] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:49:23,549 28] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0149802
+[2019-05-27 18:51:03,205 17] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:51:03,235 17] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0302077
+[2019-05-27 18:51:03,241 6] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:51:03,259 6] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0183484
+[2019-05-27 18:51:03,269 9] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:51:03,297 9] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0285236
+[2019-05-27 18:51:03,365 21] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:51:03,391 21] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0266910
+[2019-05-27 18:51:04,247 28] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:51:04,277 28] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0300272
+[2019-05-27 18:52:19,395 16] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:52:19,423 16] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0284623
+[2019-05-27 18:52:19,429 24] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:52:19,455 24] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0262730
+[2019-05-27 18:52:19,495 27] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:52:19,510 27] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0151613
+[2019-05-27 18:52:19,908 17] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:52:19,928 17] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0200801
+[2019-05-27 18:52:20,937 22] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:52:20,960 22] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0226808
+[2019-05-27 18:53:22,528 22] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 18:53:22,568 22] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0396425
+[2019-05-27 18:53:23,053 22] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 18:53:23,069 22] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0154771
+[2019-05-27 18:53:23,098 17] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 18:53:23,111 17] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0130732
+[2019-05-27 18:53:23,556 15] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 18:53:23,598 15] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0415013
+[2019-05-27 18:53:24,102 15] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 18:53:24,109 15] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0070248
+[2019-05-27 19:02:13,458 47] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:02:17,077 47] [INFO] [LoginController] - Elapsed00:00:03.6197266
+[2019-05-27 19:02:17,962 29] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:02:17,995 29] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0336021
+[2019-05-27 19:02:18,466 37] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:02:18,479 37] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0126618
+[2019-05-27 19:02:18,486 47] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:02:18,522 47] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0357232
+[2019-05-27 19:02:18,558 17] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:02:18,576 17] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0188881
+[2019-05-27 19:02:19,002 43] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:02:19,053 43] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0510185
+[2019-05-27 19:03:30,204 44] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:03:30,221 44] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0176202
+[2019-05-27 19:03:30,709 17] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:03:30,748 17] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0389223
+[2019-05-27 19:03:31,721 31] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:03:31,768 31] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0554746
+[2019-05-27 19:03:31,815 41] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:03:31,834 41] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0152630
+[2019-05-27 19:03:32,224 47] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:03:32,234 47] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0097427
+[2019-05-27 19:04:04,262 44] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:04:04,292 44] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0302886
+[2019-05-27 19:04:04,797 29] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:04:04,805 29] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0081410
+[2019-05-27 19:04:05,303 13] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:04:05,354 13] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0513047
+[2019-05-27 19:04:05,811 46] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:04:05,834 46] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0228319
+[2019-05-27 19:04:05,872 22] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:04:05,886 22] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0142886
+[2019-05-27 19:04:13,054 29] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:04:13,068 29] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0141988
+[2019-05-27 19:04:14,081 45] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:04:14,127 45] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0462260
+[2019-05-27 19:04:14,165 29] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:04:14,176 29] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0109041
+[2019-05-27 19:04:14,595 43] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:04:14,630 43] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0345956
+[2019-05-27 19:04:15,095 44] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:04:15,110 44] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0153856
+[2019-05-27 19:09:11,043 43] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:09:11,084 43] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0413106
+[2019-05-27 19:09:11,573 15] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:09:11,590 15] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0165366
+[2019-05-27 19:09:12,074 46] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:09:12,144 46] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0701056
+[2019-05-27 19:09:12,175 44] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:09:12,192 44] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0168508
+[2019-05-27 19:09:13,089 15] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:09:13,108 15] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0183854
+[2019-05-27 19:09:29,196 15] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:09:29,210 15] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0144357
+[2019-05-27 19:09:29,701 37] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:09:29,718 37] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0164596
+[2019-05-27 19:09:30,733 31] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:09:30,750 31] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0161796
+[2019-05-27 19:09:35,228 45] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:09:35,232 45] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:00.0038297
+[2019-05-27 19:09:53,819 44] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:09:53,833 44] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:00.0133876
+[2019-05-27 19:10:02,703 37] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:10:02,770 37] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:00.0668569
+[2019-05-27 19:10:05,776 22] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:10:05,787 22] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0103066
+[2019-05-27 19:10:06,282 47] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:10:06,288 47] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0060386
+[2019-05-27 19:10:07,315 13] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:10:07,359 13] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0437051
+[2019-05-27 19:10:09,282 42] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:10:09,299 42] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0170050
+[2019-05-27 19:10:09,302 43] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:10:09,343 43] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0408476
+[2019-05-27 19:10:09,374 45] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:10:09,391 45] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0164610
+[2019-05-27 19:10:10,308 44] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:10:10,344 44] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0353882
+[2019-05-27 19:10:10,823 31] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:10:10,845 31] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0219683
+[2019-05-27 19:10:54,600 42] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:10:54,642 42] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0426044
+[2019-05-27 19:10:55,111 44] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:10:55,138 44] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0263055
+[2019-05-27 19:11:03,241 13] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:11:40,399 13] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:37.1568756
+[2019-05-27 19:11:40,446 22] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:11:40,521 22] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0743222
+[2019-05-27 19:11:40,932 13] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:11:40,944 13] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0116924
+[2019-05-27 19:12:30,285 13] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:12:33,897 13] [INFO] [LoginController] - Elapsed00:00:03.6124295
+[2019-05-27 19:12:38,007 23] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:12:38,049 23] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0424729
+[2019-05-27 19:12:38,543 51] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:12:38,577 51] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0345837
+[2019-05-27 19:12:38,608 13] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:12:38,626 13] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0177850
+[2019-05-27 19:12:39,570 41] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:12:39,581 41] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0107151
+[2019-05-27 19:12:40,094 23] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:12:40,150 23] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0560881
+[2019-05-27 19:14:00,818 41] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:14:00,903 41] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0840644
+[2019-05-27 19:14:01,330 30] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:14:01,360 30] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0294978
+[2019-05-27 19:14:01,390 34] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:14:01,405 34] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0145454
+[2019-05-27 19:14:01,877 23] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:14:01,911 23] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0343564
+[2019-05-27 19:14:02,908 34] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:14:02,930 34] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0222135
+[2019-05-27 19:14:51,959 23] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:14:51,986 23] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0275471
+[2019-05-27 19:14:52,467 41] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:14:52,491 41] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0242434
+[2019-05-27 19:14:52,982 34] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:14:53,023 34] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0413157
+[2019-05-27 19:14:53,059 32] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:14:53,074 32] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0146427
+[2019-05-27 19:14:53,998 48] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:14:54,017 48] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0186409
+[2019-05-27 19:15:27,051 58] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:15:27,058 58] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0064820
+[2019-05-27 19:15:27,067 34] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:15:27,087 34] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0198520
+[2019-05-27 19:15:27,128 58] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:15:27,144 58] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0157910
+[2019-05-27 19:15:27,567 34] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:15:27,584 34] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0168485
+[2019-05-27 19:15:28,099 23] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:15:28,131 23] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0317307
+[2019-05-27 19:17:11,143 56] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:17:11,196 56] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0533258
+[2019-05-27 19:17:11,667 23] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:17:11,691 23] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0245117
+[2019-05-27 19:17:12,683 56] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:17:12,708 56] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0247580
+[2019-05-27 19:19:04,851 57] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:19:47,472 57] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:42.6252322
+[2019-05-27 19:21:04,122 19] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:21:07,648 19] [INFO] [LoginController] - Elapsed00:00:03.5267631
+[2019-05-27 19:21:11,738 72] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:21:11,777 72] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0390261
+[2019-05-27 19:21:12,242 80] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:21:12,294 80] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0520537
+[2019-05-27 19:21:12,330 75] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:21:12,349 75] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0186412
+[2019-05-27 19:21:13,262 69] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:21:13,316 69] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0532366
+[2019-05-27 19:21:13,769 72] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:21:13,797 72] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0282162
+[2019-05-27 19:21:16,779 53] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:21:16,792 53] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0129172
+[2019-05-27 19:21:17,290 69] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:21:17,297 69] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0069450
+[2019-05-27 19:21:17,807 75] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:21:17,850 75] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0426149
+[2019-05-27 19:21:18,493 69] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:21:18,531 69] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:00.0380998
+[2019-05-27 19:21:22,975 80] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:21:22,987 80] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0120882
+[2019-05-27 19:21:23,483 80] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:21:23,502 80] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0184065
+[2019-05-27 19:21:23,530 69] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:21:23,544 69] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0140756
+[2019-05-27 19:21:23,985 76] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:21:24,009 76] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0239808
+[2019-05-27 19:21:24,998 76] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:21:25,015 76] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0177320
+[2019-05-27 19:21:26,096 69] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:21:26,110 69] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0137845
+[2019-05-27 19:21:26,603 75] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:21:26,619 75] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0156240
+[2019-05-27 19:21:27,104 72] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:21:27,132 72] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0274043
+[2019-05-27 19:21:36,468 75] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:21:36,501 75] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:00.0326609
+[2019-05-27 19:21:40,208 69] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:21:40,218 69] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0108582
+[2019-05-27 19:21:41,260 80] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:21:41,282 80] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0216108
+[2019-05-27 19:21:41,735 19] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:21:41,748 19] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0129657
+[2019-05-27 19:21:46,788 76] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:21:46,819 76] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:00.0310439
+[2019-05-27 19:21:49,204 75] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:21:49,217 75] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0126986
+[2019-05-27 19:21:49,723 75] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:21:49,750 75] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0273698
+[2019-05-27 19:21:50,238 75] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:21:50,247 75] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0084671
+[2019-05-27 19:21:57,168 53] [INFO] [ProfileController] - Entered UpdateProfile method
+[2019-05-27 19:21:57,203 53] [INFO] [ProfileController] -  UpdateProfile-Elapsed00:00:00.0350467
+[2019-05-27 19:22:17,747 19] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:22:17,778 19] [INFO] [LoginController] - Elapsed00:00:00.0311525
+[2019-05-27 19:22:18,125 76] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:22:18,136 76] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0110176
+[2019-05-27 19:22:18,633 69] [INFO] [HomeController] - Entered GetEmployees method
+[2019-05-27 19:22:18,683 69] [INFO] [HomeController] - GetEmployees method Elapsed - 00:00:00.0495748
+[2019-05-27 19:22:18,699 53] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:22:18,736 53] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0361814
+[2019-05-27 19:22:18,797 72] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:22:18,819 72] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0215150
+[2019-05-27 19:22:19,145 19] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:22:19,173 19] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0279280
+[2019-05-27 19:22:20,160 53] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:22:20,179 53] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0189534
+[2019-05-27 19:22:28,787 69] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:22:28,814 69] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0265872
+[2019-05-27 19:22:29,288 19] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:22:29,304 19] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0159045
+[2019-05-27 19:22:29,805 69] [INFO] [ReportsController] - Entered MonthlyReport method
+[2019-05-27 19:22:29,841 69] [INFO] [ReportsController] - GetMonthlyReport-Elapsed00:00:00.0357802
+[2019-05-27 19:22:30,814 19] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:22:30,839 19] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0247258
+[2019-05-27 19:36:45,431 28] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:36:45,639 28] [INFO] [LoginController] - Elapsed00:00:00.2093100
+[2019-05-27 19:36:50,481 26] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:36:50,535 26] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0542447
+[2019-05-27 19:36:51,038 28] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:36:51,075 28] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0369591
+[2019-05-27 19:36:51,112 45] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:36:51,130 45] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0186991
+[2019-05-27 19:36:51,549 18] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:36:51,563 18] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0141218
+[2019-05-27 19:36:52,077 13] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:36:52,102 13] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0247771
+[2019-05-27 19:40:26,650 82] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:40:30,923 82] [INFO] [LoginController] - Elapsed00:00:04.2883090
+[2019-05-27 19:40:41,832 32] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:40:41,879 32] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0444854
+[2019-05-27 19:40:44,237 45] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:40:49,442 45] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:05.2051661
+[2019-05-27 19:40:50,213 29] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:40:50,240 29] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0272626
+[2019-05-27 19:40:50,740 32] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:40:50,795 32] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0542792
+[2019-05-27 19:40:51,254 32] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:40:51,274 32] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0198765
+[2019-05-27 19:41:06,094 30] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:41:07,633 30] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:01.5336115
+[2019-05-27 19:41:08,132 58] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:41:08,160 58] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0275266
+[2019-05-27 19:41:09,173 18] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:41:09,189 18] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0284115
+[2019-05-27 19:41:10,446 58] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:41:10,492 58] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0510949
+[2019-05-27 19:41:11,845 30] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:41:11,892 30] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0402358
+[2019-05-27 19:41:57,207 21] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:41:57,473 21] [INFO] [LoginController] - Elapsed00:00:00.2669517
+[2019-05-27 19:42:02,189 45] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:42:02,236 45] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0473091
+[2019-05-27 19:42:03,209 37] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:42:03,231 37] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0222642
+[2019-05-27 19:42:03,731 30] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:42:03,767 30] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0363105
+[2019-05-27 19:42:06,095 82] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:42:06,141 82] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0580704
+[2019-05-27 19:42:06,740 37] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:42:06,761 37] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0212336
+[2019-05-27 19:54:20,626 40] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:54:24,565 40] [INFO] [LoginController] - Elapsed00:00:03.9409145
+[2019-05-27 19:54:26,284 32] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:54:26,320 32] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0355707
+[2019-05-27 19:54:26,326 32] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:54:26,389 32] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0634272
+[2019-05-27 19:54:26,423 63] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:54:26,443 63] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0198774
+[2019-05-27 19:54:26,805 78] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:54:26,825 78] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0199538
+[2019-05-27 19:54:27,339 63] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:54:27,372 63] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0332665
+[2019-05-27 19:54:39,923 40] [INFO] [LoginController] - Entered UserAuthentication method
+[2019-05-27 19:54:39,953 40] [INFO] [LoginController] - Elapsed00:00:00.0299887
+[2019-05-27 19:54:40,314 58] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:54:40,322 58] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0072392
+[2019-05-27 19:54:40,832 23] [INFO] [HomeController] - Entered GetEmployees method
+[2019-05-27 19:54:40,874 23] [INFO] [HomeController] - GetEmployees method Elapsed - 00:00:00.0421177
+[2019-05-27 19:54:40,920 40] [INFO] [HomeController] - Entered GetMonthlyData method
+[2019-05-27 19:54:40,963 40] [INFO] [HomeController] - GetMonthlyData method Elapsed - 00:00:00.0425619
+[2019-05-27 19:54:40,998 44] [INFO] [HomeController] - Entered GetTime method
+[2019-05-27 19:54:41,020 44] [INFO] [HomeController] - GetTime method Elapsed - 00:00:00.0212142
+[2019-05-27 19:54:41,342 78] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:54:41,366 78] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0235064
+[2019-05-27 19:54:42,356 58] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:54:42,381 58] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0247218
+[2019-05-27 19:54:43,161 78] [INFO] [HomeController] - Entered GetCheckInDetails method
+[2019-05-27 19:54:43,174 78] [INFO] [HomeController] - GetCheckInDetails method Elapsed - 00:00:00.0131493
+[2019-05-27 19:54:43,666 78] [INFO] [ReportsController] - Entered Missing Entries Details method
+[2019-05-27 19:54:43,683 78] [INFO] [ReportsController] - MissingEntriesDetails-Elapsed00:00:00.0170016
+[2019-05-27 19:54:44,702 78] [INFO] [ReportsController] - Entered MonthlyReport method
+[2019-05-27 19:54:44,743 78] [INFO] [ReportsController] - GetMonthlyReport-Elapsed00:00:00.0407247
+[2019-05-27 19:54:45,197 40] [INFO] [HomeController] - Entered EmployeeAnniversary method
+[2019-05-27 19:54:45,206 40] [INFO] [HomeController] - EmployeeAnniversary method Elapsed - 00:00:00.0093293
+[2019-05-27 19:54:55,346 64] [INFO] [ReportsController] - Entered MonthlyReport method
+[2019-05-27 19:54:55,391 64] [INFO] [ReportsController] - GetMonthlyReport-Elapsed00:00:00.0448042
+[2019-05-27 19:54:59,754 9] [INFO] [ReportsController] - Entered MonthlyReport method
+[2019-05-27 19:54:59,834 9] [INFO] [ReportsController] - GetMonthlyReport-Elapsed00:00:00.0801870
+[2019-05-27 19:55:04,683 34] [INFO] [ReportsController] - Entered MonthlyReport method
+[2019-05-27 19:55:04,742 34] [INFO] [ReportsController] - GetMonthlyReport-Elapsed00:00:00.0589873

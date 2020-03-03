@@ -1,0 +1,388 @@
+﻿@model Attendance.Models.Employees
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@*<link href="~/content/plugins/icheck/all.css" rel="stylesheet" />*@
+<section class="content-header">
+    <h1>
+       Profile
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Profile</a></li>
+        <li class="active"> Employee</li>
+    </ol>
+</section>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border ">
+                <div class="form-horizontal">
+                    <div class="box-body">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @if (Session["IsProfileUpdated"].ToString().ToLower() == "false")
+                    {
+                        <label style="color:red">Please update the profile to move further</label>
+                    }
+                        <div class="form-group">
+                            <label class="control-label col-md-2">First Name</label>
+                            <div class="col-md-4" style="text-align:left">
+                                 <label class="control-label col-md-2"  style="font-weight: normal !important" ; align="left;">@Model.FirstName</label>
+                            </div>
+                            <label class="control-label col-md-2">Last Name</label>
+                            <div class="col-md-4" style="text-align: left;">
+                                <label class="control-label col-md-2" style="font-weight: normal !important;" align="left">@Model.LastName</label>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+
+                        <div class="form-group" >
+                            <label class="control-label col-md-2">Employee Id</label>
+                            <div class="col-md-4" style="text-align: left;" >
+                              
+                                @if (Model.EmployeeID == 0)
+                                {
+                                    <label class="control-label col-md-2" style="font-weight: normal !important;" align:left;>N/A</label>
+                                }
+                                else
+                                {
+                                    <label class="control-label col-md-2" style="font-weight: normal !important;" style="margin-left:auto">@Model.EmployeeID</label>
+                                }
+                           
+                            </div>
+                            <label class="control-label col-md-2">Biometric Id</label>
+                            <div class="col-md-4">
+                                <label class="control-label col-md-2" style="font-weight: normal !important;">@Model.BiometricID</label>
+                             
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Department </label>
+                            <div class="col-md-4">
+                                <label style="font-weight: normal !important;">@Model.Department</label>
+                              
+                            </div>
+                            <label class="control-label col-md-2">Designation</label>
+                            <div class="col-md-4">
+                                <label style="font-weight: normal !important;">@Model.Designation</label></div>
+                       
+                        </div>
+
+                        <div class="col-md-12"></div>
+
+                        <div class="form-group">
+                           <label class="control-label col-md-2 ">Gender </label>
+                        
+                           <div class="col-sm-4 col-lg-4 focu">
+                           @if(@Model.Gender==1)
+                               {
+                               <label  style="font-weight: normal !important;">Male</label>
+                               }
+                               else{
+                               <label style="font-weight: normal !important;">Female</label>
+                               }
+                            </div>
+
+                            @Html.LabelFor(model => model.DOJ, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <label style="font-weight: normal !important;">@String.Format("{0:MM/dd/yyyy}",Model.DOJ)</label>
+  
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Work Email<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Personal Email<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.PersonalEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PersonalEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mobile <span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", maxlength = 10 } })
+                                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">DOB<span style="color:red">*</span></label>
+                          
+                            <div class="col-md-4">
+                                <div class="input-group date " id="dtDob">
+                                    @Html.TextBoxFor(model => model.DOB, "{0:MM/dd/yyyy}", new { @class = "form-control", maxlength = 10 })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                            </div>
+
+                        </div>
+                        <div class="col-md-12"></div>
+                    
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Marital Status</label>
+                            <div class="col-sm-4 col-lg-4 focu">
+                                <div class="radio-inline">
+                                    @Html.RadioButtonFor(model => model.MaritalStatus, "True", new { @id = "Married", @name = "type", @class = "test_Css" }) Married
+                                </div>
+                                <div class="radio-inline">
+                                    @Html.RadioButtonFor(model => model.MaritalStatus, "False", new { @id = "Unmarried", @name = "type", @class = "test_css " }) Unmarried
+                                </div>
+                            
+                            </div>
+                            <label class="control-label col-md-2">DOA</label>
+                         
+                            <div class="col-md-4">
+                                <div class="input-group date " id="dtDoa">
+                                    @Html.TextBoxFor(model => model.DOA, "{0:MM/dd/yyyy}", new { @class = "form-control", maxlength = 10, @id = "DOA", @disabled = "disabled" })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.DOA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Blood Group</label>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.BloodGroup, new List<SelectListItem>
+                   {new SelectListItem{Text="Select", Value="-1"},
+                   new SelectListItem{Text="A+", Value="A+"},
+                     new SelectListItem{Text="B+", Value="B+"},
+                       new SelectListItem{Text="A-", Value="A-"},
+                         new SelectListItem{Text="B-", Value="B-"},
+                          new SelectListItem{Text="AB+", Value="AB+"},
+                       new SelectListItem{Text="AB-", Value="AB-"},
+                        new SelectListItem{Text="o+", Value="o+"},
+                     new SelectListItem{Text="o-", Value="o-"}}, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Photo</label>
+                            <div class="col-md-4">
+                                <input type="file" class="btn-file" name="fileupload" id="fileUpload" onchange="ValidateUpload(this)" />
+                                @Html.ValidationMessageFor(model => model.ProfilePic, "", new { @class = "text-danger" })
+                             </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Emergency Contact Name <span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.EmergencyContactPerson, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmergencyContactPerson, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Emergency Contact Relation<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.EmergencyContactRelation, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EmergencyContactRelation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Emergency Contact Phone <span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.EmergencyContactNumber, new { htmlAttributes = new { @class = "form-control", maxlength = 12 } })
+                                @Html.ValidationMessageFor(model => model.EmergencyContactNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                      
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-5">
+                                <button type="button" onclick="Update()" class="btn btn-success">Update</button>
+                             
+                                <input type="button" id="btnCancel" value="Cancel" class="btn btn-danger" />
+                              
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@section scripts{
+
+    <script>
+        function ValidateUpload(obj) {
+
+            if (obj.files.length > 0) {
+                var file = obj.files[0];
+                size = file.size;
+                var ext = file.name.substring(file.name.lastIndexOf('.') + 1);
+                if (ext != "jpeg" && ext != "png" && ext != "JPG" && ext != "gif" && ext != "jpg") {
+                    Clone("fileUpload");
+                    toastr.error("", "Please upload jpeg,png,jpg format only");
+                    return false;
+                }
+                else if (size > 1048576) {
+                    Clone("fileUpload");
+                    toastr.error("", "File should be less than or equal to 1 Mb");
+                    return false;
+                }
+                else return true;
+            }
+        }
+
+        function Update() {
+          
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+            var nanobar = new Nanobar({ bg: '#367fa9' });
+            nanobar.go(30);
+          
+            var data = new FormData();
+            if('@Model.ProfilePic' != ''){
+                data.append("ProfilePic" ,'@Model.ProfilePic');
+            }
+            else{
+                var files = $("#fileUpload").get(0).files;
+                if (files.length > 0) {
+                    if (window.FormData !== undefined) {
+                        for (var x = 0; x < files.length; x++) {
+                            data.append("ProfilePic" + x, files[x]);
+                        }
+                    }
+                }               
+            }
+            data.append("EmployeeID", @Session["EmployeeId"]);
+            data.append("MapleID", $('#MapleID').val());
+            data.append("FirstName",'@Model.FirstName');
+            data.append("LastName", '@Model.LastName');
+            data.append("BiometricID", '@Model.BiometricID');
+            data.append("DepartmentID", '@Model.DepartmentID');
+            data.append("DesignationID", '@Model.DesignationID');
+            data.append("Email", $('#Email').val());
+            data.append("PersonalEmail", $('#PersonalEmail').val());
+            data.append("Mobile", $('#Mobile').val());
+            data.append("DOB", $('#DOB').val());
+            data.append("DOJ", '@Model.DOJ');
+            data.append("DOA", $('#DOA').val());
+            data.append("Gender", '@Model.Gender');
+            data.append("MaritalStatus", $("input[name='MaritalStatus']:checked").val());
+            data.append("BloodGroup", $('#BloodGroup').val());
+            data.append("EmergencyContactPerson", $('#EmergencyContactPerson').val());
+            data.append("EmergencyContactRelation", $('#EmergencyContactRelation').val());
+            data.append("EmergencyContactNumber", $('#EmergencyContactNumber').val());
+            data.append("UserID", $('#UserID').val());
+            data.append("Password", $('#Password').val());
+            data.append("confirmPassword", $('#confirmPassword').val());
+         
+            $.ajax({
+                cache: 'false',
+                method: 'Post',
+                url: '@Url.Action("UpdateProfile", "Profile")',
+                contentType: 'application/json',
+                data: data,
+                processData: false,
+                contentType: false,
+                dataType: 'JSON',
+                success: function (data) {
+                    nanobar.go(60);
+                    console.log(data);
+                    if (data.Code == 200) {
+                        if(@Session["IsProfileUpdated"].ToString().ToLower() == true)
+                        {
+                            showToaster("Successfully updated.", "success");       
+                        }
+                        else
+                        {
+                            window.location.href = "@Url.Action("index", "Home")";
+                        }
+                        @*setTimeout(function () {
+                            location.href =  "@Url.Action("index","Home")";
+                        }, 2000);*@
+                         @*window.location.href = "@Url.Action("index", "Home")";*@
+                    }
+                    else if (data.Code == 400) {
+                        if (data.Errors != null) {
+                            $(data.Errors).each(function (i, e) {
+                                $('#' + e.key).addClass('input-validation-error');
+                                $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                            });
+                        }
+                        else {
+                            showToaster("Error getting data.", "error");
+                        }
+                    }
+                    else {
+                        if (data.Errors != null) {
+                            showToaster(data.Errors[0], "error");
+                        }
+                    }
+                    nanobar.go(100);
+                },
+                error: function () {
+                    showToaster("", "Error ocurred try again later", "error");
+                    nanobar.go(100);
+                }
+            });
+            return false;
+        }
+    </script>
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#DOA").prop("disabled", true);
+            $('input:radio').click(function () {
+                if ($(this).attr('id') == 'Unmarried') {
+                    $("#DOA").prop("disabled", true);
+                }
+                if ($(this).attr('id') == 'Married') {
+                    $("#DOA").show();
+                    $("#DOA").prop("disabled", false);
+                    $('#Unmarried').prop('checked', false);
+
+                    $('#DOA').val('');
+                }
+                else {
+                    $('#Married').prop('checked', false);
+                    $('#DOA').val('');
+                }
+
+            });
+
+        });
+
+</script>
+
+
+<script type="text/javascript">
+
+        $('#dtDob').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "bottom"
+        })//.datepicker("setDate", new Date());
+
+        $('#dtDoj').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "bottom"
+        })
+
+        $('#dtDoa').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "bottom"
+        })
+
+        $('#btnCancel').click(function () {
+            document.location = '@Url.Action("index", "Home")';
+        });
+</script>
+  
+
+}

@@ -1,0 +1,12 @@
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.Model\bin\Debug\Attendance.Model.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.Model\bin\Debug\Attendance.Model.pdb
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.Model\obj\Debug\Attendance.Model.csproj.CoreCompileInputs.cache
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.Model\obj\Debug\Attendance.Model.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.Model\obj\Debug\Attendance.Model.pdb
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.Model\obj\Debug\Attendance.Model.csprojAssemblyReference.cache
+D:\bhargav\Attendance.Model\bin\Debug\Attendance.Model.dll
+D:\bhargav\Attendance.Model\bin\Debug\Attendance.Model.pdb
+D:\bhargav\Attendance.Model\obj\Debug\Attendance.Model.csprojAssemblyReference.cache
+D:\bhargav\Attendance.Model\obj\Debug\Attendance.Model.csproj.CoreCompileInputs.cache
+D:\bhargav\Attendance.Model\obj\Debug\Attendance.Model.dll
+D:\bhargav\Attendance.Model\obj\Debug\Attendance.Model.pdb

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Unauthorized";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<style>
+    .warning-message {
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 550px;
+        padding: 15px;
+        font-size: 20px;
+    }
+
+        .warning-message i {
+            color: red;
+            font-size: 25px;
+        }
+</style>
+<section class="content">
+    <div id="box" style="margin-top:50px;">
+        <div id="warning" style="text-align:center;">
+            <center><p class="warning-message"><i class="fa fa-warning"></i> You are not authorized to view this page. <br />Please contact administrator.</p></center>
+        </div>
+    </div>
+</section>

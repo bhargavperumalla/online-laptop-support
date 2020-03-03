@@ -1,0 +1,140 @@
+﻿@model Attendance.Models.Monthly
+
+@{
+    ViewBag.Title = "Monthly";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Monthly Report
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Report</a></li>
+        <li class="active">Monthly</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    @Html.DropDownList("Months", ViewBag.Months as SelectList, new { @class = "form-control" })
+                </div>
+                <div class="col-sm-2">
+                    <div class="editor-field">
+                        @Html.DropDownList("Years", ViewBag.Years as SelectList, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <span>
+                        <a class="btn btn-success" onclick="GetMonthlyDetails()">Search</a>
+                        <a class="btn btn-danger" onclick="clearFields()" style="margin-left:5px">Clear</a>
+                    </span>
+                </div>
+                <div class="col-xs-1  pull-right">
+                    <button class="btn btn btn-warning" onclick="Excel()">Export</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box box-info">
+        <div class="box-body">
+            <table id="tbGrid" class="table table-bordered table-hover" style="width:100%;">
+                <thead>
+                    <tr class="danger">
+                        <th>S.No</th>
+                        <th>Employee Name</th>
+                        <th>Duration</th>
+                        <th>Permission</th>
+                        <th>Present</th>
+                        <th>ExtraHrsWorked</th>
+                        <th>Leaves</th>
+                        <th>SL</th>
+                        <th>PL</th>
+                        <th>ML</th>
+                        <th>COFF</th>
+                        <th>WFH</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</section>
+
+
+@section scripts
+{
+    <script>
+        $(function () {
+            GetMonthlyDetails();
+
+        });
+
+
+        function GetMonthlyDetails() {
+
+            nanobar.go(30);
+            var month = $('#Months').val();
+            var year = $('#Years').val();
+            $.ajax({
+                url: "@(Url.Action("GetMonthlyReport", "Reports"))",
+                type: "Post",
+                data: { "year": year, "month": month },
+                dataType: "json",
+                success: function (data) {
+                    nanobar.go(60);
+                    $("#tbGrid tbody").empty();
+                    var k = 1;
+                    for (var i = 0; i < data.Data.length; i++) {
+                        var tr;
+                        if (i % 2 != 0)
+                            tr = $('<tr class="info"/>');
+                        else
+                            tr = $('<tr/>');
+                        td = $('<td/>');
+                        tr.append("<td>" + k++ + "</td>");
+                        tr.append("<td>" + "<span class='far fa-file-alt'></span>&nbsp;&nbsp;&nbsp;" + data.Data[i].FirstName + "  " + data.Data[i].LastName + "</td>");
+                        tr.append("<td>" + data.Data[i].Duration + "</td>");
+                        tr.append("<td>" + data.Data[i].Permission + "</td>");
+                        tr.append("<td>" + data.Data[i].TotalDaysPresent + "</td>");
+                        tr.append("<td>" + data.Data[i].ExtraHrsWorked + "</td>");
+                        tr.append("<td>" + data.Data[i].Leaves + "</td>");
+                        tr.append("<td>" + data.Data[i].SL + "</td>");
+                        tr.append("<td>" + data.Data[i].PL + "</td>");
+                        tr.append("<td>" + data.Data[i].ML + "</td>");
+                        tr.append("<td>" + data.Data[i].COFF + "</td>");
+                        tr.append("<td>" + data.Data[i].WorkFromHome + "</td>");
+                        $('#tbGrid').append(tr);
+                    }
+                    nanobar.go(100);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    showToaster("Error getting data", "error");
+                }
+            });
+        }
+
+        function clearFields() {
+            $('#Months option').filter(function (i) { return this.hasAttribute('selected') }).prop('selected', 'selected')
+            $('#Years option').filter(function (i) { return this.hasAttribute('selected') }).prop('selected', 'selected')
+            GetMonthlyDetails();
+        }
+
+        function Excel() {
+
+            nanobar.go(30);
+            var month = $('#Months').val();
+            var year = $('#Years').val();
+            var Totalval = month + '$' + year;
+            var Url = '@Url.Action("GetMonthlyReportExcel", "Reports")'
+            window.location.href = Url + "?id=" + Totalval;
+            nanobar.go(100);
+        }
+
+
+    </script>
+}

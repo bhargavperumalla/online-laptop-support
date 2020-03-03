@@ -1,0 +1,641 @@
+﻿@model Attendance.Models.Employees
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@*<link href="~/content/plugins/icheck/all.css" rel="stylesheet" />*@
+<section class="content-header">
+    <h1>
+        Add Employee
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
+        <li class="active">Manage Employees</li>
+    </ol>
+</section><br />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border ">
+                <div class="form-horizontal">
+                    <div class="box-body">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label class="control-label col-md-2">First Name<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.TextBox("FirstName", null, new { autocomplete = "off", @class = "form-control txtvalidation", @maxlength = 50 })
+                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Last Name<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.TextBox("LastName", null, new { autocomplete = "off", @class = "form-control txtvalidation", @maxlength = 50 })
+                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Employee Id</label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.MapleID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MapleID, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Biometric Id</label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.BiometricID, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.BiometricID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Department<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.DropDownList("ddlDepartment", (new SelectList(new List<Attendance.Models.Employees>(), "DepartmentID", "Department")), new { data_placeholder = "--Select--", @class = "form-control select2", @style = "width: 100%;" })
+                                <span id="errspan" style="color:red;"></span>
+                                @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Designation<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.DropDownList("ddlDesignation", (new SelectList(new List<Attendance.Models.Employees>(), "DesignationID", "Designation")), new { data_placeholder = "--Select--", @class = "form-control select2", @style = "width: 100%;" })
+                                <span id="errspan" style="color:red;"></span>
+
+                                @Html.ValidationMessageFor(model => model.DesignationID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Work Email</label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Personal Email<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.PersonalEmail, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.PersonalEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Mobile<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.Mobile, null, new { htmlAttributes = new { maxlength = 10, autocomplete = "off", @class = "form-control", onkeypress = "return isNumber(event)" } })
+                                @*@Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control", maxlength = 10, autocomplete = "off", onkeypress = "return isNumber(event)" } })*@
+                                @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Gender</label>
+                            <div class="col-sm-4 col-lg-4 focu">
+                                <div class="radio-inline">
+                                    @Html.RadioButton("Gender", "1", true, new { @id = "1" }) Male
+                                </div>
+                                <div class="radio-inline">
+                                    @Html.RadioButtonFor(m => m.Gender, "2", new { @id = "2" }) Female
+                                </div>
+                                <br />
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <div class="input-group date " id="dtDob">
+                                    @Html.TextBoxFor(model => model.DOB, "{0:MM/dd/yyyy}", new { @class = "form-control", maxlength = 10 })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                            </div>
+                            @Html.LabelFor(model => model.DOJ, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+                                <div class="input-group date " id="dtDoj">
+                                    @Html.TextBoxFor(model => model.DOJ, "{0:MM/dd/yyyy}", new { @class = "form-control", maxlength = 10 })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.DOJ, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Marital Status</label>
+                            <div class="col-sm-4 col-lg-4 focu">
+                                <div class="radio-inline">
+                                    @Html.RadioButtonFor(model => model.MaritalStatus, "True", new { @id = "Married", @name = "type", @class = "test_Css" }) Married
+                                </div>
+                                <div class="radio-inline">
+                                    @Html.RadioButton("MaritalStatus", "False", true, new { @id = "Unmarried", @name = "type", @class = "test_css " }) Unmarried
+                                </div>
+                            </div>
+                            @Html.LabelFor(model => model.DOA, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-4">
+
+                                <div class="input-group date " id="dtDoa">
+                                    @Html.TextBoxFor(model => model.DOA, "{0:MM/dd/yyyy}", new { @class = "form-control", maxlength = 10, @id = "DOA", @disabled = "disabled" })
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </span>
+                                </div>
+                                @Html.ValidationMessageFor(model => model.DOA, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Blood Group</label>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.BloodGroup, new List<SelectListItem>
+                   {new SelectListItem{Text="Select", Value="-1"},
+                   new SelectListItem{Text="A+", Value="A+"},
+                     new SelectListItem{Text="B+", Value="B+"},
+                       new SelectListItem{Text="A-", Value="A-"},
+                         new SelectListItem{Text="B-", Value="B-"},
+                          new SelectListItem{Text="AB+", Value="AB+"},
+                       new SelectListItem{Text="AB-", Value="AB-"},
+                        new SelectListItem{Text="o+", Value="o+"},
+                     new SelectListItem{Text="o-", Value="o-"}}, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Photo</label>
+                            <div class="col-md-4">
+                                <input type="file" class="btn-file" name="fileUpload" id="fileUpload" onchange="ValidateUpload(this)" />
+                                @Html.ValidationMessage("fileUpload", "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Emergency Contact Name</label>
+                            <div class="col-md-4">
+                                @Html.TextBox("EmergencyContactPerson", null, new { autocomplete = "off", @class = "form-control txtvalidation", @maxlength = 50 })
+                                @Html.ValidationMessageFor(model => model.EmergencyContactPerson, "", new { @class = "text-danger" })
+                            </div>
+                            <label class="control-label col-md-2">Emergency Contact Relation</label>
+                            <div class="col-md-4">
+                                @Html.TextBox("EmergencyContactRelation", null, new { autocomplete = "off", @class = "form-control txtvalidation", @maxlength = 50 })
+                                @Html.ValidationMessageFor(model => model.EmergencyContactRelation, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Emergency Contact Phone</label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.EmergencyContactNumber, null, new { htmlAttributes = new { maxlength = 10, autocomplete = "off", @class = "form-control", onkeypress = "return isNumber(event)" } })
+                                @Html.ValidationMessageFor(model => model.EmergencyContactNumber, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <label class="control-label col-md-2">User Name<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control", maxlength = 50 } })
+                                @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">Password<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.TextBox("Password", null, new { @class = "form-control", @maxlength = 30, @autocomplete = "off", @type = "password" })
+                                <p><h5 id="result"></h5></p>
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+
+
+                            <label class="control-label col-md-2">Confirm Password<span style="color:red">*</span></label>
+                            <div class="col-md-4">
+                                @Html.TextBox("ConfirmPassword", null, new { @class = "form-control", @maxlength = 30, @autocomplete = "off", @type = "password" })
+                                <span id="result1" style="color:red"></span>
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <label class="control-label col-md-2">SlackId</label>
+                            <div class="col-md-4">
+                                @Html.TextBox("SlackId", null, new { @class = "form-control", @maxlength = 9, @autocomplete = "off", })
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12"></div>
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-5">
+                                <button type="button" id="btnSave" onclick="Save()" class="btn btn-success">Save</button>
+                                <input type="button" id="btnCancel" value="Cancel" style="margin-left:5px" class="btn btn-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+@section scripts {
+
+    <script>
+        $(".txtvalidation").keypress(function (e) {
+            var key = e.keyCode;
+            if (key >= 33 && key <= 64) {
+                e.preventDefault();
+            }
+            if (key == 92 || key == 8 || key == 124) {
+                e.preventDefault();
+            }
+        });
+        $("#Mobile").keypress(function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+        });
+
+        $("#EmergencyContactNumber").keypress(function (e) {
+            var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+        });
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+        function ValidateUpload(obj) {            
+            if (obj.files.length > 0) {
+                var file = obj.files[0];
+                size = file.size;
+                var ext = file.name.substring(file.name.lastIndexOf('.') + 1);
+                ext = ext.toLowerCase();
+                if (ext != "jpeg" && ext != "png" && ext != "jpg" && ext != "gif") {
+                    Clone("fileUpload");
+                    toastr.error("", "Please upload jpeg,png,jpg format only");
+                    return false;
+                }
+                else if (size > 1048576) {
+                    Clone("fileUpload");
+                    //alert("File should be less than or equal to 1 Mb");
+                    return false;
+                }
+                else return true;
+            }
+        }
+        function Clone(file) {
+            var oldInput = document.getElementById(file);
+            var newInput = document.createElement("input");
+            newInput.type = "file";
+            newInput.id = oldInput.id;
+            newInput.className = oldInput.className;
+            newInput.style.cssText = oldInput.style.cssText;
+            newInput.name = oldInput.name;
+            newInput.onchange = oldInput.onchange;
+            oldInput.parentNode.replaceChild(newInput, oldInput);
+        }
+
+        function Save() {            
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+
+            nanobar.go(30);
+            var model = {
+                "EmployeeID": 0,
+                "FirstName": $('#FirstName').val(),
+                "LastName": $('#LastName').val(),
+                "MapleID": $('#MapleID').val(),
+                "SlackId": $('#SlackId').val(),
+                "BiometricID": $('#BiometricID').val(),
+                "DepartmentID": $('#ddlDepartment').val(),
+                "DesignationID": $('#ddlDesignation').val(),
+                "Email": $('#Email').val(),
+                "PersonalEmail": $('#PersonalEmail').val(),
+                "Mobile": $('#Mobile').val(),
+                "DOB": $('#DOB').val(),
+                "DOJ": $('#DOJ').val(),
+                "DOA": $('#DOA').val(),
+                "Gender": $("input[name='Gender']:checked").val(),
+                "MaritalStatus": $("input[name='MaritalStatus']:checked").val(),
+                "BloodGroup": $('#BloodGroup').val(),
+                "EmergencyContactPerson": $('#EmergencyContactPerson').val(),
+                "EmergencyContactRelation": $('#EmergencyContactRelation').val(),
+                "EmergencyContactNumber": $('#EmergencyContactNumber').val(),
+                "UserID": $('#UserID').val(),
+                "Password": $('#Password').val(),
+                "ConfirmPassword": $('#ConfirmPassword').val(),
+            };
+
+            var files = document.getElementById('fileUpload').files;
+            if (files.length > 0) {
+                model.ProfilePic = files[0]
+            }
+            console.log(model);
+            var form_data = new FormData();
+
+            for (var key in model) {
+                form_data.append(key, model[key]);
+            }
+
+            $.ajax({
+                cache: 'false',
+                method: 'POST',
+                url: '@Url.Action("SaveEmployees", "Admin")',
+                contentType: 'application/json',
+                data: form_data,
+                processData: false,
+                contentType: false,
+                dataType: 'JSON',
+                success: function (data) {
+                    nanobar.go(60);
+                    console.log(data);
+                    if (data.Code == 400) {
+                        if (data.Errors != null) {
+                            $(data.Errors).each(function (i, e) {
+                                $('#' + e.key).addClass('input-validation-error');
+                                $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                            });
+                        }
+                        else {
+                            showToaster("Error getting data.", "error");
+                        }
+                    }
+                    else if (data.Code == 200) {
+                        window.location.href = "@Url.Action("employee", "Admin")";
+                    }
+                    else if (data.Valid == "true") {
+                        if (data.Success == "false") {
+                            showToaster(data.Data, "error");
+                        }
+                    }
+                    else {
+                        if (data.Errors != null) {
+                            showToaster(data.Errors[0], "error");
+                        }
+                    }
+
+                    nanobar.go(100);
+                },
+            });
+            return false;
+        }
+        function GetDesignations() {
+            var status = "true";
+            $.ajax({
+                url: "@(Url.Action("GetDesignations", "Admin"))",
+                type: 'GET',
+                data: { "Active": status },
+                success: function (data) {
+                    var district = "";
+                    district = district + '<option value=' + '-1' + '>' + 'Select' + '</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        district = district + '<option value=' + data[i].DesignationID + '>' + data[i].Designation + '</option>';
+                    }
+                    $('#ddlDesignation').html(district);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                }
+            });
+        }
+        function GetDepartment() {
+            var status = "true";
+            $.ajax({
+                url: "@(Url.Action("GetDepartments", "Admin"))",
+                type: 'GET',
+                data: { 'Active': status },
+                success: function (data) {
+                    var district = "";
+                    district = district + '<option value=' + '-1' + '>' + 'Select' + '</option>';
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        district = district + '<option value=' + data[i].DepartmentId + '>' + data[i].Department + '</option>';
+                    }
+                    $('#ddlDepartment').html(district);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+
+        $('#dtDob').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "bottom"
+        })//.datepicker("setDate", new Date());
+
+        $('#dtDoj').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "bottom"
+        })
+
+        $('#dtDoa').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            orientation: "bottom"
+        })
+
+        $('#btnCancel').click(function () {
+            document.location = '@Url.Action("employee", "Admin")';
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GetDesignations();
+            GetDepartment();
+            $("#DOA").prop("disabled", true);
+            $('input:radio').click(function () {
+                if ($(this).attr('id') == 'Unmarried') {
+                    $("#DOA").prop("disabled", true);
+                }
+                if ($(this).attr('id') == 'Married') {
+                    $("#DOA").show();
+                    $("#DOA").prop("disabled", false);
+                    $('#Unmarried').prop('checked', false);
+
+                    $('#DOA').val('');
+                }
+                else {
+                    $('#Married').prop('checked', false);
+                    $('#DOA').val('');
+                }
+
+            });
+
+            $('#ConfirmPassword').keypress(function (e) {
+                if (e.keyCode == 13 && !($("#btnSave").is('[disabled]'))) {
+                    Save();
+                }
+            });
+
+            $("#btnSave").prop("disabled", true);
+
+            $('#OldPassword').keyup(function () {
+                $(".field-validation-error").hide();
+
+                if ($('#OldPassword').val() != null && $('#OldPassword').val() == "") {
+                    $('#resukltOld').html('Old Password should not be Empty');
+                }
+                else {
+                    $('#resukltOld').html('');
+                }
+            })
+
+            $('#Password').keyup(function () {
+                $(".field-validation-error").hide();
+                $(".form-control").removeClass("input-validation-error");
+                $('#result').html(checkStrength($('#Password').val()))
+                if ($('#result').html() == "Strong" && $('#result1').html() == "Strong" && ($('#Password').val() == $('#ConfirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#result').html() == "Strong" && ($('#Password').val() == $('#ConfirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#ConfirmPassword').val() == null || $('#ConfirmPassword').val() == "") {
+                    $('#result1').html('Confirm password should not be Empty');
+                    $("#btnSave").prop("disabled", true);
+                }
+                if ($('#ConfirmPassword').val() != null && $('#ConfirmPassword').val() != "") {
+                    if (($('#Password').val() != $('#ConfirmPassword').val())) {
+                        $('#result1').html('Password and confirm password should be same');
+                        $("#btnSave").prop("disabled", true);
+                    }
+                    else {
+                        $('#result1').html('');
+                    }
+                }
+
+                if ($('#ConfirmPassword').val() == null || $('#ConfirmPassword').val() == "") {
+                    $('#result1').html('Confirm password should not be Empty');
+                    $("#btnSave").prop("disabled", true);
+                }
+                if ($('#Password').val() != null && $('#Password').val() == "") {
+                    $('#result').html('Password should not be Empty');
+                }
+            })
+
+            $('#ConfirmPassword').keyup(function () {
+                $(".field-validation-error").hide();
+                if ($('#ConfirmPassword').val() != null && $('#ConfirmPassword').val() != "") {
+                    //$('#result1').html(checkStrength($('#ConfirmPassword').val()))
+                    if (($('#Password').val() != $('#ConfirmPassword').val())) {
+                        $('#result1').html('Password and confirm password should be same');
+                        $("#btnSave").prop("disabled", true);
+                        return
+                    }
+                }
+                if ($('#ConfirmPassword').val() == null || $('#ConfirmPassword').val() == "") {
+                    $('#result1').html('Confirm password should not be Empty');
+                    $("#btnSave").prop("disabled", true);
+                    return
+                }
+                else {
+                    $('#result1').html('');
+                }
+                if ($('#result').html() == "Strong" && $('#result1').html() == "Strong" && ($('#Password').val() == $('#ConfirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#result').html() == "Strong" && ($('#Password').val() == $('#ConfirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#ConfirmPassword').val() != null && $('#ConfirmPassword').val() == "") {
+                    $('#result1').html('');
+                }
+            })
+
+
+
+        });
+
+
+        function checkStrength(password) {
+            //initial strength
+            var strength = 0
+
+            //if the password length is less than 6, return message.
+            if (password.length < 5) {
+                $('#result').removeClass()
+                $('#result').addClass('short')
+                return 'Too short'
+            }
+
+            if (password.length < 8) {
+                $('#result').removeClass()
+                $('#result').addClass('short')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+
+            //length is ok, lets continue.
+
+            //if length is 8 characters or more, increase strength value
+            if (password.length > 8) strength += 1
+
+            //if password contains both lower and uppercase characters, increase strength value
+            if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1
+
+            //if it has numbers and characters, increase strength value
+            if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) strength += 1
+
+            //if it has one special character, increase strength value
+            if (password.match(/[!|#|$|%|^|&]/g)) strength += 1
+
+            //if it has two special characters, increase strength value
+            if (password.match(/(.*[!,%,&,#,$,^,*,?,_,~].*[!,%,&,#,$,^,*,?,_,~])/)) strength += 1
+
+            //now we have calculated strength value, we can return messages
+
+            //if value is less than 2
+            if (strength < 2) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (strength == 2) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (!password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
+                $('#result').removeClass()
+                $('#result').addClass('Weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (!password.match(/([0-9])/)) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (!password.match(/[!|#|$|%|^|&|@@]/g)) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else {
+                $('#result').removeClass()
+                $('#result').addClass('strong')
+                return 'Strong'
+            }
+        }
+
+
+    </script>
+
+
+}
+

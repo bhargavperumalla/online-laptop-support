@@ -1,0 +1,714 @@
+﻿@model  IEnumerable<Attendance.Models.MissingEntries>
+@{
+    ViewBag.Title = "Missing";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml"; }
+
+@using (Html.BeginForm())
+{ }
+
+
+<section class="content-header">
+    <h1>
+        Missing/Invalid Entries Report
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Reports</a></li>
+        <li class="active">Missing Entries</li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    <input type="text" id="dtFrom" class="form-control" />
+
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" id="dtTo" class="form-control" />
+                </div>
+                <div class="col-sm-4">
+                    @Html.ListBox("ddlPerson", (new SelectList(new List<Attendance.Models.MissingEntries>(), "EmpId", "employeeName")), new { multiple = "multiple", @class = "form-control", @style = "width: 100%;" })
+                </div>
+                <div class="col-md-3">
+                    <span>
+                        <input type="button" id="search" value="Search" onclick="missing()" class="btn btn-success" />
+                        <input type="button" id="clearall" onclick="ClearDetails()" style="margin-left:5px" value="Clear" class="btn btn-danger" />
+                    </span>
+                </div>
+                @*@Html.DropDownList("LeaveType", new SelectList(ViewBag.list, "Select", "LeaveType", item.NDCCode), new { id = i + "NDCCode", data_placeholder = "--Select--", @class = "form-control select2", @style = "width: 100%;" })*@
+                @*@Html.DropDownList("LeaveType", new SelectList(ViewBag.list, "Select", "LeaveType"))*@
+                <div class="col-xs-1  pull-right">
+                    <button class="btn btn btn-success" onclick="Save()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="box box-info">
+
+        <div class="box-body">
+            <table id="tbGrid" class="table table-bordered table-hover" style="width:100%;">
+                <thead>
+                    <tr class="danger">
+                        <th hidden="hidden">Id</th>
+                        <th hidden="hidden">Employee Id</th>
+                        <th style="width:16%" rowspan="2"><nobr>EmployeeName</nobr></th>
+                        <th rowspan="2"><nobr>Date</nobr></th>
+                        <th style="width:9%;" rowspan="2"><nobr>In Time</nobr></th>
+                        <th style="width:9%;" rowspan="2"><nobr>Out Time</nobr></th>
+                        <th rowspan="2"><nobr>Leave/COFF</nobr></th>
+                        <th rowspan="2"><nobr>Half/Full Day</nobr></th>
+                        <th style="width:10%;" rowspan="2"><nobr>WFH</nobr></th>
+                        <th style="width:7%;" rowspan="2"><nobr>Permission<br />(Hrs)</nobr></th>
+                        <th rowspan="2" style="width:3%"><nobr>ExtraHours<br />(Hrs)</nobr></th>
+                        <th colspan="3" style="text-align: center"><nobr>Biometric </nobr> </th>
+                    </tr>
+                    <tr class="danger">
+                        <th>CheckIn</th>
+                        <th>CheckOut</th>
+                        <th>Copy</th>
+                    </tr>
+
+                </thead>
+
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        function missing()
+        {
+            var id='@ViewBag.Login';
+            if(id=="1")
+            {
+                MissingEntriesDetails();
+            }
+            else{
+                MissingEntries();
+            }
+
+        }
+        function ClearDetails()
+        {
+            var id='@ViewBag.Login';
+            if(id=="1"){
+                Clear1();
+            }
+            else
+            {
+                Clear();
+            }
+        }
+        function Clear() {
+            $('#dtFrom').datepicker("setDate", "@ViewBag.Dates[0]");
+            $('#dtTo').datepicker("setDate", "@ViewBag.Dates[1]");
+            $("#ddlPerson").multiselect('clearSelection');
+            MissingEntries();
+        }
+        function Clear1() {
+            $('#dtFrom').datepicker("setDate", "@ViewBag.FromDate");
+            $('#dtTo').datepicker("setDate","@ViewBag.ToDate");
+            MissingEntriesDetails();
+        }
+        $(function () {
+            var id='@ViewBag.Login';
+            if(id=="1"){
+                InitializeMissingDates();
+                MissingEntriesDetails();
+                GetEmployeesById('@Session["EmployeeId"].ToString()');
+                $( "#ddlPerson" ).prop( "disabled", true );
+            }
+            else{
+                InitializeDates();
+                MissingEntries();
+                GetEmployees();
+            }
+        });
+
+        function InitializeDates() {
+            $('#dtFrom').datepicker({
+                autoclose: true,
+                enddate: new Date(),
+                todayHighlight: true,
+                orientation: "bottom",
+                endDate: "@ViewBag.Dates[1]"
+            }).datepicker("setDate", "@ViewBag.Dates[0]");
+
+            $('#dtTo').datepicker({
+                autoclose: true,
+                enddate: new Date(),
+                todayHighlight: true,
+                orientation: "bottom",
+                endDate: "@ViewBag.Dates[1]"
+            }).datepicker("setDate", "@ViewBag.Dates[1]");
+        }
+
+        function InitializeMissingDates() {
+            $('#dtFrom').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                orientation: "bottom",
+                endDate: "@ViewBag.ToDate"
+            }).datepicker("setDate", "@ViewBag.FromDate");
+
+            $('#dtTo').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                orientation: "bottom",
+                endDate: "@ViewBag.ToDate"
+            }).datepicker("setDate", "@ViewBag.ToDate");
+        }
+
+        function GetEmployeesById(Id) {
+            $.ajax({
+                url: "@(Url.Action("EmployeeDetails", "Admin"))",
+                type: 'GET',
+                data: { 'Active': true },
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var district = "";
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        if (data[i].EmployeeID == Id) {
+                            district = district + '<option selected value=' + data[i].EmployeeID + '>' + data[i].FirstName + ' ' + data[i].LastName + '</option>';
+                        }
+                        else {
+                            district = district + '<option value=' + data[i].EmployeeID + '>' + data[i].FirstName + ' ' + data[i].LastName + '</option>';
+                        }
+                    }
+                    $('#ddlPerson').html(district);
+
+                    ApplyMultiSelect();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                }
+            });
+
+        }
+
+        function GetEmployees() {
+            $.ajax({
+                url: "@(Url.Action("EmployeeDetails", "Admin"))",
+                type: 'GET',
+                data: { 'Active': true },
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    var district = "";
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        if (data[i].FirstName == null) {
+                            data[i].FirstName = "";
+                        }
+                        if (data[i].LastName == null) {
+                            data[i].LastName = "";
+                        }
+                        district = district + '<option value=' + data[i].EmployeeID + '>' + data[i].FirstName + ' ' + data[i].LastName + '</option>';
+                    }
+
+                    $('#ddlPerson').html(district);
+
+                    ApplyMultiSelect();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                }
+            });
+        }
+        function ApplyMultiSelect() {
+            $('#ddlPerson').multiselect({
+                includeSelectAllOption: true,
+                maxHeight: 300,
+                buttonWidth: 'false',
+                selectAllText:"Select All",
+                selectAllValue: "-1",
+                buttonWidth:"300px",
+                buttonText: function (options, select) {
+                    if (options.length === 0) {
+                        return 'ALL';
+                    }
+                    else {
+                        var labels = [];
+                        options.each(function () {
+                            if ($(this).attr('label') !== undefined) {
+                                labels.push($(this).attr('label'));
+                            }
+                            else {
+                                labels.push($(this).html());
+                            }
+                        });
+                        return labels.join(', ') + ' ';
+                    }
+                }
+            });
+        }
+
+        function MissingEntries()
+        {
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+
+            nanobar.go(30);
+            var EmpID = [];
+            if ($('#ddlPerson').val().length > 0) EmpID = $('#ddlPerson').val();
+            else EmpID = " ";
+            var model = {
+                "FromDate": $('#dtFrom').val(),
+                "ToDate": $('#dtTo').val(),
+                "EmployeeID": EmpID,
+            };
+            var form_data = new FormData();
+            for (var key in model) {
+                form_data.append(key, model[key]);
+            }
+            $.ajax({
+                cache: 'false',
+                method: 'POST',
+                url: '@Url.Action("MissingEntries", "Reports")',
+                contentType: 'application/json',
+                data: form_data,
+                processData: false,
+                contentType: false,
+                dataType: 'JSON',
+                success: function (data) {
+                    nanobar.go(60);
+                    $("#tbGrid tbody").empty();
+                    var j = 0;
+                    for (var i = 0; i < data.length; i++) {
+                        var tr;
+                        if (i % 2 != 0) {
+                            tr = $('<tr class="info"/>');
+                        }
+                        else {
+                            tr = $('<tr/>');
+                        }
+                        var Fontstyle = "";
+                        td = $('<td/>');
+
+                        var momentObj = moment(data[i].InTime, ["h:mm A"])
+                        var InTime1 = momentObj.format("HH:mm");
+                        var option = '';
+                        var momentObj2 = moment(data[i].OutTime, ["h:mm A"])
+                        var OutTime1 = momentObj2.format("HH:mm");
+                        if (data[i].PermissionHrs != "12:00") {
+                            var PermHrs = data[i].PermissionHrs;
+                        }
+                        else {
+                            PermHrs = "00:00"
+                        }
+
+                        var id = data[i].EmployeeID;
+
+                        tr.append("<td hidden='hidden'>" + j + "</td>");
+                        tr.append("<td hidden='hidden'><input type='text' id='employeeid' class='form-control' value=" + data[i].EmployeeID + ">" + "</td>");
+
+                        tr.append("<td hidden='hidden'><input type='text' id='CreatedBy' class='form-control' value=" +  @Session["EmployeeId"]  + ">" + "</td>");
+                        tr.append("<td  class='Designationrw'>" + data[i].EmployeeName + "</td>");
+
+                        tr.append("<td  >" + data[i].Date + "</td>");
+
+                        tr.append("<td hidden='hidden'><input type='text' id='date' class='form-control' disabled='disabled' value=" + data[i].Date + ">" + "</td>");
+
+                        if (data[i].InTime != "12:00AM") {
+                            tr.append("<td><div class='input-group'><div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div><input id='" + j + "InTimectrl'  type='time' value=" + InTime1 + " + class='form-control'/></div><span hidden='hidden' id='" + j + "Error3' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'> Required</span></td>");
+                        }
+                       else if (data[i].InTime == "12:00AM") {
+                           tr.append("<td><div class='input-group'><div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div><input id='" + j + "InTimectrl'  type='time'  class='form-control'/></div><span hidden='hidden' id='" + j + "Error3' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'> Required</span></td>");
+                        }
+                        if (data[i].OutTime != "12:00AM") {
+                            tr.append("<td><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-time' id='myTime'></i></span><input id='" + j + "Outtimectrl' value=" + OutTime1 + " data-OutTime=" + data[i].OutTime + " type='time' class='form-control' /></div><span hidden='hidden' id='" + j + "Error4' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'> Required</span></td>");
+                        }
+                       else if (data[i].OutTime == "12:00AM" ) {
+                           tr.append("<td><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-time' id='myTime'></i></span><input id='" + j + "Outtimectrl'  data-OutTime=" + data[i].OutTime + " type='time' class='form-control' /></div><span hidden='hidden' id='" + j + "Error4' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'> Required</span></td>");
+                        }
+                        tr.append(" <td><select class='form-control' id='" + j + "LeaveType' ></select><span hidden='hidden' id='" + j + "Error1' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'> Required</span></td>");
+
+                        tr.append(" <td><select class='form-control' id='" + j + "Leave' ></select><span hidden='hidden' id='" + j + "Error' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'> Required</span></td>");
+
+                        tr.append(" <td><select class='form-control' id='" + j + "WFH'></select></td>");
+
+                        if (data[i].PermissionHrs != "00:00") {
+                            tr.append("<td><input type='text' id='" + j + "PermissionHRS'  class='timepicker form-control' name='timepicker'  value=" + data[i].PermissionHrs + ">" + "<span hidden='hidden' id='" + j + "Error5' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'>Enter Valid</span></td>");
+                        }
+                       else if (data[i].PermissionHrs == "00:00" ) {
+                           tr.append("<td><input type='text' id='" + j + "PermissionHRS' class='timepicker form-control' name='timepicker'>" + "<span hidden='hidden' id='" + j + "Error5' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'>Enter Valid</span></td>");
+                        }
+
+                        if (data[i].ExtraHrsWorked == "00:00" || data[i].ExtraHrsWorked == null) {
+                            tr.append("<td><input type='text' id='" + j + "ExtraHrsWorked'  class='timepicker form-control' name='timepicker'>" + "<span hidden='hidden' id='" + j + "Error6' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'>Enter Valid</span> </td>");
+                        }
+                        else if (data[i].ExtraHrsWorked != "00:00") {
+                            tr.append("<td><input type='text' id='" + j + "ExtraHrsWorked'   class='timepicker form-control' name='timepicker'  value=" + data[i].ExtraHrsWorked + ">" + "<span hidden='hidden' id='" + j + "Error6' class='field-validation-error text-danger' data-valmsg-for='Leave' data-valmsg-replace='true'>Enter Valid</span></td>");
+                        }
+                        if (data[i].CheckIn != "12:00AM") {
+                            tr.append("<td  style='vertical-align:middle'>" + data[i].CheckIn + "</td>");
+                        }
+                        else if (data[i].CheckIn == "12:00AM" || data[i].CheckIn == null) {
+                            tr.append("<td  style='vertical-align:middle'> </td>");
+                        }
+                        if (data[i].CheckOut != "12:00AM") {
+                            tr.append("<td  style='vertical-align:middle'>" + data[i].CheckOut + "</td>");
+                        }
+                        else if (data[i].CheckOut == "12:00AM" || data[i].CheckOut == null) {
+                            tr.append("<td  style='vertical-align:middle'> </td>");
+                        }
+                        tr.append("<td  style='vertical-align:middle'><button class='btn btn-primary btn-xs copy' id='" + j + "Editbtn1'  title='Copy' onclick=javascript:Edit(" + data[i].EmployeeID + ") data-InTime=" + data[i].InTime + " data-CheckIn=" + data[i].CheckIn + " data-CheckOut=" + data[i].CheckOut + " data-OutTime=" + data[i].OutTime + ">&nbsp;Copy</button></td>"); 7
+
+                        $('#tbGrid').append(tr);
+
+                        if (data[i].CheckIn == "12:00AM"  && data[i].CheckOut == "12:00AM" ) {
+                            $('#' + j + 'Editbtn1').hide();
+                        }
+
+                        $('#' + j + 'LeaveType').html("<option selected value='-1'>Select</option><option value='2'>SL</option><option value='1'>PL</option><option value='3'>ML</option><option value='4'>COFF</option>");
+                        $('#' + j + 'LeaveType').val(data[i].LeaveType.split(" "));
+
+                        $('#' + j + 'Leave').html("<option selected value='-1'>Select</option><option value='2'>FullDay</option><option value='1'>HalfDay</option>");
+                        $('#' + j + 'Leave').val(data[i].Leave);
+
+                        $('#' + j + 'WFH').html("<option selected value='-1'>Select</option><option value='2'>FullDay</option><option value='1'>HalfDay</option>");
+                        $('#' + j + 'WFH').val(data[i].WFH);
+
+                        $('#tbGrid > tbody  > tr').on('click', '.copy', function () {
+                          
+                            var InTime = $(this).attr("data-InTime");
+                            var OutTime = $(this).attr("data-OutTime");
+                            var CheckInTime= $(this).attr("data-CheckIn");
+                            var CheckOutTime = $(this).attr("data-CheckOut");
+                            var momentObj = moment(CheckInTime, ["h:mm A"])
+                            var InTime1 = momentObj.format("HH:mm");
+                            var momentObj2 = moment(CheckOutTime, ["h:mm A"])
+                            var OutTime1 = momentObj2.format("HH:mm");
+                            var EmpId = $(this).closest("tr").find("td:first").text();
+                             $('#' + EmpId + 'InTimectrl').val(InTime1);
+                             $('#' + EmpId + 'Outtimectrl').val(OutTime1);
+                              if(OutTime1=="00:00")
+                              {
+                               $(this).closest("tr").find('#' + EmpId + 'Outtimectrl').val('');
+                              }
+                        })
+                        j = j + 1;
+
+                    }
+                    nanobar.go(100);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 401) {
+                        nanobar.go(100);
+                        location.href = "@Url.Action("Timeout", "Error")";
+                    }
+                }
+            });
+        }
+        function MissingEntriesDetails() {
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+
+            nanobar.go(30);
+            var st=0;
+            var model = {
+                "EmployeeID": @Session["EmployeeId"],
+                "FromDate": $('#dtFrom').val(),
+                "ToDate": $('#dtTo').val(),
+            };
+            $.ajax({
+                cache: 'false',
+                method: 'POST',
+                url: '@Url.Action("MissingEntriesDetails", "Reports")',
+                contentType: 'application/json',
+                data: JSON.stringify({ model:model,st:st}),
+                dataType: "json",
+
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    nanobar.go(60);
+                    $("#tbGrid tbody").empty();
+                    var j = 0;
+                    for (var i = 0; i < data.length; i++) {
+                        var tr;
+                        if (i % 2 != 0) {
+                            tr = $('<tr class="info"/>');
+                        }
+                        else {
+                            tr = $('<tr/>');
+                        }
+                        var Fontstyle = "";
+                        td = $('<td/>');
+                        var momentObj = moment(data[i].InTime, ["h:mm A"])
+                        var InTime1 = momentObj.format("HH:mm");
+                        var option = '';
+                        var momentObj2 = moment(data[i].OutTime, ["h:mm A"])
+                        var OutTime1 = momentObj2.format("HH:mm");
+                        if (data[i].PermissionHrs != "12:00") {
+                            var PermHrs = data[i].PermissionHrs;
+                        }
+                        else {
+                            PermHrs = "00:00";
+                        }
+                        var id = data[i].EmployeeID;
+
+
+                        tr.append("<td hidden='hidden'>" + j + "</td>");
+                        tr.append("<td hidden='hidden'><input type='text' id='employeeid' class='form-control' value=" + data[i].EmployeeID + ">" + "</td>");
+
+                        tr.append("<td  class='Designationrw'>" + data[i].EmployeeName + "</td>");
+
+                        tr.append("<td  >" + data[i].Date + "</td>");
+
+                        tr.append("<td hidden='hidden'><input type='text' id='date' class='form-control' disabled='disabled' value=" + data[i].Date + ">" + "</td>");
+
+                        tr.append("<td hidden='hidden'><input type='text' id='CreatedBy' class='form-control' value=" +  @Session["EmployeeId"]  + ">" + "</td>");
+                        if (data[i].InTime != "12:00AM") {
+                            tr.append("<td><div class='input-group'><div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div><input id='" + j + "InTimectrl'  type='time' value=" + InTime1 + " + class='form-control'/></div></td>");
+                        }
+                       else if (data[i].InTime == "12:00AM") {
+                            tr.append("<td><div class='input-group'><div class='input-group-addon'><i class='glyphicon glyphicon-time'></i></div><input id='" + j + "InTimectrl'  type='time'  class='form-control'/></div></td>");
+                        }
+
+                        if (data[i].OutTime != "12:00AM" ) {
+                            tr.append("<td><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-time' id='myTime'></i></span><input id='" + j + "Outtimectrl' value=" + OutTime1 + " data-OutTime=" + data[i].OutTime + " type='time' class='form-control' /></div></td>");
+                        }
+                      else if (data[i].OutTime == "12:00AM") {
+                            tr.append("<td><div class='input-group'><span class='input-group-addon'><i class='glyphicon glyphicon-time' id='myTime'></i></span><input id='" + j + "Outtimectrl'  data-OutTime=" + data[i].OutTime + " type='time' class='form-control' /></div></td>");
+                        }
+
+                        tr.append(" <td><select class='form-control' id='" + j + "LeaveType' ></select></td>");
+
+                        tr.append(" <td><select class='form-control' id='" + j + "Leave' ></select></td>");
+
+                        tr.append(" <td><select class='form-control' id='" + j + "WFH' ></select></td>");
+
+                        if (data[i].PermissionHrs != "00:00") {
+                            tr.append("<td><input type='text' id='" + j + "PermissionHRS'  class='timepicker form-control' name='timepicker'  value=" + data[i].PermissionHrs + ">" + "</td>");
+                        }
+                      else if (data[i].PermissionHrs == "00:00") {
+                            tr.append("<td><input type='text' id='" + j + "PermissionHRS' class='timepicker form-control' name='timepicker'>" + "</td>");
+                        }
+                        if (data[i].ExtraHrsWorked == "00:00" || data[i].ExtraHrsWorked == null) {
+                            tr.append("<td><input type='text' id='" + j + "ExtraHrsWorked'  class='timepicker form-control' name='timepicker'>" + "</td>");
+                        }
+                        else if (data[i].ExtraHrsWorked != "00:00") {
+                            tr.append("<td><input type='text'id='" + j + "ExtraHrsWorked'  class='timepicker form-control' name='timepicker'  value=" + data[i].ExtraHrsWorked + ">" + "</td>");
+                        }
+                        if (data[i].CheckIn != "12:00AM") {
+                            tr.append("<td style='vertical-align:middle'>" + data[i].CheckIn + "</td>");
+                        }
+                        else if (data[i].CheckIn == "12:00AM" || data[i].CheckIn == null) {
+                            tr.append("<td style='vertical-align:middle'> </td>");
+                        }
+                        if (data[i].CheckOut != "12:00AM") {
+                            tr.append("<td style='vertical-align:middle'>" + data[i].CheckOut + "</td>");
+                        }
+                        else if (data[i].CheckOut == "12:00AM" || data[i].CheckOut == null) {
+                            tr.append("<td style='vertical-align:middle'> </td>");
+                        }
+                        tr.append("<td style='vertical-align:middle' ><button class='btn btn-primary btn-xs copy' id='" + j + "Editbtn1'  title='Copy' onclick=javascript:Edit(" + data[i].EmployeeID + ") data-InTime=" + data[i].InTime + " data-CheckIn=" + data[i].CheckIn + " data-CheckOut=" + data[i].CheckOut + " data-OutTime=" + data[i].OutTime + ">&nbsp;Copy</button></td>"); 7
+
+                        $('#tbGrid').append(tr);
+
+                        if (data[i].CheckIn == "12:00AM" && data[i].CheckOut == "12:00AM") {
+                            $('#' + j + 'Editbtn1').hide();
+                        }
+                        $( '#' + j + 'InTimectrl').attr("disabled","disabled");
+                        $( '#' + j + 'Outtimectrl').attr("disabled","disabled");
+                        $('#' + j + 'Leave').prop("disabled",true);
+                        $('#' + j + 'LeaveType').prop("disabled",true);
+                        $('#' + j + 'WFH').prop("disabled",true);
+                        $('#' + j + 'PermissionHRS').attr("disabled","disabled");
+                        $('#' + j + 'ExtraHrsWorked').attr("disabled","disabled");
+                        $('#' + j + 'LeaveType').html("<option selected value='-1'>Select</option><option value='2'>SL</option><option value='1'>PL</option><option value='3'>ML</option><option value='4'>COFF</option>");
+                        $('#' + j + 'LeaveType').val(data[i].LeaveType.split(" "));
+                        $('#' + j + 'Leave').html("<option selected value='-1'>Select</option><option value='2'>FullDay</option><option value='1'>HalfDay</option>");
+                        $('#' + j + 'Leave').val(data[i].Leave);
+                        $('#' + j + 'WFH').html("<option selected value='-1'>Select</option><option value='2'>FullDay</option><option value='1'>HalfDay</option>");
+                        $('#' + j + 'WFH').val(data[i].WFH);
+                        $('#tbGrid > tbody  > tr').on('click', '.copy', function () {
+                            var InTime = $(this).attr("data-InTime");
+                            var OutTime = $(this).attr("data-OutTime");
+                            var CheckInTime = $(this).attr("data-CheckIn");
+                            var CheckOutTime = $(this).attr("data-CheckOut");
+                            var momentObj = moment(CheckInTime, ["h:mm A"])
+                            var InTime1 = momentObj.format("HH:mm");
+                            var momentObj2 = moment(CheckOutTime, ["h:mm A"])
+                            var OutTime1 = momentObj2.format("HH:mm");
+                            var EmpId = $(this).closest("tr").find("td:first").text();
+                            $('#' + EmpId + 'InTimectrl').val(InTime1);
+                            $('#' + EmpId + 'Outtimectrl').val(OutTime1);
+                            if(OutTime1=="00:00")
+                             {
+                              $(this).closest("tr").find('#' + EmpId + 'Outtimectrl').val('');
+                             }
+                        })
+                        j = j + 1;
+                    }
+
+                    nanobar.go(100);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    if (xhr.status == 401) {
+                        nanobar.go(100);
+                        location.href = "@Url.Action("Timeout", "Error")";
+                    }
+                }
+            });
+        }
+        function Save() {
+            var list = [];
+            var MList = [];
+            var j = 1;
+            var count = 0;
+            var ITime;
+            var OTime;
+            nanobar.go(30);
+            var tableControl = document.getElementById('tbGrid');
+
+            $('#tbGrid > tbody  > tr').each(function (i) {
+                var EmployeeId = $(this).closest('tr').find("#employeeid").val();
+                var CreatedBy = $(this).closest('tr').find("#CreatedBy").val();
+                var EmpId = $(this).closest("tr").find("td:first").text();
+                var Date = $(this).closest("tr").find("#date").val();
+                var InTime = $(this).closest("tr").find('#' + EmpId + 'InTimectrl').val();
+                var OutTime = $(this).closest("tr").find('#' + EmpId + 'Outtimectrl').val();
+                var LeaveType = $(this).closest("tr").find('#' + EmpId + 'LeaveType').val();
+                var Leave = $(this).closest("tr").find('#' + EmpId + 'Leave').val();
+                var WFH = $(this).closest("tr").find('#' + EmpId + 'WFH').val();
+                var PermissionHrs = $(this).closest("tr").find('#' + EmpId + 'PermissionHRS').val();
+                var ExtraHrsWorked = $(this).closest("tr").find('#' + EmpId + 'ExtraHrsWorked').val();
+                var CurrentDateTime = $(this).closest("tr").find("#date").val();
+                $('#' + EmpId + 'Error').hide();
+                $('#' + EmpId + 'Error1').hide();
+                if (LeaveType == "1" || LeaveType == "2" || LeaveType == "3") {
+                    if (Leave == "2") {
+                        $(this).closest("tr").find('#' + EmpId + 'InTimectrl').val('');
+                        $(this).closest("tr").find('#' + EmpId + 'Outtimectrl').val('');
+                        ITime = null;
+                        OTime = null;
+                        InTime = ITime;
+                        OutTime = OTime;
+                    }
+                }
+                //$('#' + EmpId + 'Error3').hide();
+                //$('#' + EmpId + 'Error4').hide();
+                //if (LeaveType == 1 || LeaveType == 2 || LeaveType == 3)
+                //{ 
+                //    if (Leave == "1")
+                //    {  
+                //        if (InTime == "" || InTime == "00:00" || InTime==null) {
+                //            $('#' + EmpId + 'Error3').show();
+                //            count++;
+                //        }
+                //        if (OutTime == "" || OutTime=="00:00" ||OutTime==null) {
+                //            $('#' + EmpId + 'Error4').show();
+                //            count++;
+                //        }
+                //    }
+                //}
+
+                if (/^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$/.test(PermissionHrs) == false && PermissionHrs != "") {
+                   
+                    $('#' + EmpId + 'Error5').show();
+                    count++;
+                }
+                else {
+                    $('#' + EmpId + 'Error5').hide();
+                }
+                if (/^(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]$/.test(ExtraHrsWorked) == false && ExtraHrsWorked != "") {
+                    
+                    $('#' + EmpId + 'Error6').show();
+                    count++;
+                }
+                else {
+                    $('#' + EmpId + 'Error6').hide();
+                }
+
+                if (LeaveType != -1 && Leave == -1 ) {
+                    $('#' + EmpId + 'Error').show();
+                    count++;
+                }
+                else if (LeaveType == -1 && Leave != -1) {
+                    $('#' +EmpId + 'Error1').show();
+                    count++;
+                }
+                else {
+                    $('#' + EmpId + 'Error').hide();
+                    $('#' + EmpId + 'Error1').hide();
+                  
+                    if ((InTime != "00:00" && InTime != "" && InTime != null) || (OutTime != "00:00" && OutTime != "" && InTime != null) || (WFH != null && WFH != "-1") || (Leave != null && Leave != "-1") || (LeaveType != null && LeaveType != "-1")) {
+                        MList = { CurrentDateTime: CurrentDateTime, EmployeeID: EmployeeId, InTime: InTime, OutTime: OutTime, Leave: Leave, LeaveType: LeaveType, WFH: WFH, PermissionHrs: PermissionHrs, ExtraHrsWorked: ExtraHrsWorked, CreatedBy: CreatedBy }
+                        list.push(MList);
+                    }
+                }
+            });
+            if (list.length >= 1 && count == 0) {
+                var model = JSON.stringify({ "values": list });
+                console.log(model)
+                $.ajax({
+                    url: "@(Url.Action("SaveAttendanceDetails", "Admin"))",
+                    type: 'POST',
+                    data: model,
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    success: function (data) {
+                        nanobar.go(60);
+                        console.log(data);
+                        if (data.Code == 200) {
+                            alert('success');
+                            showToaster("successfully inserted.", "success");
+                            window.location.href = "@Url.Action("Attendance","Admin")";
+                        }
+                        else if (data.Code == 400) {
+                            if (data.Errors != null) {
+                                $(data.Errors).each(function (i, e) {
+                                    $('#' + e.key).addClass('input-validation-error');
+                                    $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                                });
+                            }
+                            else {
+                                showToaster("Error getting data.", "error");
+                            }
+                        }
+
+                        else if (data.Valid == "true") {
+                            if (data.Success == "false") {
+                                showToaster(data.Data, "error");
+                            }
+                            else {
+                                if (data.Success == "true") {
+                                    toastr.success("", data.Data);
+                                }
+                            }
+                        }
+                        else {
+                            if (data.Errors != null) {
+                                showToaster(data.Errors[0], "error");
+                            }
+                        }
+                        nanobar.go(100);
+                    },
+                    error: function (x, e, data) {
+                        if (x.status == 401) {
+                            nanobar.go(100);
+                            location.href = "@Url.Action("Timeout", "Error")";
+                        }
+                    }
+                });
+
+                return false;
+            }
+
+        }
+    </script>
+
+}
+
+
+

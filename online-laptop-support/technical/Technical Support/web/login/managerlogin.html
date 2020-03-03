@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+ <SCRIPT>
+  function setFocus()
+  {
+      document.LoginForm.uid.focus();
+  }
+ </SCRIPT>
+<BODY onLoad=setFocus() leftMargin=0  topMargin=0 marginheight="0" marginwidth="0">
+<TABLE border=0 cellPadding=0 cellSpacing=0 width="100%">
+<TR><TD align=right  height=70></TD></TR>
+</TBODY>
+</TABLE> 
+
+  <TABLE align=center bgColor=#6699cc border=0 cellPadding=10 cellSpacing=1 
+     height="72%" width="96%">
+  <TBODY>
+  <TR>
+    <TD align=right bgColor=#ffffff height="5%" vAlign=top  width="100%">
+  
+      <TABLE border=0 cellPadding=2 cellSpacing=0 width="100%">
+        <TBODY>
+        <TR width="100%">
+          <TD align=right colSpan=2 width="100%"><FONT color=#006388 
+            face=Arial size=4>Manager Login </FONT></TD></TR>
+        <TR>
+          <TD align=right bgColor=#e9e9e9 width="65%">
+           
+          </TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD align=middle bgColor=#ffffff  vAlign=center>
+
+<!--                    **************************                            -->
+      <FORM action="managersignin.jsp" method=post  name=LoginForm>
+
+
+      <TABLE border=0  width="100%">
+        <TBODY>
+        <TR>
+          <TD align=right width="100%">
+            <TABLE align=center border=0 cellPadding=4 width="100%" 
+            valign="middle">
+              <TBODY>
+
+              <TR>
+                <TD align=right noWrap vAlign=center width="35%">
+                <FONT color=#000080 face=Verdana size=1>User Name</FONT> </TD><TD width="3%">&nbsp;</TD><TD  align=left vAlign=center width="13%"><FONT color=#000080><INPUT name=uid  style="BACKGROUND-COLOR: #f1f1f1; BORDER-BOTTOM: rgb(206,206,206) 1px outset; BORDER-LEFT: rgb(206,206,206) 1px outset; BORDER-RIGHT: rgb(206,206,206) 1px outset; BORDER-TOP: rgb(206,206,206) 1px outset; FONT-FAMILY: verdana; FONT-SIZE: 7.5pt"> 
+                  <FONT size=+0></FONT></FONT></TD>
+                <TD width="40%">&nbsp;</TD></TR>
+                <TR>
+
+                <TD align=right noWrap vAlign=center width="35%"><FONT 
+                  color=#000080 face=Verdana size=1>Password</FONT> </TD>
+                <TD width="3%">&nbsp;</TD>
+                <TD align=left vAlign=center width="13%"><FONT 
+                  color=#000080>
+                  <INPUT name=pwd style="BACKGROUND-COLOR: #f1f1f1; BORDER-BOTTOM: rgb(206,206,206) 1px outset; BORDER-LEFT: rgb(206,206,206) 1px outset; BORDER-RIGHT: rgb(206,206,206) 1px outset; BORDER-TOP: rgb(206,206,206) 1px outset; FONT-FAMILY: verdana; FONT-SIZE: 7.5pt"
+                  type=password> <FONT size=+0></FONT></FONT></TD>
+                <TD align=left vAlign=center width="40%">
+                <input type=submit style="BACKGROUND-COLOR: steelblue; BACKGROUND-IMAGE
+                : url(go.gif); BACKGROUND-POSITION-X: 2px; BACKGROUND-REPEAT: no-repeat; HEIGHT: 24px; WIDTH: 28px" value="">
+            </TD></TR></TBODY>
+             	</TABLE></TD></TR></TBODY></TABLE></FORM></TD></TR></TBODY></TABLE>
+   </BODY></HTML>

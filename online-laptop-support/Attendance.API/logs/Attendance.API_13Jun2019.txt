@@ -1,0 +1,299 @@
+[API] [2019-06-13 07:53:32,462 16] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-06-13 07:53:35,341 16] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-06-13 07:57:28,575 16] [ERROR] [UserController] - System.Data.SqlClient.SqlException (0x80131904): Login failed for user 'IIS APPPOOL\DefaultAppPool'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Attendance.DAL.UserDAL.AutheticateUser(String sUserId, String sPassword) in D:\bhargav\Attendance.DAL\UserDAL.cs:line 67
+   at Attendance.API.Controllers.UserController.UserAuthenticate(LoginRequest model) in D:\bhargav\Attendance.API\Controllers\UserController.cs:line 33
+ClientConnectionId:1e3f34e7-93d5-4efa-b6e6-7b2aeb1346ac
+Error Number:18456,State:1,Class:14
+[API] [2019-06-13 07:57:30,260 16] [INFO] [UserController] - UserAuthenticate-Elapsed 00:03:59.2844630
+[API] [2019-06-13 07:57:41,152 8] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-06-13 07:57:41,185 8] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-06-13 07:57:51,734 8] [ERROR] [UserController] - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "Attendance2" requested by the login. The login failed.
+Login failed for user 'WORKGROUP\DESKTOP-22Q1SLD$'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Attendance.DAL.UserDAL.AutheticateUser(String sUserId, String sPassword) in D:\bhargav\Attendance.DAL\UserDAL.cs:line 67
+   at Attendance.API.Controllers.UserController.UserAuthenticate(LoginRequest model) in D:\bhargav\Attendance.API\Controllers\UserController.cs:line 33
+ClientConnectionId:87b00a38-60c2-4140-9942-91e0c0d43019
+Error Number:4060,State:1,Class:11
+[API] [2019-06-13 07:57:51,837 8] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:10.6870500
+[API] [2019-06-13 07:58:34,612 9] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-06-13 07:58:36,754 9] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-06-13 08:02:24,214 9] [ERROR] [UserController] - System.Data.SqlClient.SqlException (0x80131904): Cannot open database "Attendance2" requested by the login. The login failed.
+Login failed for user 'WORKGROUP\DESKTOP-22Q1SLD$'.
+   at System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   at System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   at System.Data.SqlClient.SqlConnection.Open()
+   at System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   at System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   at Attendance.DAL.UserDAL.AutheticateUser(String sUserId, String sPassword) in D:\bhargav\Attendance.DAL\UserDAL.cs:line 67
+   at Attendance.API.Controllers.UserController.UserAuthenticate(LoginRequest model) in D:\bhargav\Attendance.API\Controllers\UserController.cs:line 33
+ClientConnectionId:8519176a-7f2c-4c35-a81c-329fd7b14788
+Error Number:4060,State:1,Class:11
+[API] [2019-06-13 08:02:24,232 9] [INFO] [UserController] - UserAuthenticate-Elapsed 00:03:50.9046137
+[API] [2019-06-13 08:04:59,764 9] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-06-13 08:04:59,804 9] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-06-13 08:05:23,484 9] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-06-13 08:05:23,504 9] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:23.7437852
+[API] [2019-06-13 08:05:42,540 8] [INFO] [UserController] - Entered UserAuthenticate method 
+[API] [2019-06-13 08:05:42,549 8] [INFO] [UserController] - Getting UserDetails from database
+[API] [2019-06-13 08:05:43,617 8] [INFO] [UserController] - Getting UserDetails from database is completed. Returning the status object 
+[API] [2019-06-13 08:05:43,624 8] [INFO] [UserController] - UserAuthenticate-Elapsed 00:00:01.0833222
+[API] [2019-06-13 08:05:57,112 8] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:05:57,121 8] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:05:57,626 8] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:05:57,636 8] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.5240178
+[API] [2019-06-13 08:05:58,254 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:05:58,263 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:05:58,977 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:05:58,984 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.7305168
+[API] [2019-06-13 08:05:59,090 8] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:05:59,099 8] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:05:59,181 8] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:05:59,189 8] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.0994480
+[API] [2019-06-13 08:05:59,606 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:05:59,634 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:05:59,795 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:05:59,812 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.2050133
+[API] [2019-06-13 08:06:00,138 8] [INFO] [EmployeesController] - Entered Employees method
+[API] [2019-06-13 08:06:00,146 8] [INFO] [EmployeesController] - Getting employees from database
+[API] [2019-06-13 08:06:00,268 8] [INFO] [EmployeesController] - Getting employees from database completed. Returning the status object
+[API] [2019-06-13 08:06:00,277 8] [INFO] [EmployeesController] - Employees method Elapsed - 00:00:00.1385496
+[API] [2019-06-13 08:06:00,562 12] [INFO] [ReportsController] - Entered MonthlyReport method
+[API] [2019-06-13 08:06:00,572 12] [INFO] [ReportsController] - Getting MonthlyReport data from the database 
+[API] [2019-06-13 08:06:00,690 12] [INFO] [ReportsController] - Getting MonthlyReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:06:00,710 12] [INFO] [ReportsController] - MonthlyReport -Elapsed 00:00:00.1487738
+[API] [2019-06-13 08:06:00,984 8] [INFO] [ReportsController] - Entered TimeReport method
+[API] [2019-06-13 08:06:00,990 8] [INFO] [ReportsController] - Getting data from the database
+[API] [2019-06-13 08:06:01,006 8] [INFO] [ReportsController] - Getting TimeReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:06:01,014 8] [INFO] [ReportsController] - TimeReport-Elapsed 00:00:00.0303595
+[API] [2019-06-13 08:06:18,585 35] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:06:18,598 35] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:06:19,199 35] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:06:19,205 35] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.6203072
+[API] [2019-06-13 08:06:19,726 12] [INFO] [EmployeesController] - Entered EmployeesByStatus method
+[API] [2019-06-13 08:06:19,744 12] [INFO] [EmployeesController] - Getting employees by status from database 
+[API] [2019-06-13 08:06:20,651 12] [INFO] [EmployeesController] - Getting employees  by status from database  completed. Returning the status object
+[API] [2019-06-13 08:06:20,661 12] [INFO] [EmployeesController] - EmployeesByStatus method Elapsed - 00:00:00.9360006
+[API] [2019-06-13 08:06:21,092 10] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:06:21,114 10] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:06:21,650 10] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:06:21,658 10] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.5656792
+[API] [2019-06-13 08:06:22,123 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:06:22,143 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:06:23,155 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:06:23,171 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:01.0470077
+[API] [2019-06-13 08:06:23,620 8] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:06:23,632 8] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:06:24,265 8] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:06:24,298 8] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.6776900
+[API] [2019-06-13 08:06:26,122 26] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:06:26,140 26] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:06:26,718 26] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:06:26,728 26] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.6044354
+[API] [2019-06-13 08:06:27,163 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:06:27,185 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:06:28,090 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:06:28,097 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.9329611
+[API] [2019-06-13 08:06:28,135 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:06:28,145 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:06:28,797 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:06:28,805 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.6697721
+[API] [2019-06-13 08:06:29,193 10] [INFO] [DepartmentController] - GetDetails Started
+[API] [2019-06-13 08:06:29,208 10] [INFO] [DepartmentController] - Entereed into departmentDAL
+[API] [2019-06-13 08:06:30,299 10] [INFO] [DepartmentController] - Getting data from departmentDAL
+[API] [2019-06-13 08:06:30,318 10] [INFO] [DepartmentController] - Time elapsed : 00:00:01.1262655
+[API] [2019-06-13 08:06:30,708 8] [INFO] [DesignationController] - GetDetails Started
+[API] [2019-06-13 08:06:30,724 8] [INFO] [DesignationController] - Entereed into designationDAL
+[API] [2019-06-13 08:06:31,311 8] [INFO] [DesignationController] - Getting data from designationDAL
+[API] [2019-06-13 08:06:31,319 8] [INFO] [DesignationController] - Time elapsed : 00:00:00.6119218
+[API] [2019-06-13 08:06:31,695 8] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:06:31,710 8] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:06:32,604 8] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:06:32,655 8] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.9599474
+[API] [2019-06-13 08:08:29,592 12] [INFO] [EmployeesController] - Entered CreateEmployee method
+[API] [2019-06-13 08:08:29,612 12] [INFO] [EmployeesController] - Creating employees in database
+[API] [2019-06-13 08:08:30,557 12] [INFO] [EmployeesController] - Creating employees in database completed. Returning the status object
+[API] [2019-06-13 08:08:30,574 12] [INFO] [EmployeesController] - CreateEmployee method Elapsed - 00:00:00.9822940
+[API] [2019-06-13 08:08:31,073 8] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:08:31,082 8] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:08:31,715 8] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:08:31,723 8] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.6503665
+[API] [2019-06-13 08:08:32,095 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:08:32,103 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:08:32,987 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:08:32,998 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.9029792
+[API] [2019-06-13 08:08:33,099 23] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:08:33,112 23] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:08:33,641 23] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:08:33,648 23] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.5480205
+[API] [2019-06-13 08:08:34,089 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:08:34,096 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:08:34,646 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:08:34,656 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.5669642
+[API] [2019-06-13 08:08:35,158 8] [INFO] [EmployeesController] - Entered EmployeesByStatus method
+[API] [2019-06-13 08:08:35,164 8] [INFO] [EmployeesController] - Getting employees by status from database 
+[API] [2019-06-13 08:08:35,938 8] [INFO] [EmployeesController] - Getting employees  by status from database  completed. Returning the status object
+[API] [2019-06-13 08:08:35,945 8] [INFO] [EmployeesController] - EmployeesByStatus method Elapsed - 00:00:00.7876650
+[API] [2019-06-13 08:08:51,268 10] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:08:51,284 10] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:08:51,847 10] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:08:51,852 10] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.5848636
+[API] [2019-06-13 08:08:52,286 14] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:08:52,315 14] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:08:52,777 14] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:08:52,789 14] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.5035833
+[API] [2019-06-13 08:08:53,311 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:08:53,330 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:08:54,214 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:08:54,221 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.9102398
+[API] [2019-06-13 08:08:54,292 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:08:54,308 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:08:54,961 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:08:54,972 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.6794738
+[API] [2019-06-13 08:09:00,781 24] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:09:00,790 24] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:09:01,433 24] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:09:01,439 24] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.6578616
+[API] [2019-06-13 08:09:01,796 10] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:09:01,814 10] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:09:02,331 10] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:09:02,348 10] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.5520290
+[API] [2019-06-13 08:09:02,827 12] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:09:02,839 12] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:09:03,815 12] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:09:03,838 12] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:01.0116174
+[API] [2019-06-13 08:09:04,341 8] [INFO] [DepartmentController] - GetDetails Started
+[API] [2019-06-13 08:09:04,358 8] [INFO] [DepartmentController] - Entereed into departmentDAL
+[API] [2019-06-13 08:09:04,774 8] [INFO] [DepartmentController] - Getting data from departmentDAL
+[API] [2019-06-13 08:09:04,781 8] [INFO] [DepartmentController] - Time elapsed : 00:00:00.4399894
+[API] [2019-06-13 08:09:04,824 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:09:04,833 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:09:05,058 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:09:05,068 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.2441944
+[API] [2019-06-13 08:09:13,963 12] [INFO] [DepartmentController] - Insert Started
+[API] [2019-06-13 08:09:13,974 12] [INFO] [DepartmentController] - Entered into departmentDAL
+[API] [2019-06-13 08:09:14,365 12] [INFO] [DepartmentController] - Getting data from departmentDAL
+[API] [2019-06-13 08:09:14,380 12] [INFO] [DepartmentController] - Time elapsed : 00:00:00.4163921
+[API] [2019-06-13 08:09:15,738 8] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:09:15,745 8] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:09:16,344 8] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:09:16,351 8] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.6131334
+[API] [2019-06-13 08:09:16,740 8] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:09:16,754 8] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:09:17,174 8] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:09:17,185 8] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.4451967
+[API] [2019-06-13 08:09:17,262 8] [INFO] [DepartmentController] - GetDetails Started
+[API] [2019-06-13 08:09:17,270 8] [INFO] [DepartmentController] - Entereed into departmentDAL
+[API] [2019-06-13 08:09:17,509 8] [INFO] [DepartmentController] - Getting data from departmentDAL
+[API] [2019-06-13 08:09:17,525 8] [INFO] [DepartmentController] - Time elapsed : 00:00:00.2624510
+[API] [2019-06-13 08:09:17,769 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:09:17,777 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:09:18,652 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:09:18,669 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.9004775
+[API] [2019-06-13 08:09:18,759 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:09:18,766 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:09:19,338 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:09:19,346 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.5866130
+[API] [2019-06-13 08:09:19,863 30] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:09:19,875 30] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:09:20,360 30] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:09:20,368 30] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.5046019
+[API] [2019-06-13 08:09:20,522 10] [INFO] [EmployeesController] - Entered Attendance method
+[API] [2019-06-13 08:09:20,532 10] [INFO] [EmployeesController] - Getting attendance from database
+[API] [2019-06-13 08:09:21,099 10] [INFO] [EmployeesController] - Getting attendance from database completed. Returning the status object
+[API] [2019-06-13 08:09:21,196 10] [INFO] [EmployeesController] - Attendance method Elapsed - 00:00:00.6734490
+[API] [2019-06-13 08:09:21,413 24] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:09:21,422 24] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:09:22,133 24] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:09:22,152 24] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.7389653
+[API] [2019-06-13 08:09:22,382 30] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:09:22,404 30] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:09:22,970 30] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:09:22,977 30] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.5946998
+[API] [2019-06-13 08:09:23,389 8] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:09:23,403 8] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:09:23,612 8] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:09:23,622 8] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.2329177
+[API] [2019-06-13 08:09:25,678 35] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:09:25,688 35] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:09:26,256 35] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:09:26,263 35] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.5843581
+[API] [2019-06-13 08:09:26,679 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:09:26,764 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:09:27,330 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:09:27,337 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.6566551
+[API] [2019-06-13 08:09:27,726 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:09:27,739 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:09:28,620 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:09:28,630 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.9037542
+[API] [2019-06-13 08:09:28,710 5] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:09:28,721 5] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:09:29,218 5] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:09:29,229 5] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.5191061
+[API] [2019-06-13 08:09:31,063 12] [INFO] [EmployeesController] - Entered GetCheckInTime method
+[API] [2019-06-13 08:09:31,071 12] [INFO] [EmployeesController] - Getting CheckInTime from database
+[API] [2019-06-13 08:09:31,558 12] [INFO] [EmployeesController] - Getting CheckInTime from database completed. Returning the status object
+[API] [2019-06-13 08:09:31,564 12] [INFO] [EmployeesController] - GetCheckInTime method Elapsed - 00:00:00.5014145
+[API] [2019-06-13 08:09:31,669 32] [INFO] [ReportsController] - Entered DailyReport method
+[API] [2019-06-13 08:09:31,678 32] [INFO] [ReportsController] - Getting DailyReport data from the database
+[API] [2019-06-13 08:09:32,941 32] [INFO] [ReportsController] - Getting DailyReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:09:32,957 32] [INFO] [ReportsController] - DailyReport-Elapsed 00:00:01.2877125
+[API] [2019-06-13 08:09:37,324 8] [INFO] [EmployeesController] - Entered EmployeesByStatus method
+[API] [2019-06-13 08:09:37,341 8] [INFO] [EmployeesController] - Getting employees by status from database 
+[API] [2019-06-13 08:09:37,781 8] [INFO] [EmployeesController] - Getting employees  by status from database  completed. Returning the status object
+[API] [2019-06-13 08:09:37,787 8] [INFO] [EmployeesController] - EmployeesByStatus method Elapsed - 00:00:00.4630611
+[API] [2019-06-13 08:09:38,324 8] [INFO] [ReportsController] - Entered MissingEntriesReport method
+[API] [2019-06-13 08:09:38,333 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database 
+[API] [2019-06-13 08:09:39,219 8] [INFO] [ReportsController] - Getting MissingEntriesReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:09:39,228 8] [INFO] [ReportsController] - MissingEntriesReport-Elapsed00:00:00.9039194
+[API] [2019-06-13 08:09:39,320 40] [INFO] [EmployeesController] - Entered GetAnniversary method
+[API] [2019-06-13 08:09:39,331 40] [INFO] [EmployeesController] - Getting Anniversary from database
+[API] [2019-06-13 08:09:39,798 40] [INFO] [EmployeesController] - Getting Anniversary from database completed. Returning the status object
+[API] [2019-06-13 08:09:39,805 40] [INFO] [EmployeesController] - GetAnniversary method Elapsed - 00:00:00.4857927
+[API] [2019-06-13 08:09:40,310 8] [INFO] [EmployeesController] - Entered GetCheckOutTime method
+[API] [2019-06-13 08:09:40,320 8] [INFO] [EmployeesController] - Getting checkout time from database
+[API] [2019-06-13 08:09:41,090 8] [INFO] [EmployeesController] - Getting checkout time from database completed. Returning the status object
+[API] [2019-06-13 08:09:41,096 8] [INFO] [EmployeesController] - GetCheckOutTime method Elapsed - 00:00:00.7859315
+[API] [2019-06-13 08:09:50,696 32] [INFO] [ReportsController] - Entered DailyReport method
+[API] [2019-06-13 08:09:50,703 32] [INFO] [ReportsController] - Getting DailyReport data from the database
+[API] [2019-06-13 08:09:51,554 32] [INFO] [ReportsController] - Getting DailyReport data from the database is completed . Returning the status object 
+[API] [2019-06-13 08:09:51,569 32] [INFO] [ReportsController] - DailyReport-Elapsed 00:00:00.8740951

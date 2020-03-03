@@ -1,0 +1,220 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<section class="content-header">
+    <h1>
+        Holidays
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Admin</a></li>
+        <li class="active">Holidays</li>
+    </ol>
+</section>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary();
+    @Html.AntiForgeryToken()
+    <section class="content">
+        <div class="box box-info">
+            <div class="box-header with-border ">
+                <div class="form-horizontal">
+                    <div class="box-body">
+                        <div class="col-sm-2">
+                            <div class="editor-field">
+                                @Html.DropDownList("Years", ViewBag.Years as SelectList, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">                           
+                            <input type="file" id="fileUpload" class="btn btn-default" name="fileUpload" />
+                        </div>
+                        <div class="col-md-4">
+                            <input type="button" class="btn btn-primary" onclick="UploadData()" value="Upload" />
+                            <a href="~/Temp/HolidaysList.XLSX" style="margin-left:10%">Download Sample File</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box box-info" id="grid">
+            <div class="box-body">               
+                <table id="tbGrid"  class="table table-responsive table-bordered">
+                    <thead>
+                        <tr class="danger">
+                            <th>S.No</th>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Festival</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <div id="save">
+                    <div class="col-md-12"></div>
+                    <br />
+                    <center>
+                        <input type="button" onclick="Save()" value="Save" class="btn btn-success" />
+                    </center>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('#grid').hide();           
+        });
+        $("#Years").change(function () {
+            $('#grid').hide();
+            $("#fileUpload").val("");
+        });
+        function Save() {
+            $('#grid').hide();
+            $('#fileUpload').val("");
+            var tbGrid = [];
+            $('#tbGrid tbody>tr').each(function () {               
+                var day=$(this).find("td").eq(2)[0].innerHTML;
+                var Festival = $(this).find("td").eq(3)[0].innerHTML;
+                var date = $(this).find("td").eq(1)[0].innerHTML;
+                var list = {
+                    "Date": $(this).find("td").eq(1)[0].innerHTML,
+                    "Day": $(this).find("td").eq(2)[0].innerHTML,
+                    "Festival": $(this).find("td").eq(3)[0].innerHTML,
+                };
+                if (day != "" && Festival != "" && date != "") {
+                    tbGrid.push(list);
+                }     
+            });
+            var model = {
+                "Year": $('#Years').val(),
+                "HolidaysList": tbGrid
+            }            
+            $.ajax({
+                cache: 'false',
+                method: 'POST',
+                url: '@Url.Action("SaveHolidays", "Holidays")',
+                data: model,
+                dataType: 'JSON',
+                success: function (data) {
+                    if (data.Code == 200) {
+                        showToaster("Successfully Saved ", "success");
+                    }
+                    else if (data.Code == 400) {
+                        if (data.Errors != null) {
+                            $(data.Errors).each(function (i, e) {
+                                $('#' + e.key).addClass('input-validation-error');
+                                $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                            });
+                        }
+                        else {
+                            showToaster("Error getting data.", "error");
+                        }
+                    }
+                    else {
+                        if (data.Errors != null) {
+                            showToaster(data.Errors[0], "error");
+                        }
+                    }
+                    nanobar.go(100);
+                },
+                error: function () {
+                    showToaster("", "Error ocurred try again later", "error");
+                    nanobar.go(100);
+                }
+            });
+            return false;
+        }
+
+        function UploadData() {           
+            if ($('#fileUpload').val() === "") {
+                showToaster("Please select file", "error");
+                return false;
+            }
+            var nanobar = new Nanobar({ bg: '#367fa9' });
+            nanobar.go(30);
+            var model = {};
+            var files = document.getElementById('fileUpload').files;
+            var model = new FormData();
+            if (files.length > 0) {
+                if (window.FormData !== undefined) {
+                    for (var x = 0; x < files.length; x++) {
+                        model.append("File" + x, files[x]);
+                    }
+                }
+            }
+            model.append("Year", $('#Years').val());            
+            console.log(model);
+            $.ajax({
+                cache: 'false',
+                method: 'POST',
+                url: '@Url.Action("ImportHolidays", "Holidays")',
+                contentType: 'application/json',
+                data: model,
+                processData: false,
+                contentType: false,
+                dataType: 'JSON',
+                success: function (data) {
+                    $("#tbGrid tbody").empty();                   
+                    console.log(data);
+                    if (data.Valid == "false") {
+                        if (data.Errors != null) {
+                            $('#grid').hide();                          
+                            console.log(data.Errors);
+                            showToaster(data.Errors[0], "error");                            
+                        }
+                    }
+                    else if (data.Valid == "true") {
+                        if (data.Success == "false") {
+                            $('#grid').hide();                           
+                            showToaster(data.Data[0].errors[0], "error");
+                        }
+                        else {
+                            if (data.Success == "true") {
+                                $('#grid').show();                               
+                                data = data.Data.Data.HolidaysList;
+                                var j = 1;
+                                for (var i = 0; i < data.length; i++) {
+                                    var tr;
+                                    if (i % 2 != 0) {
+                                        tr = $('<tr class="info"/>');
+                                    }
+                                    else {
+                                        tr = $('<tr/>');
+                                    }
+                                    var Fontstyle = "";
+                                    td = $('<td/>');
+                                    tr.append("<td>" + "<span class='far fa-file-alt'></span>&nbsp;&nbsp;&nbsp;" + j++ + "</td>");
+                                    tr.append("<td>" + data[i].Date + "</td>");
+                                    tr.append("<td>" + data[i].Day + "</td>");
+                                    tr.append("<td>" + data[i].Festival + "</td>");
+                                    $('#tbGrid').append(tr);
+                                }
+                                nanobar.go(100);
+                            }
+                        }
+                    }
+                    nanobar.go(100);
+                },
+                error: function () {
+                    showToaster("", "Error ocurred try again later", "error");
+                }
+            });
+            return false;
+        }       
+
+    </script>
+
+
+}
+
+
+
+
+

@@ -1,0 +1,174 @@
+﻿@model Attendance.Models.Employees
+
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@*<link href="~/content/plugins/icheck/all.css" rel="stylesheet" />*@
+<section class="content-header">
+    <h1>
+        Employee
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>Admin</a></li>
+        <li class="active">Employee</li>
+    </ol>
+</section><br />
+
+<section class="content">
+    <div class="box box-info">
+        <div class="box-body">
+            <div class="pull-right">
+
+                <input checked="checked"
+                       id="status"
+                       name="status"
+                       type="radio"
+                       value="Active" /> &nbsp;Active
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="status"
+                       name="status"
+                       type="radio"
+                       value="InActive" /> &nbsp;InActive
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <input type="button" id="btnAdd" style="margin-top:-5px;color:white;background-color:green" class="btn btn-add fa-plus" value="+ Add Employee" />
+            </div>
+
+            <hr style="border:0px solid black" />
+            <table id="tbGrid" class="table table-bordered table-hover" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th class="col-md-2">Employee Name</th>
+                        <th class="col-md-2">Designation</th>
+                        <th class="col-md-2">Mobile No</th>
+                        <th class="col-md-3">Email</th>
+                        <th class="col-md-1">Active</th>
+                        <th class="col-md-1">Admin</th>
+                        <th class="col-md-1">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div><!-- /.box-body -->
+    </div><!-- /.box -->
+</section>
+
+@section scripts
+{
+    <script type="text/javascript">
+       
+
+        $(function () {
+            GetEmployeeDetails();
+
+        });
+
+        $(function () {            
+            //$("#tbGrid").DataTable({
+            //    "order": [0, "asc"],
+            //    columnDefs: [
+            //        { targets: 0 },
+            //        { targets: 1 },
+            //        { targets: 2 },
+            //        { targets: 3 },
+            //        { targets: 4 },
+            //        { targets: 5 },
+            //        { targets: 6, width: 10 },
+            //         { "bSortable": false, "aTargets": [4] },
+            //    { "bSortable": false, "aTargets": [5] },
+            //        { "bSortable": false, "aTargets": [6] }
+            //    ]
+            //});
+
+        });
+
+
+        $('#btnAdd').click(function () {
+            document.location = '@Url.Action("AddEmployee", "Admin")';
+        });
+
+        
+        //$(function () {
+        //    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+        //        checkboxClass: 'icheckbox_flat-green',
+        //        radioClass: 'iradio_flat-green'
+        //    })
+        //});
+
+    </script>
+
+    <script>
+        function GetEmployeeDetails() {
+           
+            $.ajax({
+                url: "@(Url.Action("GetemployeeDetails", "Admin"))",
+                type: "Post",
+                data: {},
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                   
+                    for (var i = 0; i < data.length; i++) {
+                        var Fontstyle = "";
+                        tr = $('<tr/>');
+                        td = $('<td/>');
+                        tr.append("<td>" + "<span class='far fa-file-alt'></span>&nbsp;&nbsp;&nbsp;" + data[i].firstName + "</td>");
+                        tr.append("<td>" + data[i].designation + "</td>");
+                        tr.append("<td>" + data[i].mobile + "</td>");
+                        tr.append("<td>" + data[i].workEmail + "</td>");
+                       
+                        if (data[i].active == 1) {
+                            tr.append("<td>" + "<span  class='fa fa-check' style='color:green'></span>" + "</td>");
+                        }
+                        else
+                        {
+                            tr.append("<td>" + "<span class='glyphicon glyphicon-remove' style='color:red'></span>" + "</td>");
+                        }
+                        
+                        if (data[i].admin == 1) {
+                            tr.append("<td>" + "<span  class='fa fa-check' style='color:green'></span>" + "</td>");
+                        }
+                        else
+                        {
+                            tr.append("<td>" + "<span class='glyphicon glyphicon-remove' style='color:red'></span>" + "</td>");
+                        }
+                        tr.append("<td>" + "<a class='btn btn-default btn-xs'>" + "<i class='fa fa-pencil'>" + "</i>" + "</a>" + "&nbsp;&nbsp;&nbsp;" + "<a onclick='return confirm(\"Are you sure you want to deactivate " + data[i].firstName + "\")' class='btn btn-default btn-xs'>" + "<i class='fa fa-trash'>" + "</i>" + "</a>" + "</td>");
+                       
+
+                        $('#tbGrid').append(tr);
+                    }
+                    $("#tbGrid").DataTable({
+                        "order": [0, "asc"],
+                        columnDefs: [
+                            { targets: 0 },
+                            { targets: 1 },
+                            { targets: 2 },
+                            { targets: 3 },
+                            { targets: 4 },
+                            { targets: 5 },
+                            { targets: 6, width: 10 },
+                             {"bSortable": false, "aTargets": [4] },
+                        { "bSortable": false, "aTargets": [5] },
+                            { "bSortable": false, "aTargets": [6] }
+                        ]
+                    });
+
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                }
+            });
+
+        }</script>
+
+
+}
+
+

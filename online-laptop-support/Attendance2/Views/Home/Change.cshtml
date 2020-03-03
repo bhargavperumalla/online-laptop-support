@@ -1,0 +1,304 @@
+﻿@model Attendance.Models.ChangePassword
+@{
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="content-header">
+        <h1>
+            Change Password
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Change Password</li>
+        </ol>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <div class="form-horizontal">
+                            <div class="box-body">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 ">Old Password</label>
+                                    <div class="col-md-3">
+                                        @Html.TextBox("oldPassword", null, new { @class = "form-control", @maxlength = 30, @autocomplete = "off", @type = "password" })
+                                        <p><h5 id="resukltOld" style="color:#FF0000;"></h5></p>
+                                        @Html.ValidationMessageFor(model => model.oldPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 ">New Password</label>
+                                    <div class="col-md-3">
+                                        @Html.TextBox("newPassword", null, new { @class = "form-control", @maxlength = 30, @autocomplete = "off", @type = "password" })
+                                        <p><h5 id="result"></h5></p>
+                                        @Html.ValidationMessageFor(model => model.newPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-4 ">Confirm Password</label>
+                                    <div class="col-md-3">
+                                        @Html.TextBox("confirmPassword", null, new { @class = "form-control", @maxlength = 30, @autocomplete = "off", @type = "password" })
+                                        <span id="result1" style="color:red"></span>
+                                        @Html.ValidationMessageFor(model => model.confirmPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <input type="button" id="btnSave" onclick="Change()" value="Change" class="btn btn-success" />
+                                <input type="button" id="btnCancel" value="Cancel" onclick="Cancel()" class="btn btn-danger" style="margin-left:5px" />
+                            </div>
+                            <div class="col-md-4"></div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </section>
+
+}
+
+
+@section scripts
+    {
+    <script>
+        $(function () {
+            $('#confirmPassword').keypress(function (e) {
+                if (e.keyCode == 13 && !($("#btnSave").is('[disabled]'))) {
+                    Save();
+                }
+            });
+
+            $("#btnSave").prop("disabled", true);
+
+            $('#oldPassword').keyup(function () {
+                $(".field-validation-error").hide();
+
+                if ($('#oldPassword').val() != null && $('#oldPassword').val() == "") {
+                    $('#resukltOld').html('Old Password should not be Empty');
+                }
+                else {
+                    $('#resukltOld').html('');
+                }
+            })
+
+            $('#newPassword').keyup(function () {
+                $(".field-validation-error").hide();
+                $(".form-control").removeClass("input-validation-error");
+                $('#result').html(checkStrength($('#newPassword').val()))
+                if ($('#result').html() == "Strong" && $('#result1').html() == "Strong" && ($('#newPassword').val() == $('#confirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#result').html() == "Strong" && ($('#newPassword').val() == $('#confirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#confirmPassword').val() == null || $('#confirmPassword').val() == "") {
+                    $('#result1').html('Confirm password should not be Empty');
+                    $("#btnSave").prop("disabled", true);
+                }
+                if ($('#confirmPassword').val() != null && $('#confirmPassword').val() != "") {
+                    if (($('#newPassword').val() != $('#confirmPassword').val())) {
+                        $('#result1').html('Password and confirm password should be same');
+                        $("#btnSave").prop("disabled", true);
+                    }
+                    else {
+                        $('#result1').html('');
+                    }
+                }
+
+                if ($('#confirmPassword').val() == null || $('#confirmPassword').val() == "") {
+                    $('#result1').html('Confirm password should not be Empty');
+                    $("#btnSave").prop("disabled", true);
+                }
+                if ($('#newPassword').val() != null && $('#newPassword').val() == "") {
+                    $('#result').html('Password should not be Empty');
+                }
+            })
+
+            $('#confirmPassword').keyup(function () {
+                $(".field-validation-error").hide();
+                if ($('#confirmPassword').val() != null && $('#confirmPassword').val() != "") {
+                    if (($('#newPassword').val() != $('#confirmPassword').val())) {
+                        $('#result1').html('Password and confirm password should be same');
+                        $("#btnSave").prop("disabled", true);
+                        return
+                    }
+                }
+                if ($('#confirmPassword').val() == null || $('#confirmPassword').val() == "") {
+                    $('#result1').html('Confirm password should not be Empty');
+                    $("#btnSave").prop("disabled", true);
+                    return
+                }
+                else {
+                    $('#result1').html('');
+                }
+                if ($('#result').html() == "Strong" && $('#result1').html() == "Strong" && ($('#newPassword').val() == $('#confirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#result').html() == "Strong" && ($('#newPassword').val() == $('#confirmPassword').val())) {
+                    $("#btnSave").prop("disabled", false);
+                }
+                if ($('#confirmPassword').val() != null && $('#confirmPassword').val() == "") {
+                    $('#result1').html('');
+                }
+            })
+        });
+
+        function checkStrength(password) {
+            var strength = 0
+
+            //if the password length is less than 5, return message.
+            if (password.length < 5) {
+                $('#result').removeClass()
+                $('#result').addClass('short')
+                return 'Too short'
+            }
+
+            if (password.length < 8) {
+                $('#result').removeClass()
+                $('#result').addClass('short')
+
+                return 'Password must contain at least 8 characters including UPPER/lower case, numbers and symbols'
+            }
+
+            //length is ok, lets continue.
+
+            //if length is 8 characters or more, increase strength value
+            if (password.length > 7) strength += 1
+
+            //if password contains both lower and uppercase characters, increase strength value
+            if (password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) strength += 1
+
+            //if it has numbers and characters, increase strength value
+            if (password.match(/([a-zA-Z])/) && password.match(/([0-9])/)) strength += 1
+
+            //if it has one special character, increase strength value
+            if (password.match(/[!|#|$|%|^|&]/g)) strength += 1
+
+            //if it has two special characters, increase strength value
+            if (password.match(/(.*[!,%,&,#,$,^,*,?,_,~].*[!,%,&,#,$,^,*,?,_,~])/)) strength += 1
+
+            //now we have calculated strength value, we can return messages
+
+            //if value is less than 2
+            if (strength < 2) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (strength == 2) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (!password.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/)) {
+                $('#result').removeClass()
+                $('#result').addClass('Weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (!password.match(/([0-9])/)) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else if (!password.match(/[!|#|$|%|^|&|@@]/g)) {
+                $('#result').removeClass()
+                $('#result').addClass('weak')
+
+                return 'Password must contain at least 9 characters including UPPER/lower case, numbers and symbols'
+            }
+            else {
+                $('#result').removeClass()
+                $('#result').addClass('strong')
+                return 'Strong'
+            }
+        }
+
+        function Cancel() {
+            window.location.href = "@Url.Action("Index", "Home")";
+        }
+        function Change() {
+            $('.input-validation-error').removeClass('input-validation-error');
+            $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+
+            nanobar.go(30);
+            var model = {
+                "oldPassword": $('#oldPassword').val(),
+                "newPassword": $('#newPassword').val(),
+                "confirmPassword": $('#confirmPassword').val(),
+            };
+            var form_data = new FormData();
+            for (var key in model) {
+                form_data.append(key, model[key]);
+            }
+            $.ajax({
+                cache: 'false',
+                method: 'POST',
+                url: '@Url.Action("ChangePassword", "Home")',
+                contentType: 'application/json',
+                data: form_data,
+                processData: false,
+                contentType: false,
+                dataType: 'JSON',
+                success: function (data) {
+                    nanobar.go(60);
+                    console.log(data);
+
+                    if (data.Code == 400) {
+                        if (data.Errors != null) {
+                            $(data.Errors).each(function (i, e) {
+                                $('#' + e.key).addClass('input-validation-error');
+                                $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+                            });
+                            if (data.Errors == "Invalid credentials") {
+                                showToaster(data.Errors, "error");
+                            }
+                        }
+                    }
+                    else if (data.Valid == "true") {
+                        if (data.Success == "false") {
+                            if (data.Data != "SessionExpired") toastr.error("", data.Data);
+                            else location.href = "@Url.Action("Index", "Login")";
+                        }
+                        else {
+                            if (data.Success == "true") {
+                                toastr.success("", data.Data);
+                                setTimeout(function () {
+                                    location.href = "@Url.Action("Change", "Home")";
+                                }, 1000);
+                            }
+                        }
+                    }
+                    nanobar.go(100);
+                },
+                error: function () {
+                    if (x.status == 401) {
+                        nanobar.go(100);
+                        location.href = "@Url.Action("Timeout", "Account")";
+                    }
+                }
+            });
+            return false;
+        }
+
+    </script>
+}
+
+

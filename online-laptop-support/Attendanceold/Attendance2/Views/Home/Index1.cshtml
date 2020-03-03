@@ -1,0 +1,269 @@
+﻿@model IEnumerable<Attendance.Models.Dashboard>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+    <h1>
+        Dashboard
+        @*<small>Control panel</small>*@
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+
+        <div class="col-md-7">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-success ">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><i class="fa fa-bar-chart"></i>Hourly Chart-Attendance</h3>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart">
+                                <canvas id="barChart"></canvas>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title col-md-8">Area Chart</h3>
+                            <select class="col-md-4" id="EmployeeId"></select>
+                        </div>
+                        <div class="box-body">
+                            <div class="chart">
+                                <canvas id="areaChart"></canvas>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <div class="=" row">
+                                    <div class="col-md-1">
+                                    </div>
+                                    <div class="col-md-5">
+                                        @Html.DropDownList("Months", ViewBag.Months as SelectList, new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-4">
+                                        @Html.DropDownList("Years", ViewBag.Years as SelectList, new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a class="btn btn-primary" onclick="GetDetails()">GO</a>
+                                    </div>
+
+                                </div>
+                            </div><br /><br />
+                            <table id="example" class="table table-bordered table-hover table-responsive" style="max-height:100px">
+                                <thead>
+                                    <tr>
+                                        <th>Employee</th>
+                                        <th>Duration</th>
+                                        <th>Present</th>
+                                        <th>Leaves</th>
+                                        <th>COFF</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <script src="~/content/plugins/adminlte/chart.js/chart.js"></script>
+    <script src="~/content/plugins/adminlte/chart.js/chart.bundle.js"></script>
+
+    <script>
+        var barChart;
+        var lineChart;
+        $(function () {
+            BindNames();
+            GetDetails();
+        });
+         function BindNames() {
+      
+            if("@Session["IsAdmin"].ToString()"=="true")
+            {
+                $.ajax({
+                    url: "@(Url.Action("GetDetails1", "Home"))",
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var optionsData = '';
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].EmployeeID == @Session["EmployeeId"].ToString()) {
+                                optionsData += '<option selected value=' + data[i].EmployeeID + '>' + data[i].FirstName + ', ' + data[i].LastName + '</option>';
+                            }
+                            else {
+                                optionsData += '<option value=' + data[i].EmployeeID + '>' + data[i].FirstName + ',  ' + data[i].LastName + '</option>';
+                            }
+                        }
+                        $('#EmployeeId').html(optionsData);
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        showToaster("Error getting data", "error");
+                    }
+                });
+            }
+            else {
+                 var optionsData = '<option selected value=@Session["EmployeeId"].ToString()>@Session["Name"].ToString()</option>';
+                $('#EmployeeId').html(optionsData).prop("disabled", true);
+            }
+        }
+
+        function GetDetails() {
+            var month = $('#Months').val();
+            var year = $('#Years').val();
+            $.ajax({
+                url: "@(Url.Action("GetMonthlyData", "Home"))",
+                type: "Post",
+                data: { "year": year, "month": month },
+                dataType: "json",
+                success: function (data) {
+                    $("#example tbody").empty();
+                    for (var i = 0; i < data.Data.length; i++) {
+                        tr = $('<tr/>');
+                        td = $('<td/>');
+                        tr.append("<td>" + "<span class='far fa-file-alt'></span>&nbsp;&nbsp;&nbsp;" + data.Data[i].Name + "</td>");
+                        tr.append("<td>" + data.Data[i].Duration + "</td>");
+                        tr.append("<td>" + data.Data[i].TotalDaysPresent + "</td>");
+                        tr.append("<td>" + data.Data[i].Leaves + "</td>");
+                        tr.append("<td>" + data.Data[i].COFF + "</td>");
+
+                        $('#example').append(tr);
+                    }
+                    BindHourlyChart(data.Data);
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    showToaster("Error getting data", "error");
+                }
+            });
+        }
+
+        function mutateArray(n) {
+            //var colors = ["#95CEFF", "#5C5C61", "#FFBC75", "#A9FF9c", "#999EFF", "#FF7599", "#C0C0C0"];
+            var colors = ['#95CEFF', '#5C5C61', '#FFBC75', '#A9FF9c', '#999EFF', '#FF7599', '#C0C0C0', 'green', 'orange', 'violet','purple','pink','skyblue','maroon','tomato']
+            var temp = [];
+            while (n--) Array.prototype.push.apply(temp, colors);
+            return temp;
+        }
+
+
+        function BindHourlyChart(data)
+        {
+            var labels = data.map(function (e) {
+                return e.Name;
+            });
+            var data = data.map(function (e) {
+                return e.DurationMIN;
+            });;
+           
+            var config  = {
+                labels: labels,
+                datasets: [{
+                    label: "Attendance",
+                    data: data,
+                    backgroundColor: mutateArray(labels.length),
+                    borderWidth: 1
+                }]
+            };
+            var ctx = $("#barChart").get(0).getContext("2d");
+            if (barChart) {
+                barChart.destroy();
+            }
+            barChart= new Chart(ctx, {
+                type: 'bar',
+                data: config,
+                options: {
+                    responsive: true,
+                    title: { display: false },
+                    legend: { display: false},
+                    tooltips: { bodyFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif",
+                                 titleFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif"},
+                    scales: {
+                        xAxes: [{gridLines: { display: false },  scaleLabel: { display: false }, ticks: {autoSkip: false,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" }}],
+                        yAxes: [{ gridLines: { display: false }, scaleLabel: { display: false}, ticks: { stepSize:4, beginAtZero: true,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" } }]
+                    },
+                }
+            });
+        }
+
+
+        $(function () {
+            var speedCanvas = document.getElementById("areaChart");
+
+            Chart.defaults.global.defaultFontFamily = "Lato";
+            Chart.defaults.global.defaultFontSize = 13;
+
+            var dataFirst = {
+                label: "InTime",
+                data: [10.45, 8.9, 10.2, 7.1, 9.88, 9, 8.88, 5.55, 6.77, 4.77, 7.99, 9.99, 10.12],
+                lineTension: 0.3,
+                fill: true,
+                borderColor: 'rgba(210, 214, 222, 0.4)',
+                backgroundColor: 'rgba(210, 214, 222, 0.4)',
+            };
+
+            var dataSecond = {
+                label: "OutTIme",
+                data: [1, 8, 4, 7, 9, 5, 8, 6, 3, 2, 7, 3, 1],
+                lineTension: 0.3,
+                fill: true,
+                borderColor: 'rgba(60,141,188,0.8)',
+                backgroundColor: 'rgba(60,141,188,0.8)',
+            };
+
+
+            var speedData = {
+                labels: ['Siva', 'Gopi', 'Srinu', 'Sandeep', 'Naidu', 'Niteesh', 'Santosh', 'Aditya', 'Seshu', 'Reena', 'Janaki', 'Reshma', 'Subbu'],
+                datasets: [dataFirst, dataSecond]
+            };
+            if (lineChart) {
+                lineChart.destroy();
+            }
+            var lineChart = new Chart(speedCanvas, {
+                type: 'line',
+                data: speedData,
+                options: {
+                legend: {display: false},
+                 tooltips: { bodyFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif",
+                                 titleFontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif"},
+                   scales: {
+                        xAxes: [{scaleLabel: { display: false }, ticks: {autoSkip: false,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" }}],
+                        yAxes: [{scaleLabel: { display: false}, ticks: { stepSize:1, beginAtZero: true,fontFamily:"'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif" } }]
+                    }
+            }
+            });
+        });
+
+    </script>
+
+}

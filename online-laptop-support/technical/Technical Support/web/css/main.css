@@ -1,0 +1,55 @@
+/* 
+    Document   : main
+    Created on : May 8, 2009, 1:46:28 PM
+    Author     : miracle
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+.buttonBg50{
+            background-image: url(btnBackground_1x22.gif);
+            background-repeat: repeat-x;
+            border-bottom: 1px solid #979AC2;
+            border-left: 1px solid #979AC2;
+            border-right: 1px solid #979AC2;
+            border-top: 1px solid #979AC2;
+            font-size: 11px;
+            padding-top: 0px;
+            vertical-align: bottom;
+            font-weight : normal;
+            cursor:pointer;
+            width:50px;
+        }
+        .inputBox150 {
+            border-right: #979AC2 1px solid;
+            border-top: #979AC2 1px solid;
+            font-weight: 500;
+            font-size: 12px;
+            border-left: #979AC2 1px solid;
+            border-bottom: #979AC2 1px solid;
+            font-style: normal;
+            font-family: lucida-sans;
+            width :150px;
+        }
+        .label150 {
+            font-weight: 500;
+            font-size: 12px;
+            font-style: normal;
+            font-family: lucida-sans;
+        }
+        a
+        {
+            color:"blue";
+            text-decoration:none;
+        }
+        a:hover
+        {
+            color:magenta;
+            text-decoration:none;
+
+        }

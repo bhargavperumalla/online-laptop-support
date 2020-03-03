@@ -1,0 +1,136 @@
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\obj\Debug\Attendance.API.csproj.CoreCompileInputs.cache
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\obj\Debug\Attendance.API.csprojAssemblyReference.cache
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Attendance.API.dll.config
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Attendance.API.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Attendance.API.pdb
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\csc.exe
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\csc.exe.config
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\csc.rsp
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\csi.exe
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\csi.exe.config
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\csi.rsp
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.AppContext.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Collections.Immutable.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Console.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.IO.Compression.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.IO.FileSystem.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.IO.Pipes.AccessControl.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.IO.Pipes.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Reflection.Metadata.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Security.AccessControl.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Security.Claims.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Security.Principal.Windows.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.ValueTuple.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Xml.XPath.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\vbc.exe
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\vbc.exe.config
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\vbc.rsp
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\VBCSCompiler.exe
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\roslyn\VBCSCompiler.exe.config
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Attendance.DAL.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Attendance.Model.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Newtonsoft.Json.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\System.Net.Http.Formatting.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\System.Web.Http.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\System.Web.Http.WebHost.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Attendance.DAL.pdb
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Attendance.Model.pdb
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Newtonsoft.Json.xml
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\System.Net.Http.Formatting.xml
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\System.Web.Http.xml
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\System.Web.Http.WebHost.xml
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\obj\Debug\Attendance.API.csproj.CopyComplete
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\obj\Debug\Attendance.API.dll
+E:\Gopikrishna Works\Attendance\V2\Attendance2\Attendance.API\obj\Debug\Attendance.API.pdb
+D:\bhargav\Attendance.API\bin\Attendance.API.dll.config
+D:\bhargav\Attendance.API\bin\Attendance.API.dll
+D:\bhargav\Attendance.API\bin\Attendance.API.pdb
+D:\bhargav\Attendance.API\bin\roslyn\csc.exe
+D:\bhargav\Attendance.API\bin\roslyn\csc.exe.config
+D:\bhargav\Attendance.API\bin\roslyn\csc.rsp
+D:\bhargav\Attendance.API\bin\roslyn\csi.exe
+D:\bhargav\Attendance.API\bin\roslyn\csi.exe.config
+D:\bhargav\Attendance.API\bin\roslyn\csi.rsp
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.Managed.Core.targets
+D:\bhargav\Attendance.API\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\bhargav\Attendance.API\bin\roslyn\System.AppContext.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Collections.Immutable.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Console.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.IO.Compression.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.IO.FileSystem.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.IO.Pipes.AccessControl.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.IO.Pipes.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Reflection.Metadata.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Security.AccessControl.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Security.Claims.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Security.Principal.Windows.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.ValueTuple.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Xml.XmlDocument.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Xml.XPath.dll
+D:\bhargav\Attendance.API\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\bhargav\Attendance.API\bin\roslyn\vbc.exe
+D:\bhargav\Attendance.API\bin\roslyn\vbc.exe.config
+D:\bhargav\Attendance.API\bin\roslyn\vbc.rsp
+D:\bhargav\Attendance.API\bin\roslyn\VBCSCompiler.exe
+D:\bhargav\Attendance.API\bin\roslyn\VBCSCompiler.exe.config
+D:\bhargav\Attendance.API\bin\Attendance.DAL.dll
+D:\bhargav\Attendance.API\bin\Attendance.Model.dll
+D:\bhargav\Attendance.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\bhargav\Attendance.API\bin\Newtonsoft.Json.dll
+D:\bhargav\Attendance.API\bin\System.Net.Http.Formatting.dll
+D:\bhargav\Attendance.API\bin\System.Web.Http.dll
+D:\bhargav\Attendance.API\bin\System.Web.Http.WebHost.dll
+D:\bhargav\Attendance.API\bin\Attendance.DAL.pdb
+D:\bhargav\Attendance.API\bin\Attendance.Model.pdb
+D:\bhargav\Attendance.API\bin\Newtonsoft.Json.xml
+D:\bhargav\Attendance.API\bin\System.Net.Http.Formatting.xml
+D:\bhargav\Attendance.API\bin\System.Web.Http.xml
+D:\bhargav\Attendance.API\bin\System.Web.Http.WebHost.xml
+D:\bhargav\Attendance.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\bhargav\Attendance.API\obj\Debug\Attendance.API.csprojAssemblyReference.cache
+D:\bhargav\Attendance.API\obj\Debug\Attendance.API.csproj.CoreCompileInputs.cache
+D:\bhargav\Attendance.API\obj\Debug\Attendance.API.csproj.CopyComplete
+D:\bhargav\Attendance.API\obj\Debug\Attendance.API.dll
+D:\bhargav\Attendance.API\obj\Debug\Attendance.API.pdb

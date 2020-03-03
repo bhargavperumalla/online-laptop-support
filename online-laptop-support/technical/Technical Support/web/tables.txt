@@ -1,0 +1,125 @@
+drop table customers;
+
+create table customers
+(
+  cid number(4) primary key,
+  cname varchar2(15),
+  password varchar2(10),
+  address varchar2(30),
+  phone number(15),
+  email varchar2(30),
+  cuname varchar2(15)   unique
+  );
+
+
+drop table managers;
+
+create table managers
+(
+   mid number(4) primary key,
+   muname   varchar2(15)   unique,
+   password varchar2(10),
+   mname varchar2(15),
+   address varchar2(30),
+   phone varchar2(15),
+   email varchar2(30)
+);
+
+drop table adminstrator;
+
+create table adminstrator
+(
+   auname   varchar2(15)   primary key,
+   password varchar2(10),
+   aname varchar2(15),
+   address varchar2(30),
+   phone varchar2(15),
+   email varchar2(30)
+);
+
+insert into adminstrator(auname,password) values('bhargav','bhargav');
+
+drop table products;
+
+create table products
+(
+  pid number(4) primary key,
+  pname varchar2(15),
+  version  varchar2(10),
+  vendor_name varchar2(40),
+  mid  number(4)  references managers(mid)
+);
+
+drop table tech_persons;
+
+create table tech_persons
+(
+   tid number(4) primary key,
+   tuname varchar2(15)  unique,
+   password varchar2(10),
+   tname varchar2(15),
+   address varchar2(30),
+   phone varchar2(15),
+   email varchar2(35),
+   mid number(4) references managers(mid),
+   status varchar2(4) 
+);
+
+drop table bug_details;
+
+create table bug_details 
+(
+    bid  number(4)  primary key,
+    cid number(4)  references customers(cid),
+    pid number(4)  references products(pid),
+    severity  varchar2(30),
+    priority  varchar2(8) ,
+    summary varchar2(30),
+    details varchar2(30),
+    os_using varchar2(15),
+    software_list  varchar2(30),
+    filename varchar2(15),
+    post_date date,
+    assigned varchar2(4) 
+); 
+
+drop table assignment;
+
+create table assignment
+(
+   assignment_id   number(4)  primary key,
+   bid number(4) references bug_details(bid),
+   tid  number(4)  references   tech_persons(tid),
+   assignment_date date,
+   expected_date   date,
+   solved  varchar2(4)   
+);
+
+
+
+drop table solutions;
+
+create table solutions
+(
+    sid  number(4) primary  key,
+    bid number(4)  references bug_details(bid)   unique,
+    tid number(4) references tech_persons(tid),
+    solution_desc  varchar2(50),
+    solution_date  date,
+    priority   varchar2(4)
+);
+
+drop table comments;
+
+create table comments
+(
+   bid number(4),
+   resolved varchar2(6),
+   coment varchar2(70)
+);
+
+
+alter table solutions add amount number(5);
+alter table solutions add paystatus varchar2(1) default 'n';
+
+commit;

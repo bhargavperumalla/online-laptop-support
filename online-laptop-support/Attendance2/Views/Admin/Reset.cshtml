@@ -1,0 +1,171 @@
+﻿@model Attendance.Models.Employees
+
+@{
+    ViewBag.Title = "reset";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+<section class="content-header">
+    <h1>
+        Reset Password
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Reset Password</li>
+    </ol>
+</section>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box box-info">
+                    <div class="box-header with-border">
+                        <div class="form-horizontal">
+
+                            <br />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label class="control-label col-md-4 ">Employee Name </label>
+                                <div class="col-md-4">
+                                    @Html.DropDownList("ddlEmployeeName", (new SelectList(new List<Attendance.Models.Employees>(), "EmployeeID", "FirstName")), new { data_placeholder = "--Select--", @class = "form-control select2", @style = "width: 100%;" })
+                                    <span id="errspan" style="color:red;"></span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-5"></div>
+                            <div class="col-md-7">
+                                <span>
+                                    <input type="button" onclick="Reset()" id="btnReset" value="Reset" class="btn btn-primary" />
+                                    <input type="button" onclick="Cancel()" value="Cancel" class="btn btn-danger" style="margin-left:5px" />
+                                </span>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <br />
+
+            </div>
+        </div>
+    </section>
+    @section scripts{
+        <script>
+
+            $(function () {
+                Data();
+            });
+
+            function Cancel() {
+                window.location.href = "@Url.Action("Reset","Admin")";
+            }
+
+            function Data() {
+                $.ajax({
+                    url: "@(Url.Action("EmployeeDetails", "Admin"))",
+                    type: 'GET',
+                    data: { 'Active': true },
+                    contentType: "application/json;charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        var district = "";
+                        district = district + '<option value=' + '-1' + '>' + '--Select--' + '</option>';
+                        for (var i = 0; i < data.length; i++) {
+                            var Fontstyle = "";
+                            if (data[i].FirstName == null) {
+                                data[i].FirstName = "";
+                            }
+                            if (data[i].LastName == null) {
+                                data[i].LastName = "";
+                            }
+                            district = district + '<option value=' + data[i].EmployeeID + '>' + data[i].FirstName + ' ' + data[i].LastName + '</option>';
+                        }
+                        $('#ddlEmployeeName').html(district);
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                    }
+                });
+            }
+
+            $('#btnReset').click(function () {
+                var count = $("#ddlEmployeeName").val();
+                if (count == '-1') {
+                    $('#errspan').html('Please select employee name');
+                }
+                else {
+                    $('#errspan').html('');
+                }
+            })
+
+            function Reset() {
+                $('.input-validation-error').removeClass('input-validation-error');
+                $('.field-validation-error').addClass('field-validation-valid').html('').removeClass('field-validation-error');
+                nanobar.go(30);
+                var model = {
+                    "EmployeeID": $('#ddlEmployeeName').val(),
+                };
+                console.log(model);
+                var form_data = new FormData();
+                for (var key in model) {
+                    form_data.append(key, model[key]);
+                }
+                $.ajax({
+                    cache: 'false',
+                    method: 'POST',
+                    url: '@Url.Action("ResetPassword", "Admin")',
+                    contentType: 'application/json',
+                    data: form_data,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'JSON',
+                    success: function (data) {
+                        nanobar.go(60);
+                        console.log(data);
+                        if (data.Code == 200) {
+                            showToaster("Successfully Password Changed ", "success");
+                        }
+                        else if (data.Code == 400) {
+                            showToaster("Invalid Employee", "error");
+                            if (data.Errors != null) {
+                                $(data.Errors).each(function (i, e) {
+                                    $('#' + e.key).addClass('input-validation-error');
+                                    $("span[data-valmsg-for='" + e.key + "'").removeClass('field-validation-valid').addClass('field-validation-error').html(e.errors[0]);
+
+                                });
+                            }
+                            else {
+                                showToaster("Error getting data.", "error");
+                            }
+                        }
+                        else {
+                            if (data.Errors != null) {
+                                showToaster(data.Errors[0], "error");
+                            }
+                        }
+                        nanobar.go(100);
+                    },
+                    error: function () {
+                        showToaster("", "Error ocurred try again later", "error");
+                        nanobar.go(100);
+                    }
+                });
+                return false;
+            }
+        </script>
+    }
+}
+
+
+
